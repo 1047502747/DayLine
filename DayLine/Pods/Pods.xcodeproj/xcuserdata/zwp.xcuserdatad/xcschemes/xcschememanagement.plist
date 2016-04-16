@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ECSlidingViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,12 +27,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>03921B75E3B2231EB0E1F73946F64E65</key>
+		<key>3B25ABB1C352F3D8BEE1610DC0839CFB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C9029A2321C9B2F7C691E8F15A0406C</key>
+		<key>928353533005A4198EBDA5B700D37B64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9933C1E5D086EC7763E15AF3A420BC62</key>
 		<dict>
 			<key>primary</key>
 			<true/>
