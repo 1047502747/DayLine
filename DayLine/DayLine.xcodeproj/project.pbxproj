@@ -28,6 +28,10 @@
 		E749D8B71CC21C7000FAEFB5 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E749D8B61CC21C7000FAEFB5 /* Accounts.framework */; };
 		E749D8B91CC21C8300FAEFB5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E749D8B81CC21C8300FAEFB5 /* CoreLocation.framework */; };
 		E749D8BB1CC21C9000FAEFB5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E749D8BA1CC21C9000FAEFB5 /* StoreKit.framework */; };
+		E749D8C31CC21F9200FAEFB5 /* AppAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D8BE1CC21F9200FAEFB5 /* AppAPIClient.m */; };
+		E749D8C41CC21F9200FAEFB5 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D8C01CC21F9200FAEFB5 /* NSData+Base64.m */; };
+		E749D8C51CC21F9200FAEFB5 /* NSString+Crypt.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D8C21CC21F9200FAEFB5 /* NSString+Crypt.m */; };
+		E749D8C81CC2204800FAEFB5 /* RequestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D8C71CC2204800FAEFB5 /* RequestAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +86,14 @@
 		E749D8B81CC21C8300FAEFB5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E749D8BA1CC21C9000FAEFB5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		E749D8BC1CC21CB300FAEFB5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		E749D8BD1CC21F9200FAEFB5 /* AppAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppAPIClient.h; sourceTree = "<group>"; };
+		E749D8BE1CC21F9200FAEFB5 /* AppAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppAPIClient.m; sourceTree = "<group>"; };
+		E749D8BF1CC21F9200FAEFB5 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		E749D8C01CC21F9200FAEFB5 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		E749D8C11CC21F9200FAEFB5 /* NSString+Crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Crypt.h"; sourceTree = "<group>"; };
+		E749D8C21CC21F9200FAEFB5 /* NSString+Crypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Crypt.m"; sourceTree = "<group>"; };
+		E749D8C61CC2204800FAEFB5 /* RequestAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestAPI.h; sourceTree = "<group>"; };
+		E749D8C71CC2204800FAEFB5 /* RequestAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestAPI.m; sourceTree = "<group>"; };
 		FD118F2B4D80F2FAF51A92F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -223,10 +235,18 @@
 		E749D89E1CC21A2D00FAEFB5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				E749D8BD1CC21F9200FAEFB5 /* AppAPIClient.h */,
+				E749D8BE1CC21F9200FAEFB5 /* AppAPIClient.m */,
+				E749D8BF1CC21F9200FAEFB5 /* NSData+Base64.h */,
+				E749D8C01CC21F9200FAEFB5 /* NSData+Base64.m */,
+				E749D8C11CC21F9200FAEFB5 /* NSString+Crypt.h */,
+				E749D8C21CC21F9200FAEFB5 /* NSString+Crypt.m */,
 				E749D8A31CC21ACB00FAEFB5 /* StorageMgr.h */,
 				E749D8A41CC21ACB00FAEFB5 /* StorageMgr.m */,
 				E749D8A51CC21ACB00FAEFB5 /* Utilities.h */,
 				E749D8A61CC21ACB00FAEFB5 /* Utilities.m */,
+				E749D8C61CC2204800FAEFB5 /* RequestAPI.h */,
+				E749D8C71CC2204800FAEFB5 /* RequestAPI.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -446,10 +466,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E749D8C81CC2204800FAEFB5 /* RequestAPI.m in Sources */,
 				E749D8A81CC21ACB00FAEFB5 /* Utilities.m in Sources */,
+				E749D8C51CC21F9200FAEFB5 /* NSString+Crypt.m in Sources */,
 				E749D86F1CC20F5000FAEFB5 /* ViewController.m in Sources */,
+				E749D8C31CC21F9200FAEFB5 /* AppAPIClient.m in Sources */,
 				E749D86C1CC20F5000FAEFB5 /* AppDelegate.m in Sources */,
 				E749D8751CC20F5000FAEFB5 /* DayLine.xcdatamodeld in Sources */,
+				E749D8C41CC21F9200FAEFB5 /* NSData+Base64.m in Sources */,
 				E749D8691CC20F5000FAEFB5 /* main.m in Sources */,
 				E749D8A71CC21ACB00FAEFB5 /* StorageMgr.m in Sources */,
 			);
