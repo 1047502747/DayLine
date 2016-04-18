@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7DC925805AF00D7796E6EF82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD118F2B4D80F2FAF51A92F5 /* libPods.a */; };
+		D31860571CC4CEFF00D241D5 /* SigninTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31860561CC4CEFF00D241D5 /* SigninTableViewCell.m */; };
+		D318605A1CC4CF2200D241D5 /* registerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31860591CC4CF2200D241D5 /* registerTableViewCell.m */; };
 		E749D8691CC20F5000FAEFB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D8681CC20F5000FAEFB5 /* main.m */; };
 		E749D86C1CC20F5000FAEFB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D86B1CC20F5000FAEFB5 /* AppDelegate.m */; };
 		E749D86F1CC20F5000FAEFB5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D86E1CC20F5000FAEFB5 /* ViewController.m */; };
@@ -56,6 +58,10 @@
 /* Begin PBXFileReference section */
 		56DA5F47ED637FF2B86F03CF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AED356881DDBA86B7BC809CD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D31860551CC4CEFF00D241D5 /* SigninTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninTableViewCell.h; sourceTree = "<group>"; };
+		D31860561CC4CEFF00D241D5 /* SigninTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninTableViewCell.m; sourceTree = "<group>"; };
+		D31860581CC4CF2200D241D5 /* registerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registerTableViewCell.h; sourceTree = "<group>"; };
+		D31860591CC4CF2200D241D5 /* registerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registerTableViewCell.m; sourceTree = "<group>"; };
 		E749D8641CC20F5000FAEFB5 /* DayLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E749D8681CC20F5000FAEFB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E749D86A1CC20F5000FAEFB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -289,6 +295,10 @@
 			children = (
 				E749D86D1CC20F5000FAEFB5 /* ViewController.h */,
 				E749D86E1CC20F5000FAEFB5 /* ViewController.m */,
+				D31860551CC4CEFF00D241D5 /* SigninTableViewCell.h */,
+				D31860561CC4CEFF00D241D5 /* SigninTableViewCell.m */,
+				D31860581CC4CF2200D241D5 /* registerTableViewCell.h */,
+				D31860591CC4CF2200D241D5 /* registerTableViewCell.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -487,6 +497,7 @@
 				E749D8A81CC21ACB00FAEFB5 /* Utilities.m in Sources */,
 				E749D8D01CC2258800FAEFB5 /* BasicEncodingRules.m in Sources */,
 				E749D8C51CC21F9200FAEFB5 /* NSString+Crypt.m in Sources */,
+				D318605A1CC4CF2200D241D5 /* registerTableViewCell.m in Sources */,
 				E749D86F1CC20F5000FAEFB5 /* ViewController.m in Sources */,
 				E749D8C31CC21F9200FAEFB5 /* AppAPIClient.m in Sources */,
 				E749D86C1CC20F5000FAEFB5 /* AppDelegate.m in Sources */,
@@ -494,6 +505,7 @@
 				E749D8C41CC21F9200FAEFB5 /* NSData+Base64.m in Sources */,
 				E749D8691CC20F5000FAEFB5 /* main.m in Sources */,
 				E749D8A71CC21ACB00FAEFB5 /* StorageMgr.m in Sources */,
+				D31860571CC4CEFF00D241D5 /* SigninTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
