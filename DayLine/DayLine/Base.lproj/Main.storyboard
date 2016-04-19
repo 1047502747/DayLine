@@ -10,7 +10,7 @@
         <!--Signin View Controller-->
         <scene sceneID="GPf-S7-WYp">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="BMY-2p-WLs" customClass="SigninViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInVc" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BMY-2p-WLs" customClass="SigninViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ezB-hm-AcA"/>
                         <viewControllerLayoutGuide type="bottom" id="Fbt-Ix-etP"/>
@@ -264,12 +264,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vpN-Jh-7XG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3047" y="153"/>
+            <point key="canvasLocation" x="3093" y="513"/>
         </scene>
         <!--动态-->
         <scene sceneID="dld-XK-CDc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lg2-Bt-pDA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="reU-fO-Who" customClass="PostViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ljY-2z-Xsd"/>
@@ -409,8 +408,9 @@
                     <navigationItem key="navigationItem" title="动态" id="pHK-Vs-Sy2"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lg2-Bt-pDA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4689" y="497"/>
+            <point key="canvasLocation" x="4669" y="789"/>
         </scene>
         <!--商城-->
         <scene sceneID="WKa-7q-4ch">
@@ -483,17 +483,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="236"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  |  热门商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SK-OW-oVS">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="  |  热门商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SK-OW-oVS">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOc-R1-1Bz">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOc-R1-1Bz">
                                                     <rect key="frame" x="0.0" y="18" width="320" height="218"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="DRd-B0-a1b">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="DRd-B0-a1b">
                                                     <rect key="frame" x="5" y="23" width="310" height="137"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名称：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzR-1g-cWS">
@@ -560,7 +560,7 @@
                     <navigationItem key="navigationItem" title="商城" id="iBn-oC-oHq">
                         <barButtonItem key="rightBarButtonItem" title="登录" id="cWH-nm-WbQ">
                             <connections>
-                                <segue destination="b8e-19-5vT" kind="show" id="tfg-1a-PUH"/>
+                                <action selector="SignInAction:" destination="c8s-6M-9EY" id="hxX-bO-nWZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -573,7 +573,7 @@
         <!--Table View Controller-->
         <scene sceneID="eyO-tu-m40">
             <objects>
-                <tabBarController id="9Sf-yg-XAg" customClass="TableViewController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Tab" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9Sf-yg-XAg" customClass="TableViewController" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="GIr-Gu-TdN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -587,7 +587,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oy2-1S-5FC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3696" y="141"/>
+            <point key="canvasLocation" x="3730" y="559"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="25r-CE-p3z">
