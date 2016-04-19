@@ -1,14 +1,14 @@
 //
-//  SigninTableViewCell.m
+//  TableViewCell.m
 //  DayLine
 //
-//  Created by zxk on 16/4/18.
+//  Created by zxk on 16/4/19.
 //  Copyright © 2016年 TianXingJian. All rights reserved.
 //
 
-#import "SigninTableViewCell.h"
+#import "TableViewCell.h"
 
-@implementation SigninTableViewCell
+@implementation TableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

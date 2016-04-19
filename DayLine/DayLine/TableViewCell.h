@@ -1,13 +1,13 @@
 //
-//  registerTableViewCell.h
+//  TableViewCell.h
 //  DayLine
 //
-//  Created by zxk on 16/4/18.
+//  Created by zxk on 16/4/19.
 //  Copyright © 2016年 TianXingJian. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface registerTableViewCell : UITableViewCell
+@interface TableViewCell : UITableViewCell
 
 @end
