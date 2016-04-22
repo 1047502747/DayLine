@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *SPname;
+@property (weak, nonatomic) IBOutlet UILabel *commodityID;
+@property (weak, nonatomic) IBOutlet UILabel *surplus;
+@property (weak, nonatomic) IBOutlet UILabel *integralLbl;
 
 @end
