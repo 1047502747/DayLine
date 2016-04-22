@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface ShoppingViewController : UIViewController
+- (IBAction)SignInAction:(UIBarButtonItem *)sender;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *SPname;
+
+
+- (IBAction)integralAction:(UIButton *)sender forEvent:(UIEvent *)event;
+- (IBAction)orderAction:(UIButton *)sender forEvent:(UIEvent *)event;
+- (IBAction)EarnpointsAction:(UIButton *)sender forEvent:(UIEvent *)event;
 
 @end
