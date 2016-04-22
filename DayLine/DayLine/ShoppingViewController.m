@@ -8,6 +8,7 @@
 
 #import "ShoppingViewController.h"
 #import "SigninViewController.h"
+#import "Banner.h"
 @interface ShoppingViewController ()
 
 @end
@@ -17,6 +18,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.navigationController.navigationBar.hidden = YES;
+    CGSize size = [UIScreen mainScreen].bounds.size;
+    
+    Banner *bv = [[Banner alloc]init];
+    bv.frame = CGRectMake(0, 100, size.width, 142);
+    bv.bannerDelegate = self;
+    bv.dataSource = self;
+    [bv startPlay];
+    [self.view addSubview:bv];
+}
+//  点击图片
+- (void)bannerView:(Banner *)bannerView didSelectImageAtIndex:(NSUInteger)index
+{
+    
+}
+//  图片数量
+- (NSUInteger)numberOfItemsInBanner:(Banner *)Banner
+{
+    return 4;
+}
+
+//  图片资源
+- (UIImage *)bannerView:(Banner *)bannerView imageInIndex:(NSUInteger)index {
+    NSArray *ary = @[[UIImage imageNamed:@"1"], [UIImage imageNamed:@"2"], [UIImage imageNamed:@"3"],[UIImage imageNamed:@"4"]];
+    return ary[index];
 }
 
 - (void)didReceiveMemoryWarning {

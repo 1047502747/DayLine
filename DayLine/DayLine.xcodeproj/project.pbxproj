@@ -40,6 +40,8 @@
 		E749D8C81CC2204800FAEFB5 /* RequestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D8C71CC2204800FAEFB5 /* RequestAPI.m */; };
 		E749D8CA1CC2249400FAEFB5 /* Openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E749D8C91CC2249400FAEFB5 /* Openssl.framework */; };
 		E749D8D01CC2258800FAEFB5 /* BasicEncodingRules.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D8CF1CC2258800FAEFB5 /* BasicEncodingRules.m */; };
+		E7760CBD1CC9C9EE008C7005 /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = E7760CBA1CC9C9EE008C7005 /* Banner.m */; };
+		E7760CBE1CC9C9EE008C7005 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = E7760CBC1CC9C9EE008C7005 /* Timer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,10 @@
 		E749D8C91CC2249400FAEFB5 /* Openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Openssl.framework; path = DayLine/Openssl.framework; sourceTree = "<group>"; };
 		E749D8CE1CC2258800FAEFB5 /* BasicEncodingRules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicEncodingRules.h; sourceTree = "<group>"; };
 		E749D8CF1CC2258800FAEFB5 /* BasicEncodingRules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicEncodingRules.m; sourceTree = "<group>"; };
+		E7760CB91CC9C9EE008C7005 /* Banner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Banner.h; sourceTree = "<group>"; };
+		E7760CBA1CC9C9EE008C7005 /* Banner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Banner.m; sourceTree = "<group>"; };
+		E7760CBB1CC9C9EE008C7005 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		E7760CBC1CC9C9EE008C7005 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		FD118F2B4D80F2FAF51A92F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -288,6 +294,10 @@
 				E749D8A61CC21ACB00FAEFB5 /* Utilities.m */,
 				E749D8C61CC2204800FAEFB5 /* RequestAPI.h */,
 				E749D8C71CC2204800FAEFB5 /* RequestAPI.m */,
+				E7760CB91CC9C9EE008C7005 /* Banner.h */,
+				E7760CBA1CC9C9EE008C7005 /* Banner.m */,
+				E7760CBB1CC9C9EE008C7005 /* Timer.h */,
+				E7760CBC1CC9C9EE008C7005 /* Timer.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -528,8 +538,10 @@
 				E749D8D01CC2258800FAEFB5 /* BasicEncodingRules.m in Sources */,
 				E749D8C51CC21F9200FAEFB5 /* NSString+Crypt.m in Sources */,
 				D31F52901CC5C984001F993F /* TableViewController.m in Sources */,
+				E7760CBD1CC9C9EE008C7005 /* Banner.m in Sources */,
 				E749D86F1CC20F5000FAEFB5 /* ViewController.m in Sources */,
 				E749D8C31CC21F9200FAEFB5 /* AppAPIClient.m in Sources */,
+				E7760CBE1CC9C9EE008C7005 /* Timer.m in Sources */,
 				E749D86C1CC20F5000FAEFB5 /* AppDelegate.m in Sources */,
 				D31F529F1CC5DA77001F993F /* ShoppingViewController.m in Sources */,
 				E749D8751CC20F5000FAEFB5 /* DayLine.xcdatamodeld in Sources */,
