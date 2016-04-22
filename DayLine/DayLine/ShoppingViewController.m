@@ -7,7 +7,7 @@
 //
 
 #import "ShoppingViewController.h"
-#import "SigninViewController.h"
+
 @interface ShoppingViewController ()
 
 @end
@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.navigationController.navigationBar.hidden = YES;
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,8 +34,4 @@
 }
 */
 
-- (IBAction)SignInAction:(UIBarButtonItem *)sender {
-    SigninViewController *sign = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"SignInVc"];
-    [self.navigationController pushViewController:sign animated:YES];
-}
 @end

@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ShoppingViewController : UIViewController
-- (IBAction)SignInAction:(UIBarButtonItem *)sender;
 
 @end
