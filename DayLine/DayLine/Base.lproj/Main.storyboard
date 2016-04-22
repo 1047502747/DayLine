@@ -575,7 +575,6 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="SPname" destination="bzR-1g-cWS" id="xbQ-9X-v4W"/>
                         <outlet property="tableView" destination="uSG-48-ErJ" id="SqE-by-L0n"/>
                     </connections>
                 </viewController>
