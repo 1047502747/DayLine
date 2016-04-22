@@ -177,6 +177,14 @@
 		D31F52A31CC648E6001F993F /* Nav */ = {
 			isa = PBXGroup;
 			children = (
+				D31F52911CC5C9EA001F993F /* TableViewCell.h */,
+				D31F52921CC5C9EA001F993F /* TableViewCell.m */,
+				E749D86D1CC20F5000FAEFB5 /* ViewController.h */,
+				E749D86E1CC20F5000FAEFB5 /* ViewController.m */,
+				D31F52971CC5CEA0001F993F /* SigninViewController.h */,
+				D31F52981CC5CEA0001F993F /* SigninViewController.m */,
+				D31F529A1CC5CEC7001F993F /* registerViewController.h */,
+				D31F529B1CC5CEC7001F993F /* registerViewController.m */,
 			);
 			name = Nav;
 			sourceTree = "<group>";
@@ -313,16 +321,8 @@
 			isa = PBXGroup;
 			children = (
 				D31F52A31CC648E6001F993F /* Nav */,
-				E749D86D1CC20F5000FAEFB5 /* ViewController.h */,
-				E749D86E1CC20F5000FAEFB5 /* ViewController.m */,
-				D31F52971CC5CEA0001F993F /* SigninViewController.h */,
-				D31F52981CC5CEA0001F993F /* SigninViewController.m */,
-				D31F529A1CC5CEC7001F993F /* registerViewController.h */,
-				D31F529B1CC5CEC7001F993F /* registerViewController.m */,
 				D31F528E1CC5C984001F993F /* TableViewController.h */,
 				D31F528F1CC5C984001F993F /* TableViewController.m */,
-				D31F52911CC5C9EA001F993F /* TableViewCell.h */,
-				D31F52921CC5C9EA001F993F /* TableViewCell.m */,
 				D31F529D1CC5DA77001F993F /* ShoppingViewController.h */,
 				D31F529E1CC5DA77001F993F /* ShoppingViewController.m */,
 				D31F52A01CC63FDC001F993F /* PostViewController.h */,

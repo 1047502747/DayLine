@@ -38,4 +38,12 @@
     SigninViewController *sign = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"SignInVc"];
     [self.navigationController pushViewController:sign animated:YES];
 }
+- (IBAction)integralAction:(UIButton *)sender forEvent:(UIEvent *)event {
+}
+
+- (IBAction)orderAction:(UIButton *)sender forEvent:(UIEvent *)event {
+}
+
+- (IBAction)EarnpointsAction:(UIButton *)sender forEvent:(UIEvent *)event {
+}
 @end
