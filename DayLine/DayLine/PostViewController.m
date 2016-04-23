@@ -60,8 +60,8 @@
         }
     }];
     
-    //让导航条失去交互能力
-    self.navigationController.view.userInteractionEnabled = NO;
+//    //让导航条失去交互能力
+//    self.navigationController.view.userInteractionEnabled = NO;
     //在根视图上创建一朵菊花，并且让它转动
     UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
     [aiv stopAnimating];
