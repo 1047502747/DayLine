@@ -13,5 +13,6 @@
 - (IBAction)RechargeBut:(UIButton *)sender forEvent:(UIEvent *)event;
 - (IBAction)incomeBut:(UIButton *)sender forEvent:(UIEvent *)event;
 - (IBAction)expenditureBut:(UIButton *)sender forEvent:(UIEvent *)event;
+- (IBAction)ObtainBut:(UIButton *)sender forEvent:(UIEvent *)event;
 
 @end

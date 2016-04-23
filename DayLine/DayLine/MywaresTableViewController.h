@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MywaresTableViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UITableView *TableView;
+
+- (IBAction)AddAction:(UIBarButtonItem *)sender;
 
 @end

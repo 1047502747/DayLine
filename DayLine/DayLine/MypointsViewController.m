@@ -42,4 +42,7 @@
 
 - (IBAction)expenditureBut:(UIButton *)sender forEvent:(UIEvent *)event {
 }
+
+- (IBAction)ObtainBut:(UIButton *)sender forEvent:(UIEvent *)event {
+}
 @end
