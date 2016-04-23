@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *integralLbl;
 @property (weak, nonatomic) IBOutlet UIImageView *aviimageView;
 
+- (IBAction)commodityAction:(UIButton *)sender forEvent:(UIEvent *)event;
 
 //甲方打印一份协议
 @property (weak,nonatomic) id <UITableViewDelegate> delegate;

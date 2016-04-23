@@ -14,6 +14,7 @@
 		D31F529C1CC5CEC7001F993F /* registerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F529B1CC5CEC7001F993F /* registerViewController.m */; };
 		D31F529F1CC5DA77001F993F /* ShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F529E1CC5DA77001F993F /* ShoppingViewController.m */; };
 		D31F52A21CC63FDC001F993F /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F52A11CC63FDC001F993F /* PostViewController.m */; };
+		D38DEE7D1CCA2BA500B46E96 /* dynamicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D38DEE7C1CCA2BA500B46E96 /* dynamicTableViewCell.m */; };
 		E749D8691CC20F5000FAEFB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D8681CC20F5000FAEFB5 /* main.m */; };
 		E749D86C1CC20F5000FAEFB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D86B1CC20F5000FAEFB5 /* AppDelegate.m */; };
 		E749D86F1CC20F5000FAEFB5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D86E1CC20F5000FAEFB5 /* ViewController.m */; };
@@ -77,6 +78,8 @@
 		D31F529E1CC5DA77001F993F /* ShoppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingViewController.m; sourceTree = "<group>"; };
 		D31F52A01CC63FDC001F993F /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		D31F52A11CC63FDC001F993F /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
+		D38DEE7B1CCA2BA500B46E96 /* dynamicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dynamicTableViewCell.h; sourceTree = "<group>"; };
+		D38DEE7C1CCA2BA500B46E96 /* dynamicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dynamicTableViewCell.m; sourceTree = "<group>"; };
 		E749D8641CC20F5000FAEFB5 /* DayLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E749D8681CC20F5000FAEFB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E749D86A1CC20F5000FAEFB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				D31F52981CC5CEA0001F993F /* SigninViewController.m */,
 				D31F529A1CC5CEC7001F993F /* registerViewController.h */,
 				D31F529B1CC5CEC7001F993F /* registerViewController.m */,
+				D38DEE7B1CCA2BA500B46E96 /* dynamicTableViewCell.h */,
+				D38DEE7C1CCA2BA500B46E96 /* dynamicTableViewCell.m */,
 			);
 			name = Nav;
 			sourceTree = "<group>";
@@ -553,6 +558,7 @@
 				E749D8C41CC21F9200FAEFB5 /* NSData+Base64.m in Sources */,
 				E749D8691CC20F5000FAEFB5 /* main.m in Sources */,
 				E749D8A71CC21ACB00FAEFB5 /* StorageMgr.m in Sources */,
+				D38DEE7D1CCA2BA500B46E96 /* dynamicTableViewCell.m in Sources */,
 				D31F52931CC5C9EA001F993F /* TableViewCell.m in Sources */,
 				D31F52A21CC63FDC001F993F /* PostViewController.m in Sources */,
 				E7760CC11CCA3DEB008C7005 /* ActivityObject.m in Sources */,

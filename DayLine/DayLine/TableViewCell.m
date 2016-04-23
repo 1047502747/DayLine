@@ -21,6 +21,7 @@
     // Configure the view for the selected state
 }
 
-
+- (IBAction)commodityAction:(UIButton *)sender forEvent:(UIEvent *)event {
+}
 
 @end
