@@ -60,8 +60,8 @@
         }
     }];
     
-    //让导航条失去交互能力
-    self.navigationController.view.userInteractionEnabled = NO;
+//    //让导航条失去交互能力
+//    self.navigationController.view.userInteractionEnabled = NO;
     //在根视图上创建一朵菊花，并且让它转动
     UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
     [aiv stopAnimating];
@@ -78,7 +78,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-   dynamicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
+   dynamicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     PFObject *obj = _objectsForShow[indexPath.row];
     PFUser *user = obj[@"poster"];
