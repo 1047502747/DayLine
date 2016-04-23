@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *commodityID;
 @property (weak, nonatomic) IBOutlet UILabel *surplus;
 @property (weak, nonatomic) IBOutlet UILabel *integralLbl;
+- (IBAction)commodityAction:(UIButton *)sender forEvent:(UIEvent *)event;
 
 @end
