@@ -43,6 +43,7 @@
 		E749D8D01CC2258800FAEFB5 /* BasicEncodingRules.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D8CF1CC2258800FAEFB5 /* BasicEncodingRules.m */; };
 		E7760CBD1CC9C9EE008C7005 /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = E7760CBA1CC9C9EE008C7005 /* Banner.m */; };
 		E7760CBE1CC9C9EE008C7005 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = E7760CBC1CC9C9EE008C7005 /* Timer.m */; };
+		E7760CC11CCA3DEB008C7005 /* ActivityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7760CC01CCA3DEB008C7005 /* ActivityObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,8 @@
 		E7760CBA1CC9C9EE008C7005 /* Banner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Banner.m; sourceTree = "<group>"; };
 		E7760CBB1CC9C9EE008C7005 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		E7760CBC1CC9C9EE008C7005 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
+		E7760CBF1CCA3DEB008C7005 /* ActivityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityObject.h; sourceTree = "<group>"; };
+		E7760CC01CCA3DEB008C7005 /* ActivityObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityObject.m; sourceTree = "<group>"; };
 		FD118F2B4D80F2FAF51A92F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -303,6 +306,8 @@
 				E7760CBA1CC9C9EE008C7005 /* Banner.m */,
 				E7760CBB1CC9C9EE008C7005 /* Timer.h */,
 				E7760CBC1CC9C9EE008C7005 /* Timer.m */,
+				E7760CBF1CCA3DEB008C7005 /* ActivityObject.h */,
+				E7760CC01CCA3DEB008C7005 /* ActivityObject.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -556,6 +561,7 @@
 				D38DEE7D1CCA2BA500B46E96 /* dynamicTableViewCell.m in Sources */,
 				D31F52931CC5C9EA001F993F /* TableViewCell.m in Sources */,
 				D31F52A21CC63FDC001F993F /* PostViewController.m in Sources */,
+				E7760CC11CCA3DEB008C7005 /* ActivityObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +710,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = DayLine/PrefixHeader.pch;
 				INFOPLIST_FILE = DayLine/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = txj.DayLine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -722,6 +729,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = DayLine/PrefixHeader.pch;
 				INFOPLIST_FILE = DayLine/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = txj.DayLine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
