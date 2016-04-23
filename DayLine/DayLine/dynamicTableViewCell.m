@@ -41,7 +41,5 @@
     
 }
 
-- (IBAction)ZambiaUbt:(UIButton *)sender forEvent:(UIEvent *)event {
-    
-}
+
 @end
