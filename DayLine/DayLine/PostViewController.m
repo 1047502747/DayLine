@@ -8,6 +8,8 @@
 
 #import "PostViewController.h"
 #import "dynamicTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
 @interface PostViewController ()
 @property (strong, nonatomic) NSMutableArray *objectsForShow;
 @property (strong, nonatomic) UIActivityIndicatorView *aiv;
@@ -25,16 +27,22 @@
     rc.tintColor = [UIColor darkGrayColor];
     [rc addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
     [_tableView addSubview:rc];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestData) name:@"RefreshPost" object:nil];    // Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestData) name:@"RefreshPost" object:nil];
+    // Do any additional setup after loading the view.
 }
 
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 
 - (void)requestData {
     _aiv = [Utilities getCoverOnView:self.view];
     [self refreshData];
 }
+
 
 
 //数据请求
@@ -44,7 +52,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"poster != %@", currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"Posts" predicate:predicate];
     [query orderByDescending:@"updateAt"];
-    [query includeKey:@"poster"];
+    [query includeKey:@"poster.post"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         [_aiv stopAnimating];
         UIRefreshControl *rc = (UIRefreshControl *)[_tableView viewWithTag:10001];
@@ -55,14 +63,15 @@
             [_tableView reloadData];
             
         }else{
+            
             NSLog(@"Error: %@",error.userInfo);
             [Utilities popUpAlertViewWithMsg:@"请保持网络连接畅通" andTitle:nil onView:self];
         }
     }];
     
-//    //让导航条失去交互能力
+//    让导航条失去交互能力
 //    self.navigationController.view.userInteractionEnabled = NO;
-    //在根视图上创建一朵菊花，并且让它转动
+//在根视图上创建一朵菊花，并且让它转动
     UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
     [aiv stopAnimating];
     
@@ -72,10 +81,22 @@
 
 
 
+//翻页结束
+- (void)loadDataEnd {
+    //将多余的下划线删除，其实将footer视图不存在位置，所以footer视图消失将隐藏
+    self.tableView.tableFooterView = [[UIView alloc] init];
+}
+
+
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _objectsForShow.count;
 }
+
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
    dynamicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
@@ -83,18 +104,27 @@
     PFObject *obj = _objectsForShow[indexPath.row];
     PFUser *user = obj[@"poster"];
     NSString *name = user[@"nickname"];
+    NSString *topic = obj[@"topic"];
+    NSString *content = obj[@"content"];
     NSNumber *praise = obj[@"praise"];
+    NSString *date = [NSString stringWithFormat:@"%@",obj.updatedAt];
+    
+    self.navigationItem.title = _user[@"name"];
+    PFFile *photoFile = _user[@"photo"];
+    NSString *photoURLStr = photoFile.url;
+    NSURL *photoURL = [NSURL URLWithString:photoURLStr];
+    [cell.lmageportrait sd_setImageWithURL:photoURL placeholderImage:[UIImage imageNamed:@"Default"]];
     cell.username.text = name;
-    cell.NumberLbl.text = [NSString stringWithFormat:@"赞数: %@",praise];
+    cell.NumberLbl.text = [NSString stringWithFormat:@"%@",praise];
+    cell.publishtime.text = date;
+    cell.showView.text = topic;
+    cell.comment.text = content;
     return cell;
 }
 
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 /*
 #pragma mark - Navigation
