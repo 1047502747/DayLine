@@ -20,10 +20,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *NumberLbl;
 
 - (IBAction)PostBut:(UIButton *)sender forEvent:(UIEvent *)event;
-- (IBAction)Commentpost:(UITextField *)sender forEvent:(UIEvent *)event;
 - (IBAction)ZambiBut:(UIButton *)sender forEvent:(UIEvent *)event;
 - (IBAction)nickname:(UIButton *)sender forEvent:(UIEvent *)event;
-- (IBAction)sendoutBut:(UIButton *)sender forEvent:(UIEvent *)event;
+
 
 
 @end
