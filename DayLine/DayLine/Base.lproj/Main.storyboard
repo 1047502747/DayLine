@@ -369,6 +369,9 @@
                                                                 <constraint firstAttribute="height" constant="30" id="fh2-cC-jHz"/>
                                                             </constraints>
                                                             <state key="normal" image="2"/>
+                                                            <connections>
+                                                                <action selector="newsBut:forEvent:" destination="Ff7-6j-dWd" eventType="touchUpInside" id="mso-0N-Yb5"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6J-yK-W1M">
                                                             <rect key="frame" x="10" y="355" width="40" height="40"/>
@@ -431,6 +434,7 @@
                                             <outlet property="NumberLbl" destination="esF-jQ-yfd" id="p9y-i0-J05"/>
                                             <outlet property="comment" destination="j6I-MM-IOD" id="Gmn-cv-VJP"/>
                                             <outlet property="lmageportrait" destination="Zu9-I2-HTO" id="yHZ-Pq-dEt"/>
+                                            <outlet property="nickname" destination="xYl-8o-CRR" id="QYO-hh-Pfy"/>
                                             <outlet property="pictureView" destination="WNw-n7-Z8Y" id="7dT-XQ-uKK"/>
                                             <outlet property="publishtime" destination="YAa-N9-e7P" id="7nc-49-Z8v"/>
                                             <outlet property="showView" destination="1mj-w2-r05" id="rCn-T6-nXF"/>
