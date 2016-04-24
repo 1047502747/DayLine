@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface dynamicTableViewCell : UITableViewCell
+
+
 @property (weak, nonatomic) IBOutlet UIImageView *lmageportrait;
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UILabel *publishtime;
