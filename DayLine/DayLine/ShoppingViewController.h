@@ -15,7 +15,7 @@
 - (IBAction)integralAction:(UIButton *)sender forEvent:(UIEvent *)event;
 - (IBAction)orderAction:(UIButton *)sender forEvent:(UIEvent *)event;
 - (IBAction)EarnpointsAction:(UIButton *)sender forEvent:(UIEvent *)event;
-@property (weak, nonatomic) IBOutlet UILabel *integralLbl;
+
 @property (weak, nonatomic) IBOutlet UILabel *integral;
 
 @end
