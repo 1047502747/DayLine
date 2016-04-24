@@ -111,8 +111,8 @@
     PFUser *user = obj[@"poster"];
     NSString *name = user[@"nickname"];
     NSString *topic = obj[@"topic"];
-    NSString *content = obj[@"content"];
-    
+//    NSString *content = obj[@"content"];
+//    NSString *nickname = user[@"commenter"];
     NSNumber *praise = obj[@"praise"];
     NSString *date = [NSString stringWithFormat:@"%@",obj.updatedAt];
     self.navigationItem.title = user[@"name"];
@@ -120,12 +120,13 @@
     NSString *photoURLStr = photoFile.url;
     NSURL *photoURL = [NSURL URLWithString:photoURLStr];
     [cell.lmageportrait sd_setImageWithURL:photoURL placeholderImage:[UIImage imageNamed:@"Default"]];
-    [cell.pictureView sd_setImageWithURL:photoURL placeholderImage:[UIImage imageNamed:@"Default"]];
+//  [cell.pictureView sd_setImageWithURL:photoURL placeholderImage:[UIImage imageNamed:@"Default"]];
     cell.username.text = name;
     cell.NumberLbl.text = [NSString stringWithFormat:@"%@",praise];
     cell.publishtime.text = date;
     cell.showView.text = topic;
-    cell.comment.text = content;
+//    cell.comment.text = content;
+    
    
     return cell;
 }
