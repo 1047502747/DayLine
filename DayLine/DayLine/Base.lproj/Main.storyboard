@@ -811,7 +811,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="integralLbl" destination="ALh-I7-2lH" id="Axf-Vw-pAV"/>
+                        <outlet property="integral" destination="ALh-I7-2lH" id="ucm-xE-1ur"/>
                         <outlet property="tableView" destination="o3T-cn-B8p" id="DIa-nw-mEv"/>
                     </connections>
                 </viewController>
