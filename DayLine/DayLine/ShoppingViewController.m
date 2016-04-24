@@ -31,7 +31,7 @@
     [self initializeData];
     [self naviConfiguration];
     [self uiConfiguaration];
-    [self hdintegral];
+//    [self hdintegral];
 
 //    self.navigationController.navigationBar.hidden = YES;
     CGSize size = [UIScreen mainScreen].bounds.size;
@@ -269,21 +269,21 @@
     [refreshControl endRefreshing];
 }
 
--(void)hdintegral{
-    NSString *path = @"/score/memberScore";
-    NSDictionary *dic =@{
-                         @"memberId":_numID
-                         };
-    [RequestAPI getURL:path withParameters:dic success:^(id responseObject) {
-        NSLog(@"result:%@",responseObject);
-        if ([responseObject[@"resultFlag"] integerValue] == 8001) {
-            NSLog(@"成功");
-            
-        }
-    } failure:^(NSError *error) {
-        NSLog(@"error: %@",error.description);
-    }];
-}
+//-(void)hdintegral{
+//    NSString *path = @"/score/memberScore";
+//    NSDictionary *dic =@{
+//                         @"memberId":_numID
+//                         };
+//    [RequestAPI getURL:path withParameters:dic success:^(id responseObject) {
+//        NSLog(@"result:%@",responseObject);
+//        if ([responseObject[@"resultFlag"] integerValue] == 8001) {
+//            NSLog(@"成功");
+//            
+//        }
+//    } failure:^(NSError *error) {
+//        NSLog(@"error: %@",error.description);
+//    }];
+//}
 
 /*
 #pragma mark - Navigation

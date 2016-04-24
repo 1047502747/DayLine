@@ -10,6 +10,7 @@
 #import "dynamicTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
+
 @interface PostViewController ()
 @property (strong, nonatomic) NSMutableArray *objectsForShow;
 @property (strong, nonatomic) UIActivityIndicatorView *aiv;
@@ -29,6 +30,7 @@
     [_tableView addSubview:rc];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestData) name:@"RefreshPost" object:nil];
     // Do any additional setup after loading the view.
+    
 }
 
 
@@ -45,14 +47,18 @@
 
 
 
+
+
+
 //数据请求
 - (void)refreshData {
+    
     [_objectsForShow removeAllObjects];
     PFUser *currentUser = [PFUser currentUser];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"poster != %@", currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"Posts" predicate:predicate];
     [query orderByDescending:@"updateAt"];
-    [query includeKey:@"poster.post"];
+    [query includeKey:@"poster"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         [_aiv stopAnimating];
         UIRefreshControl *rc = (UIRefreshControl *)[_tableView viewWithTag:10001];
@@ -106,19 +112,21 @@
     NSString *name = user[@"nickname"];
     NSString *topic = obj[@"topic"];
     NSString *content = obj[@"content"];
+    
     NSNumber *praise = obj[@"praise"];
     NSString *date = [NSString stringWithFormat:@"%@",obj.updatedAt];
-    
-    self.navigationItem.title = _user[@"name"];
-    PFFile *photoFile = _user[@"photo"];
+    self.navigationItem.title = user[@"name"];
+    PFFile *photoFile = user[@"photo"];
     NSString *photoURLStr = photoFile.url;
     NSURL *photoURL = [NSURL URLWithString:photoURLStr];
     [cell.lmageportrait sd_setImageWithURL:photoURL placeholderImage:[UIImage imageNamed:@"Default"]];
+    [cell.pictureView sd_setImageWithURL:photoURL placeholderImage:[UIImage imageNamed:@"Default"]];
     cell.username.text = name;
     cell.NumberLbl.text = [NSString stringWithFormat:@"%@",praise];
     cell.publishtime.text = date;
     cell.showView.text = topic;
     cell.comment.text = content;
+   
     return cell;
 }
 
