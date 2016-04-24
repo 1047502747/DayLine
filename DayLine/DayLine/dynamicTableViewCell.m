@@ -37,6 +37,9 @@
     
 }
 
+- (IBAction)newsBut:(UIButton *)sender forEvent:(UIEvent *)event {
+}
+
 - (IBAction)sendoutBut:(UIButton *)sender forEvent:(UIEvent *)event {
     
 }
