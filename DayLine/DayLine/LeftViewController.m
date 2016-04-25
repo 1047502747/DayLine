@@ -1,18 +1,18 @@
 //
-//  PublishViewController.m
+//  LeftViewController.m
 //  DayLine
 //
-//  Created by zxk on 16/4/24.
+//  Created by zxk on 16/4/25.
 //  Copyright © 2016年 TianXingJian. All rights reserved.
 //
 
-#import "PublishViewController.h"
+#import "LeftViewController.h"
 
-@interface PublishViewController ()
+@interface LeftViewController ()
 
 @end
 
-@implementation PublishViewController
+@implementation LeftViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,11 +34,6 @@
 }
 */
 
-- (IBAction)upload:(UIButton *)sender forEvent:(UIEvent *)event {
-}
-
-
-
-- (IBAction)pickAction:(UITapGestureRecognizer *)sender {
+- (IBAction)SideslipexitBut:(UIButton *)sender forEvent:(UIEvent *)event {
 }
 @end

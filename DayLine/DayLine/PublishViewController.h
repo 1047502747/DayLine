@@ -12,6 +12,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *content;
 @property (weak, nonatomic) IBOutlet UIImageView *photo;
 - (IBAction)upload:(UIButton *)sender forEvent:(UIEvent *)event;
-- (IBAction)sendout:(UIButton *)sender forEvent:(UIEvent *)event;
+- (IBAction)pickAction:(UITapGestureRecognizer *)sender;
 
 @end
