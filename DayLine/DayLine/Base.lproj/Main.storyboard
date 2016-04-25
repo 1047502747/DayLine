@@ -818,7 +818,7 @@
         <!--商城-->
         <scene sceneID="bkQ-7N-1Cg">
             <objects>
-                <viewController id="920-Dm-W89" customClass="ShoppingViewController" sceneMemberID="viewController">
+                <viewController id="920-Dm-W89" customClass="ShoppingTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gK1-xx-fWq"/>
                         <viewControllerLayoutGuide type="bottom" id="TIe-9U-U3m"/>
@@ -918,7 +918,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="STi-8M-djP">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="STi-8M-djP">
                                                     <rect key="frame" x="5" y="5" width="100" height="131"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="bIv-tx-C9q"/>
@@ -1026,8 +1026,9 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="TableView" destination="o3T-cn-B8p" id="MCW-Ma-k3O"/>
                         <outlet property="integral" destination="ALh-I7-2lH" id="ucm-xE-1ur"/>
-                        <outlet property="tableView" destination="o3T-cn-B8p" id="DIa-nw-mEv"/>
+                        <outlet property="tableView" destination="o3T-cn-B8p" id="ZWJ-9g-fzq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XxK-CM-6zT" userLabel="First Responder" sceneMemberID="firstResponder"/>
