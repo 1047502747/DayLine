@@ -1207,6 +1207,9 @@
                     <navigationItem key="navigationItem" title="购买" id="jSr-Qu-opf"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="8ep-7l-yCM" id="lW2-4F-hoc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XI1-5Y-Zes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

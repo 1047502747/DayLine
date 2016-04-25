@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *Price;
 @property (weak, nonatomic) IBOutlet UILabel *commodityID;
 - (IBAction)PurchaseBut:(UIButton *)sender forEvent:(UIEvent *)event;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
