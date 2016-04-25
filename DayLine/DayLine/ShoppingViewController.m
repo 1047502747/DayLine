@@ -12,7 +12,8 @@
 #import "TableViewCell.h"
 #import "ActivityObject.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-@interface ShoppingViewController (){
+@interface ShoppingViewController ()<ActivityTableViewCellDelegate,UIScrollViewDelegate>
+{
     NSInteger page;
     NSInteger perPage;
     NSInteger totalPage;
@@ -309,6 +310,8 @@
     [cell.imageView sd_setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"First"]];
 //    NSLog(@"activity.imgUrl = %@",activity.imgUrl);
     cell.SPname.text = [NSString stringWithFormat:@"商品名称：%@",activity.spName];
+    cell.commodityID.text = [NSString stringWithFormat:@"商品ID：%@",activity.spId];
+    cell.quantity.text = [NSString stringWithFormat:@"剩余数量：%@",activity.spAmount];
     cell.integralLbl.text = [NSString stringWithFormat:@"所需积分：%@",activity.spScore];
        return cell;
 }
@@ -318,7 +321,64 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (void)applyAction:(NSIndexPath *)indexPath{
+    //创建一个风格为UIAlertControllerStyleAlert的UIAlertController实例
+    ActivityObject * activity = _objectsForShow[indexPath.row];
+    UIAlertController *alertView = [UIAlertController alertControllerWithTitle:@"Tip" message:activity.isApplied ? @"是否确定取消报名？" : @"是否确定报名？" preferredStyle:UIAlertControllerStyleAlert];
+    //创建“确认”按钮，风格为UIAlertActionStyleDefault
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"对的" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        activity.isApplied = !activity.isApplied;
+        //刷新当前行
+        //更新改变了活动报名状态的数据对应的细胞
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }];
+    //创建“取消”按钮，风格为UIAlertActionStyleCancel
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"不要" style:UIAlertActionStyleCancel handler:nil];
+    //将以上两个按钮添加进弹出窗（按钮添加的顺序决定按钮的排版：从左到右；从上到下。如果是取消风格UIAlertActionStyleCancel的按钮会放在最左边）
+    [alertView addAction:confirmAction];
+    [alertView addAction:cancelAction];
+    //用present modal的方式跳转到另一个页面（显示alertView）
+    [self presentViewController:alertView animated:YES completion:nil];
+}
 
+-(void)cellLongPressAtIndexPath:(NSIndexPath *)indexPath{
+    ActivityObject * activity = _objectsForShow[indexPath.row];
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"复制操作" message:@"复制活动名称或内容?" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *copyNameAction = [UIAlertAction actionWithTitle:@"复制活动名称" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        //创建复制板
+        UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
+        //将活动名称复制
+        [pasteBoard setString:activity.spName];
+    }];
+    UIAlertAction *copyContentAction = [UIAlertAction actionWithTitle:@"复制活动内容" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
+        [pasteBoard setString:activity.spId];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    //在UIAlertControllerStyleActionSheet风格中，先加入UIAlertController的UIAlertAction对象会出现在越上方（自上而下排列），UIAlertActionStyleCancel风格的UIAlertAction对象会出现在最下方并与其他UIAlertAction对象空开一段间距
+    [actionSheet addAction:copyNameAction];
+    [actionSheet addAction:copyContentAction];
+    [actionSheet addAction:cancelAction];
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+
+- (void)photoTapAtIndexPath:(NSIndexPath *)indexPath{
+    ActivityObject *activity = [_objectsForShow objectAtIndex:indexPath.row];
+    //获取屏幕的实例UIScreen mainScreen，bounds屏幕的边界
+    _zoomIV = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _zoomIV.userInteractionEnabled = YES;
+    _zoomIV.backgroundColor = [UIColor blackColor];
+    //_zoomIV.image = [self imageUrl:activity.imgUrl];
+    //使用SD所写的这一行代码，看似比我们上面注释掉的那一行代码复杂，但是我们上面自己写的那一行代码执行的是同步加载，而SD执行的是异步加载，同步加载在加载过程中会锁死页面而异步不会
+    [_zoomIV sd_setImageWithURL:[NSURL URLWithString:activity.imgUrl] placeholderImage:[UIImage imageNamed:@"Image"]];
+    _zoomIV.contentMode = UIViewContentModeScaleAspectFit;
+    //添加到windows层视图(所有视图都有),不能放到根视图，因为tableview不能放其他控件，只能放细胞
+    //[UIApplication sharedApplication]获得当前app的实例，keyWindow可以拿到app实例的主窗口
+    [[UIApplication sharedApplication].keyWindow addSubview:_zoomIV];
+    //手势
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(zoomTap:)];
+    [_zoomIV addGestureRecognizer:tap];
+}
 
 
 - (IBAction)SignInAction:(UIBarButtonItem *)sender {

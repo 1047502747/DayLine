@@ -17,5 +17,5 @@
 - (IBAction)EarnpointsAction:(UIButton *)sender forEvent:(UIEvent *)event;
 
 @property (weak, nonatomic) IBOutlet UILabel *integral;
-
+@property(strong, nonatomic)UIImageView * zoomIV;
 @end
