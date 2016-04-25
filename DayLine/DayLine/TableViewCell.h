@@ -23,10 +23,13 @@
 @interface TableViewCell : UITableViewCell
 @property (strong,nonatomic) NSIndexPath* indexPath;
 @property (weak, nonatomic) IBOutlet UILabel *SPname;
+@property (weak, nonatomic) IBOutlet UILabel *commodityID;
+@property (weak, nonatomic) IBOutlet UILabel *quantity;
 
 @property (weak, nonatomic) IBOutlet UILabel *integralLbl;
 @property (weak, nonatomic) IBOutlet UIImageView *aviimageView;
 
+- (IBAction)purchase:(UIButton *)sender forEvent:(UIEvent *)event;
 
 
 //甲方打印一份协议
