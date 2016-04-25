@@ -37,6 +37,8 @@
 - (IBAction)upload:(UIButton *)sender forEvent:(UIEvent *)event {
 }
 
-- (IBAction)sendout:(UIButton *)sender forEvent:(UIEvent *)event {
+
+
+- (IBAction)pickAction:(UITapGestureRecognizer *)sender {
 }
 @end
