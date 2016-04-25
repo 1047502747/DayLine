@@ -18,7 +18,7 @@
     self.spId = [dict[@"goodsId"] isKindOfClass:[NSNull class]]? @"抱歉，活动内容暂不对外公开":dict[@"goodsId"];
     self.spScore = [dict[@"goodsScore"] isKindOfClass:[NSNull class]]? @"0" : [dict[@"goodsScore"] stringValue];
     self.spAmount = [dict[@"goodsAmount"] isKindOfClass:[NSNull class]]? @"0" : [dict[@"goodsAmount"] stringValue];
-
+    self.thepath = [dict[@"result"] isKindOfClass:[NSNull class]]? @"0" : [dict[@"result"] stringValue];
     self.isApplied =  NO;
     
     return self;

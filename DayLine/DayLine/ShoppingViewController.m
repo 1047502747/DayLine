@@ -20,7 +20,7 @@
 }
 @property(strong,nonatomic)NSMutableArray *objectsForShow;
 @property (strong,nonatomic) UIActivityIndicatorView *avi;
-@property(strong,nonatomic) NSString *numID;
+
 
 @end
 
@@ -223,6 +223,7 @@
         NSLog(@"result = %@",responseObject);
         isLoading = NO;
         [_avi stopAnimating];
+        [self endRefreshing];
         if ([responseObject[@"resultFlag"] integerValue] == 8001) {
             NSLog(@"成功");
             //[[StorageMgr singletonStorageMgr] addKey:@"memberId" andValue:memberId];
@@ -308,8 +309,6 @@
     [cell.imageView sd_setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"First"]];
 //    NSLog(@"activity.imgUrl = %@",activity.imgUrl);
     cell.SPname.text = [NSString stringWithFormat:@"商品名称：%@",activity.spName];
-    cell.commodityID.text = [NSString stringWithFormat:@"商品ID：%@",activity.spId];
-    cell.surplus.text = [NSString stringWithFormat:@"剩余数量：%@",activity.spAmount];
     cell.integralLbl.text = [NSString stringWithFormat:@"所需积分：%@",activity.spScore];
        return cell;
 }
