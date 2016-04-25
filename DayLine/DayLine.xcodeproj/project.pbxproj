@@ -49,6 +49,7 @@
 		E7760CBD1CC9C9EE008C7005 /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = E7760CBA1CC9C9EE008C7005 /* Banner.m */; };
 		E7760CBE1CC9C9EE008C7005 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = E7760CBC1CC9C9EE008C7005 /* Timer.m */; };
 		E7760CC11CCA3DEB008C7005 /* ActivityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7760CC01CCA3DEB008C7005 /* ActivityObject.m */; };
+		E7A16BE61CCDFA8B005034ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A16BE51CCDFA8B005034ED /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		E7760CBC1CC9C9EE008C7005 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		E7760CBF1CCA3DEB008C7005 /* ActivityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityObject.h; sourceTree = "<group>"; };
 		E7760CC01CCA3DEB008C7005 /* ActivityObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityObject.m; sourceTree = "<group>"; };
+		E7A16BE51CCDFA8B005034ED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FD118F2B4D80F2FAF51A92F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -152,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7A16BE61CCDFA8B005034ED /* UIKit.framework in Frameworks */,
 				E749D8CA1CC2249400FAEFB5 /* Openssl.framework in Frameworks */,
 				E749D8BB1CC21C9000FAEFB5 /* StoreKit.framework in Frameworks */,
 				E749D8B91CC21C8300FAEFB5 /* CoreLocation.framework in Frameworks */,
@@ -186,6 +189,7 @@
 		B49EBED4F9DC6E8CCC1AFE8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E7A16BE51CCDFA8B005034ED /* UIKit.framework */,
 				E749D8C91CC2249400FAEFB5 /* Openssl.framework */,
 				E749D8BA1CC21C9000FAEFB5 /* StoreKit.framework */,
 				E749D8B81CC21C8300FAEFB5 /* CoreLocation.framework */,
