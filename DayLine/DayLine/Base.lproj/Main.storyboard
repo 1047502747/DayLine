@@ -837,8 +837,16 @@
                                     <action selector="upload:forEvent:" destination="iJh-i7-NMj" eventType="touchUpInside" id="Ybg-hm-ND1"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ntr-If-4R1">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4e8-XF-gIe">
+                                <rect key="frame" x="0.0" y="234" width="320" height="1"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="EWD-n6-qyS"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="ntr-If-4R1">
                                 <rect key="frame" x="85" y="245" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="7ch-Df-ZU1"/>
                                     <constraint firstAttribute="width" secondItem="ntr-If-4R1" secondAttribute="height" multiplier="1:1" id="GuX-y8-ZIX"/>
@@ -847,13 +855,6 @@
                                     <outletCollection property="gestureRecognizers" destination="CWm-6D-ImY" appends="YES" id="LJV-4C-7ht"/>
                                 </connections>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4e8-XF-gIe">
-                                <rect key="frame" x="0.0" y="234" width="320" height="1"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="EWD-n6-qyS"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1020,8 +1021,8 @@
                                                         <constraint firstAttribute="height" constant="2" id="VcV-KK-7UI"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oh-cK-SDB">
-                                                    <rect key="frame" x="10" y="158" width="97" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oh-cK-SDB">
+                                                    <rect key="frame" x="10" y="156" width="97" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="6oh-cK-SDB" secondAttribute="height" multiplier="97:30" id="Lfm-kq-FfR"/>
                                                     </constraints>
@@ -1429,6 +1430,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1" width="239" height="110"/>
         <image name="First" width="110" height="110"/>
         <image name="Image" width="213" height="378"/>
         <image name="Image-1" width="213" height="378"/>
