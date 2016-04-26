@@ -1,13 +1,13 @@
 //
-//  MywaresTableViewCell.h
+//  PersonalViewController.h
 //  DayLine
 //
-//  Created by zxk on 16/4/23.
+//  Created by zxk on 16/4/26.
 //  Copyright © 2016年 TianXingJian. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface MywaresTableViewCell : UITableViewCell
+@interface PersonalViewController : UIViewController
 
 @end

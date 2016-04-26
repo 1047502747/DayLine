@@ -145,4 +145,6 @@
 }
 */
 
+- (IBAction)pickAction:(UITapGestureRecognizer *)sender {
+}
 @end

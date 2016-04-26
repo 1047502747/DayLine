@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		7DC925805AF00D7796E6EF82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD118F2B4D80F2FAF51A92F5 /* libPods.a */; };
+		D308A2741CCDFEAB002D512F /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D308A2731CCDFEAB002D512F /* LeftViewController.m */; };
 		D31F52901CC5C984001F993F /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F528F1CC5C984001F993F /* TableViewController.m */; };
 		D31F52931CC5C9EA001F993F /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F52921CC5C9EA001F993F /* TableViewCell.m */; };
 		D31F52991CC5CEA0001F993F /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F52981CC5CEA0001F993F /* SigninViewController.m */; };
 		D31F529C1CC5CEC7001F993F /* registerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F529B1CC5CEC7001F993F /* registerViewController.m */; };
-		D31F529F1CC5DA77001F993F /* ShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F529E1CC5DA77001F993F /* ShoppingViewController.m */; };
 		D31F52A21CC63FDC001F993F /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F52A11CC63FDC001F993F /* PostViewController.m */; };
 		D36671711CCCAD160099F080 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36671701CCCAD160099F080 /* PublishViewController.m */; };
 		D387E9881CCB640900C44E8B /* MywaresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D387E9871CCB640900C44E8B /* MywaresTableViewController.m */; };
 		D387E98B1CCB64C700C44E8B /* MywaresTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D387E98A1CCB64C700C44E8B /* MywaresTableViewCell.m */; };
 		D387E98E1CCB664400C44E8B /* MypointsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D387E98D1CCB664400C44E8B /* MypointsViewController.m */; };
-		D387E9911CCB687800C44E8B /* PurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D387E9901CCB687800C44E8B /* PurchaseViewController.m */; };
+		D389EAA71CCEF7520029EEE7 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D389EAA61CCEF7520029EEE7 /* PersonalViewController.m */; };
+		D389EAAA1CCEF7B80029EEE7 /* PersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D389EAA91CCEF7B80029EEE7 /* PersonalTableViewCell.m */; };
+		D389EAAD1CCF14E70029EEE7 /* ShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D389EAAC1CCF14E70029EEE7 /* ShoppingViewController.m */; };
 		D38DEE7D1CCA2BA500B46E96 /* dynamicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D38DEE7C1CCA2BA500B46E96 /* dynamicTableViewCell.m */; };
 		E749D8691CC20F5000FAEFB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D8681CC20F5000FAEFB5 /* main.m */; };
 		E749D86C1CC20F5000FAEFB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D86B1CC20F5000FAEFB5 /* AppDelegate.m */; };
@@ -49,6 +51,7 @@
 		E7760CBD1CC9C9EE008C7005 /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = E7760CBA1CC9C9EE008C7005 /* Banner.m */; };
 		E7760CBE1CC9C9EE008C7005 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = E7760CBC1CC9C9EE008C7005 /* Timer.m */; };
 		E7760CC11CCA3DEB008C7005 /* ActivityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7760CC01CCA3DEB008C7005 /* ActivityObject.m */; };
+		E7A16BE61CCDFA8B005034ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A16BE51CCDFA8B005034ED /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,8 @@
 /* Begin PBXFileReference section */
 		56DA5F47ED637FF2B86F03CF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AED356881DDBA86B7BC809CD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D308A2721CCDFEAB002D512F /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
+		D308A2731CCDFEAB002D512F /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		D31F528E1CC5C984001F993F /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		D31F528F1CC5C984001F993F /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		D31F52911CC5C9EA001F993F /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
@@ -79,8 +84,6 @@
 		D31F52981CC5CEA0001F993F /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
 		D31F529A1CC5CEC7001F993F /* registerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registerViewController.h; sourceTree = "<group>"; };
 		D31F529B1CC5CEC7001F993F /* registerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registerViewController.m; sourceTree = "<group>"; };
-		D31F529D1CC5DA77001F993F /* ShoppingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingViewController.h; sourceTree = "<group>"; };
-		D31F529E1CC5DA77001F993F /* ShoppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingViewController.m; sourceTree = "<group>"; };
 		D31F52A01CC63FDC001F993F /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		D31F52A11CC63FDC001F993F /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		D366716F1CCCAD160099F080 /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishViewController.h; sourceTree = "<group>"; };
@@ -91,8 +94,12 @@
 		D387E98A1CCB64C700C44E8B /* MywaresTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MywaresTableViewCell.m; sourceTree = "<group>"; };
 		D387E98C1CCB664400C44E8B /* MypointsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MypointsViewController.h; sourceTree = "<group>"; };
 		D387E98D1CCB664400C44E8B /* MypointsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MypointsViewController.m; sourceTree = "<group>"; };
-		D387E98F1CCB687800C44E8B /* PurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseViewController.h; sourceTree = "<group>"; };
-		D387E9901CCB687800C44E8B /* PurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseViewController.m; sourceTree = "<group>"; };
+		D389EAA51CCEF7520029EEE7 /* PersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		D389EAA61CCEF7520029EEE7 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
+		D389EAA81CCEF7B80029EEE7 /* PersonalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewCell.h; sourceTree = "<group>"; };
+		D389EAA91CCEF7B80029EEE7 /* PersonalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewCell.m; sourceTree = "<group>"; };
+		D389EAAB1CCF14E70029EEE7 /* ShoppingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingViewController.h; sourceTree = "<group>"; };
+		D389EAAC1CCF14E70029EEE7 /* ShoppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingViewController.m; sourceTree = "<group>"; };
 		D38DEE7B1CCA2BA500B46E96 /* dynamicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dynamicTableViewCell.h; sourceTree = "<group>"; };
 		D38DEE7C1CCA2BA500B46E96 /* dynamicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dynamicTableViewCell.m; sourceTree = "<group>"; };
 		E749D8641CC20F5000FAEFB5 /* DayLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +151,7 @@
 		E7760CBC1CC9C9EE008C7005 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		E7760CBF1CCA3DEB008C7005 /* ActivityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityObject.h; sourceTree = "<group>"; };
 		E7760CC01CCA3DEB008C7005 /* ActivityObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityObject.m; sourceTree = "<group>"; };
+		E7A16BE51CCDFA8B005034ED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FD118F2B4D80F2FAF51A92F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -152,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7A16BE61CCDFA8B005034ED /* UIKit.framework in Frameworks */,
 				E749D8CA1CC2249400FAEFB5 /* Openssl.framework in Frameworks */,
 				E749D8BB1CC21C9000FAEFB5 /* StoreKit.framework in Frameworks */,
 				E749D8B91CC21C8300FAEFB5 /* CoreLocation.framework in Frameworks */,
@@ -186,6 +195,7 @@
 		B49EBED4F9DC6E8CCC1AFE8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E7A16BE51CCDFA8B005034ED /* UIKit.framework */,
 				E749D8C91CC2249400FAEFB5 /* Openssl.framework */,
 				E749D8BA1CC21C9000FAEFB5 /* StoreKit.framework */,
 				E749D8B81CC21C8300FAEFB5 /* CoreLocation.framework */,
@@ -216,6 +226,8 @@
 				D38DEE7C1CCA2BA500B46E96 /* dynamicTableViewCell.m */,
 				D387E9891CCB64C700C44E8B /* MywaresTableViewCell.h */,
 				D387E98A1CCB64C700C44E8B /* MywaresTableViewCell.m */,
+				D389EAA81CCEF7B80029EEE7 /* PersonalTableViewCell.h */,
+				D389EAA91CCEF7B80029EEE7 /* PersonalTableViewCell.m */,
 			);
 			name = Nav;
 			sourceTree = "<group>";
@@ -360,18 +372,20 @@
 				D31F52A31CC648E6001F993F /* Nav */,
 				D31F528E1CC5C984001F993F /* TableViewController.h */,
 				D31F528F1CC5C984001F993F /* TableViewController.m */,
-				D31F529D1CC5DA77001F993F /* ShoppingViewController.h */,
-				D31F529E1CC5DA77001F993F /* ShoppingViewController.m */,
 				D31F52A01CC63FDC001F993F /* PostViewController.h */,
 				D31F52A11CC63FDC001F993F /* PostViewController.m */,
 				D387E9861CCB640900C44E8B /* MywaresTableViewController.h */,
 				D387E9871CCB640900C44E8B /* MywaresTableViewController.m */,
 				D387E98C1CCB664400C44E8B /* MypointsViewController.h */,
 				D387E98D1CCB664400C44E8B /* MypointsViewController.m */,
-				D387E98F1CCB687800C44E8B /* PurchaseViewController.h */,
-				D387E9901CCB687800C44E8B /* PurchaseViewController.m */,
 				D366716F1CCCAD160099F080 /* PublishViewController.h */,
 				D36671701CCCAD160099F080 /* PublishViewController.m */,
+				D308A2721CCDFEAB002D512F /* LeftViewController.h */,
+				D308A2731CCDFEAB002D512F /* LeftViewController.m */,
+				D389EAA51CCEF7520029EEE7 /* PersonalViewController.h */,
+				D389EAA61CCEF7520029EEE7 /* PersonalViewController.m */,
+				D389EAAB1CCF14E70029EEE7 /* ShoppingViewController.h */,
+				D389EAAC1CCF14E70029EEE7 /* ShoppingViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -574,19 +588,21 @@
 				E749D8C51CC21F9200FAEFB5 /* NSString+Crypt.m in Sources */,
 				D36671711CCCAD160099F080 /* PublishViewController.m in Sources */,
 				D31F52901CC5C984001F993F /* TableViewController.m in Sources */,
+				D389EAA71CCEF7520029EEE7 /* PersonalViewController.m in Sources */,
 				E7760CBD1CC9C9EE008C7005 /* Banner.m in Sources */,
 				E749D86F1CC20F5000FAEFB5 /* ViewController.m in Sources */,
 				E749D8C31CC21F9200FAEFB5 /* AppAPIClient.m in Sources */,
+				D308A2741CCDFEAB002D512F /* LeftViewController.m in Sources */,
 				E7760CBE1CC9C9EE008C7005 /* Timer.m in Sources */,
 				E749D86C1CC20F5000FAEFB5 /* AppDelegate.m in Sources */,
-				D387E9911CCB687800C44E8B /* PurchaseViewController.m in Sources */,
-				D31F529F1CC5DA77001F993F /* ShoppingViewController.m in Sources */,
 				D387E98E1CCB664400C44E8B /* MypointsViewController.m in Sources */,
+				D389EAAA1CCEF7B80029EEE7 /* PersonalTableViewCell.m in Sources */,
 				E749D8751CC20F5000FAEFB5 /* DayLine.xcdatamodeld in Sources */,
 				E749D8C41CC21F9200FAEFB5 /* NSData+Base64.m in Sources */,
 				D387E98B1CCB64C700C44E8B /* MywaresTableViewCell.m in Sources */,
 				E749D8691CC20F5000FAEFB5 /* main.m in Sources */,
 				D387E9881CCB640900C44E8B /* MywaresTableViewController.m in Sources */,
+				D389EAAD1CCF14E70029EEE7 /* ShoppingViewController.m in Sources */,
 				E749D8A71CC21ACB00FAEFB5 /* StorageMgr.m in Sources */,
 				D38DEE7D1CCA2BA500B46E96 /* dynamicTableViewCell.m in Sources */,
 				D31F52931CC5C9EA001F993F /* TableViewCell.m in Sources */,

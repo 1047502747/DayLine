@@ -1,18 +1,18 @@
 //
-//  ShoppingViewController.m
+//  LeftViewController.m
 //  DayLine
 //
-//  Created by zxk on 16/4/26.
+//  Created by zxk on 16/4/25.
 //  Copyright © 2016年 TianXingJian. All rights reserved.
 //
 
-#import "ShoppingViewController.h"
+#import "LeftViewController.h"
 
-@interface ShoppingViewController ()
+@interface LeftViewController ()
 
 @end
 
-@implementation ShoppingViewController
+@implementation LeftViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,8 +34,6 @@
 }
 */
 
-- (IBAction)SinginAction:(UIBarButtonItem *)sender {
-}
-- (IBAction)signinAction:(UIBarButtonItem *)sender {
+- (IBAction)SideslipexitBut:(UIButton *)sender forEvent:(UIEvent *)event {
 }
 @end
