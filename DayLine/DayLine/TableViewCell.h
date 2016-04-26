@@ -28,8 +28,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *integralLbl;
 @property (weak, nonatomic) IBOutlet UIImageView *aviimageView;
-
+@property (weak, nonatomic) IBOutlet UIButton *purchaseBut;
 - (IBAction)purchase:(UIButton *)sender forEvent:(UIEvent *)event;
+
+
 
 
 //甲方打印一份协议
