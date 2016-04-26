@@ -57,7 +57,7 @@
     PFUser *currentUser = [PFUser currentUser];
 //  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"poster != %@", currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
-    [query orderByDescending:@"updateAt"];
+    [query orderByDescending:@"createdAt"];
     [query includeKey:@"poster"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         [_aiv stopAnimating];
@@ -114,7 +114,7 @@
     NSString *content = obj[@"content"];
 //    NSString *nickname = user[@"commenter"];
     NSNumber *praise = obj[@"praise"];
-    NSString *date = [NSString stringWithFormat:@"%@",obj.updatedAt];
+    NSString *date = [NSString stringWithFormat:@"%@",obj.createdAt];
     self.navigationItem.title = user[@"name"];
     PFFile *photoFile = user[@"photo"];
     PFFile *photoFile2 = obj[@"photo"];
@@ -136,14 +136,24 @@
 
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
+    if ([segue.identifier isEqualToString:@"Publish"]) {
+        NSIndexPath *indexPath = _tableView.indexPathForSelectedRow;
+        PFObject *posts = _objectsForShow[indexPath.row];
+        PFObject *photo2 = _objectsForShow[indexPath.row];
+        PublishViewController *cdVC = segue.destinationViewController;
+        PublishViewController *bdVC = segue.destinationViewController;
+        bdVC.photo2 = photo2;
+        cdVC.posts = posts;
+    }
+    
 }
-*/
+
 
 - (IBAction)pickAction:(UITapGestureRecognizer *)sender {
 }
