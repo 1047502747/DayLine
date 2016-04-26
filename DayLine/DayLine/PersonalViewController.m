@@ -1,18 +1,18 @@
 //
-//  ShoppingViewController.m
+//  PersonalViewController.m
 //  DayLine
 //
 //  Created by zxk on 16/4/26.
 //  Copyright © 2016年 TianXingJian. All rights reserved.
 //
 
-#import "ShoppingViewController.h"
+#import "PersonalViewController.h"
 
-@interface ShoppingViewController ()
+@interface PersonalViewController ()
 
 @end
 
-@implementation ShoppingViewController
+@implementation PersonalViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,8 +34,4 @@
 }
 */
 
-- (IBAction)SinginAction:(UIBarButtonItem *)sender {
-}
-- (IBAction)signinAction:(UIBarButtonItem *)sender {
-}
 @end
