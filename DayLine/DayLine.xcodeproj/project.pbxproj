@@ -382,13 +382,10 @@
 				D36671701CCCAD160099F080 /* PublishViewController.m */,
 				D308A2721CCDFEAB002D512F /* LeftViewController.h */,
 				D308A2731CCDFEAB002D512F /* LeftViewController.m */,
-<<<<<<< HEAD
-=======
 				D389EAA51CCEF7520029EEE7 /* PersonalViewController.h */,
 				D389EAA61CCEF7520029EEE7 /* PersonalViewController.m */,
 				D389EAAB1CCF14E70029EEE7 /* ShoppingViewController.h */,
 				D389EAAC1CCF14E70029EEE7 /* ShoppingViewController.m */,
->>>>>>> 84b7e1e0fbbfe886c537cb33d16bc09540f968a2
 			);
 			name = Controller;
 			sourceTree = "<group>";
