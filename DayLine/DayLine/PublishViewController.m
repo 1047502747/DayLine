@@ -65,6 +65,51 @@ UINavigationControllerDelegate>{
     }
 }
 
+
+
+
+
+
+- (IBAction)pickAction:(UITapGestureRecognizer *)sender {
+    
+    
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *takePhoto = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self pickImage:UIImagePickerControllerSourceTypeCamera];
+    }];
+    UIAlertAction *choosePhoto = [UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self pickImage:UIImagePickerControllerSourceTypePhotoLibrary];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [actionSheet addAction:takePhoto];
+    [actionSheet addAction:choosePhoto];
+    [actionSheet addAction:cancelAction];
+    [self presentViewController:actionSheet animated:YES completion:nil];
+    
+    
+}
+
+
+
+//当选择完媒体文件后调用
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    //根据UIImagePickerControllerEditedImage这个键去拿到我们选中的已经编辑过的图片
+    UIImage *image = info[UIImagePickerControllerEditedImage];
+    //将上面拿到的图片设置为图片视图的图片
+    _photo.image = image;
+    if (image) {
+        photo = YES;
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+
+
+
+
+
 - (IBAction)upload:(UIButton *)sender forEvent:(UIEvent *)event {
     
     UIImage *image = _photo.image;
@@ -111,25 +156,37 @@ UINavigationControllerDelegate>{
 
 
 
-- (IBAction)pickAction:(UITapGestureRecognizer *)sender {
-    
-  
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 
 
-//当选择完媒体文件后调用
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    //根据UIImagePickerControllerEditedImage这个键去拿到我们选中的已经编辑过的图片
-    UIImage *image = info[UIImagePickerControllerEditedImage];
-    //将上面拿到的图片设置为图片视图的图片
-    _photo.image = image;
-    if (image) {
-        photo = YES;
+
+
+
+//让text view控件实现：当键盘右下角按钮被按下后，收起键盘
+//当文本输入视图中文字内容发生变化时调用（返回YES表示同意这个变化发生；返回NO表示不同意）
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    //捕捉到键盘右下角按钮被按下这一事件（键盘右下角按钮被按钮实际上在文本输入视图中执行的是换行：\n）
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
+    return YES;
+}
+
+
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 
 
 @end
+
