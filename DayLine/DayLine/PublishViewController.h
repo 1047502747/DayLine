@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface PublishViewController : UIViewController
+
+@property (weak, nonatomic)PFObject *posts;
+@property (weak, nonatomic)PFObject *photo2;
 @property (weak, nonatomic) IBOutlet UITextField *content;
 @property (weak, nonatomic) IBOutlet UIImageView *photo;
 - (IBAction)upload:(UIButton *)sender forEvent:(UIEvent *)event;

@@ -9,7 +9,7 @@
 #import "PostViewController.h"
 #import "dynamicTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-
+#import "PublishViewController.h"
 
 @interface PostViewController ()
 @property (strong, nonatomic) NSMutableArray *objectsForShow;
@@ -55,8 +55,8 @@
     
     [_objectsForShow removeAllObjects];
     PFUser *currentUser = [PFUser currentUser];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"poster != %@", currentUser];
-    PFQuery *query = [PFQuery queryWithClassName:@"Posts" predicate:predicate];
+//  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"poster != %@", currentUser];
+    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     [query orderByDescending:@"updateAt"];
     [query includeKey:@"poster"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
@@ -111,27 +111,28 @@
     PFUser *user = obj[@"poster"];
     NSString *name = user[@"nickname"];
     NSString *topic = obj[@"topic"];
-//    NSString *content = obj[@"content"];
+    NSString *content = obj[@"content"];
 //    NSString *nickname = user[@"commenter"];
     NSNumber *praise = obj[@"praise"];
     NSString *date = [NSString stringWithFormat:@"%@",obj.updatedAt];
     self.navigationItem.title = user[@"name"];
     PFFile *photoFile = user[@"photo"];
+    PFFile *photoFile2 = obj[@"photo"];
     NSString *photoURLStr = photoFile.url;
+    NSString *photoURLStr2 = photoFile2.url;
     NSURL *photoURL = [NSURL URLWithString:photoURLStr];
+    NSURL *photoURL2= [NSURL URLWithString:photoURLStr2];
     [cell.lmageportrait sd_setImageWithURL:photoURL placeholderImage:[UIImage imageNamed:@"Default"]];
-//  [cell.pictureView sd_setImageWithURL:photoURL placeholderImage:[UIImage imageNamed:@"Default"]];
+    [cell.pictureView sd_setImageWithURL:photoURL2 placeholderImage:[UIImage imageNamed:@"Default"]];
     cell.username.text = name;
     cell.NumberLbl.text = [NSString stringWithFormat:@"%@",praise];
     cell.publishtime.text = date;
     cell.showView.text = topic;
-//    cell.comment.text = content;
+    cell.comment.text = content;
     
    
     return cell;
 }
-
-
 
 
 
@@ -140,8 +141,7 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
 }
 */
 
