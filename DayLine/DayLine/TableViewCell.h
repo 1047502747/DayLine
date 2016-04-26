@@ -10,7 +10,7 @@
 
 //甲方决定何时做，乙方决定怎么做
 //甲方草拟一份协议
-@protocol ActivityTableViewCellDelegate <NSObject>
+@protocol ShoppingTableViewCellDelegate <NSObject>
 
 
 @required
@@ -33,5 +33,5 @@
 
 
 //甲方打印一份协议
-@property (weak,nonatomic) id <UITableViewDelegate> delegate;
+@property (weak,nonatomic) id <ShoppingTableViewCellDelegate> delegate;
 @end

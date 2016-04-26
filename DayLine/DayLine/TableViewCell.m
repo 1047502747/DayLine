@@ -8,17 +8,18 @@
 
 #import "TableViewCell.h"
 
+
 @implementation TableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    UILongPressGestureRecognizer *cellLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(cellLongPress:)];
-    [self addGestureRecognizer:cellLongPress];
-    
-    UITapGestureRecognizer *photoTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTap:)];
-    [self.aviimageView addGestureRecognizer:photoTap];
-    
+//    UILongPressGestureRecognizer *cellLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(cellLongPress:)];
+//    [self addGestureRecognizer:cellLongPress];
+//    
+//    UITapGestureRecognizer *photoTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTap:)];
+//    [self.aviimageView addGestureRecognizer:photoTap];
+//    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

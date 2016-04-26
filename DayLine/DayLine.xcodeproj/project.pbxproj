@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7DC925805AF00D7796E6EF82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD118F2B4D80F2FAF51A92F5 /* libPods.a */; };
 		D308A2741CCDFEAB002D512F /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D308A2731CCDFEAB002D512F /* LeftViewController.m */; };
-		D308A2771CCE0B83002D512F /* ShoppingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D308A2761CCE0B83002D512F /* ShoppingTableViewController.m */; };
 		D31F52901CC5C984001F993F /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F528F1CC5C984001F993F /* TableViewController.m */; };
 		D31F52931CC5C9EA001F993F /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F52921CC5C9EA001F993F /* TableViewCell.m */; };
 		D31F52991CC5CEA0001F993F /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F52981CC5CEA0001F993F /* SigninViewController.m */; };
@@ -74,8 +73,6 @@
 		AED356881DDBA86B7BC809CD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D308A2721CCDFEAB002D512F /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		D308A2731CCDFEAB002D512F /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
-		D308A2751CCE0B83002D512F /* ShoppingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingTableViewController.h; sourceTree = "<group>"; };
-		D308A2761CCE0B83002D512F /* ShoppingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingTableViewController.m; sourceTree = "<group>"; };
 		D31F528E1CC5C984001F993F /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		D31F528F1CC5C984001F993F /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		D31F52911CC5C9EA001F993F /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
@@ -374,8 +371,6 @@
 				D36671701CCCAD160099F080 /* PublishViewController.m */,
 				D308A2721CCDFEAB002D512F /* LeftViewController.h */,
 				D308A2731CCDFEAB002D512F /* LeftViewController.m */,
-				D308A2751CCE0B83002D512F /* ShoppingTableViewController.h */,
-				D308A2761CCE0B83002D512F /* ShoppingTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -577,7 +572,6 @@
 				E749D8D01CC2258800FAEFB5 /* BasicEncodingRules.m in Sources */,
 				E749D8C51CC21F9200FAEFB5 /* NSString+Crypt.m in Sources */,
 				D36671711CCCAD160099F080 /* PublishViewController.m in Sources */,
-				D308A2771CCE0B83002D512F /* ShoppingTableViewController.m in Sources */,
 				D31F52901CC5C984001F993F /* TableViewController.m in Sources */,
 				E7760CBD1CC9C9EE008C7005 /* Banner.m in Sources */,
 				E749D86F1CC20F5000FAEFB5 /* ViewController.m in Sources */,
