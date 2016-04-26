@@ -10,5 +10,6 @@
 
 @interface PostViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)pickAction:(UITapGestureRecognizer *)sender;
 
 @end

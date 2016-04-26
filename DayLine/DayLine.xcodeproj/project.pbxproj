@@ -18,6 +18,9 @@
 		D387E9881CCB640900C44E8B /* MywaresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D387E9871CCB640900C44E8B /* MywaresTableViewController.m */; };
 		D387E98B1CCB64C700C44E8B /* MywaresTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D387E98A1CCB64C700C44E8B /* MywaresTableViewCell.m */; };
 		D387E98E1CCB664400C44E8B /* MypointsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D387E98D1CCB664400C44E8B /* MypointsViewController.m */; };
+		D389EAA71CCEF7520029EEE7 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D389EAA61CCEF7520029EEE7 /* PersonalViewController.m */; };
+		D389EAAA1CCEF7B80029EEE7 /* PersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D389EAA91CCEF7B80029EEE7 /* PersonalTableViewCell.m */; };
+		D389EAAD1CCF14E70029EEE7 /* ShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D389EAAC1CCF14E70029EEE7 /* ShoppingViewController.m */; };
 		D38DEE7D1CCA2BA500B46E96 /* dynamicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D38DEE7C1CCA2BA500B46E96 /* dynamicTableViewCell.m */; };
 		E749D8691CC20F5000FAEFB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D8681CC20F5000FAEFB5 /* main.m */; };
 		E749D86C1CC20F5000FAEFB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D86B1CC20F5000FAEFB5 /* AppDelegate.m */; };
@@ -91,6 +94,12 @@
 		D387E98A1CCB64C700C44E8B /* MywaresTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MywaresTableViewCell.m; sourceTree = "<group>"; };
 		D387E98C1CCB664400C44E8B /* MypointsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MypointsViewController.h; sourceTree = "<group>"; };
 		D387E98D1CCB664400C44E8B /* MypointsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MypointsViewController.m; sourceTree = "<group>"; };
+		D389EAA51CCEF7520029EEE7 /* PersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		D389EAA61CCEF7520029EEE7 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
+		D389EAA81CCEF7B80029EEE7 /* PersonalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewCell.h; sourceTree = "<group>"; };
+		D389EAA91CCEF7B80029EEE7 /* PersonalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewCell.m; sourceTree = "<group>"; };
+		D389EAAB1CCF14E70029EEE7 /* ShoppingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingViewController.h; sourceTree = "<group>"; };
+		D389EAAC1CCF14E70029EEE7 /* ShoppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingViewController.m; sourceTree = "<group>"; };
 		D38DEE7B1CCA2BA500B46E96 /* dynamicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dynamicTableViewCell.h; sourceTree = "<group>"; };
 		D38DEE7C1CCA2BA500B46E96 /* dynamicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dynamicTableViewCell.m; sourceTree = "<group>"; };
 		E749D8641CC20F5000FAEFB5 /* DayLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,6 +226,8 @@
 				D38DEE7C1CCA2BA500B46E96 /* dynamicTableViewCell.m */,
 				D387E9891CCB64C700C44E8B /* MywaresTableViewCell.h */,
 				D387E98A1CCB64C700C44E8B /* MywaresTableViewCell.m */,
+				D389EAA81CCEF7B80029EEE7 /* PersonalTableViewCell.h */,
+				D389EAA91CCEF7B80029EEE7 /* PersonalTableViewCell.m */,
 			);
 			name = Nav;
 			sourceTree = "<group>";
@@ -371,6 +382,13 @@
 				D36671701CCCAD160099F080 /* PublishViewController.m */,
 				D308A2721CCDFEAB002D512F /* LeftViewController.h */,
 				D308A2731CCDFEAB002D512F /* LeftViewController.m */,
+<<<<<<< HEAD
+=======
+				D389EAA51CCEF7520029EEE7 /* PersonalViewController.h */,
+				D389EAA61CCEF7520029EEE7 /* PersonalViewController.m */,
+				D389EAAB1CCF14E70029EEE7 /* ShoppingViewController.h */,
+				D389EAAC1CCF14E70029EEE7 /* ShoppingViewController.m */,
+>>>>>>> 84b7e1e0fbbfe886c537cb33d16bc09540f968a2
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -573,6 +591,7 @@
 				E749D8C51CC21F9200FAEFB5 /* NSString+Crypt.m in Sources */,
 				D36671711CCCAD160099F080 /* PublishViewController.m in Sources */,
 				D31F52901CC5C984001F993F /* TableViewController.m in Sources */,
+				D389EAA71CCEF7520029EEE7 /* PersonalViewController.m in Sources */,
 				E7760CBD1CC9C9EE008C7005 /* Banner.m in Sources */,
 				E749D86F1CC20F5000FAEFB5 /* ViewController.m in Sources */,
 				E749D8C31CC21F9200FAEFB5 /* AppAPIClient.m in Sources */,
@@ -580,11 +599,13 @@
 				E7760CBE1CC9C9EE008C7005 /* Timer.m in Sources */,
 				E749D86C1CC20F5000FAEFB5 /* AppDelegate.m in Sources */,
 				D387E98E1CCB664400C44E8B /* MypointsViewController.m in Sources */,
+				D389EAAA1CCEF7B80029EEE7 /* PersonalTableViewCell.m in Sources */,
 				E749D8751CC20F5000FAEFB5 /* DayLine.xcdatamodeld in Sources */,
 				E749D8C41CC21F9200FAEFB5 /* NSData+Base64.m in Sources */,
 				D387E98B1CCB64C700C44E8B /* MywaresTableViewCell.m in Sources */,
 				E749D8691CC20F5000FAEFB5 /* main.m in Sources */,
 				D387E9881CCB640900C44E8B /* MywaresTableViewController.m in Sources */,
+				D389EAAD1CCF14E70029EEE7 /* ShoppingViewController.m in Sources */,
 				E749D8A71CC21ACB00FAEFB5 /* StorageMgr.m in Sources */,
 				D38DEE7D1CCA2BA500B46E96 /* dynamicTableViewCell.m in Sources */,
 				D31F52931CC5C9EA001F993F /* TableViewCell.m in Sources */,
