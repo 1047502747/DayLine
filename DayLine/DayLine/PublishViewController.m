@@ -42,19 +42,19 @@ UINavigationControllerDelegate>{
 
 - (void)pickImage:(UIImagePickerControllerSourceType)sourceType {
     NSLog(@"照片被按了");
-//判断当前选择的图片选择器控制器类型是否可用
+    //判断当前选择的图片选择器控制器类型是否可用
     if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
-//神奇的nil
-         _imagePC = nil;
-//初始化一个图片选择器控制器对象
-         _imagePC = [[UIImagePickerController alloc] init];
-//签协议
-         _imagePC.delegate = self;
-//设置图片选择器控制器类型
+        //神奇的nil
+        _imagePC = nil;
+        //初始化一个图片选择器控制器对象
+        _imagePC = [[UIImagePickerController alloc] init];
+        //签协议
+        _imagePC.delegate = self;
+        //设置图片选择器控制器类型
         _imagePC.sourceType = sourceType;
-//设置选中的媒体文件是否可以被编辑
+        //设置选中的媒体文件是否可以被编辑
         _imagePC.allowsEditing = YES;
-//设置可以被选择的媒体文件的类型
+        //设置可以被选择的媒体文件的类型
         _imagePC.mediaTypes = @[(NSString *)kUTTypeImage];
         [self presentViewController:_imagePC animated:YES completion:nil];
     } else {
@@ -72,7 +72,6 @@ UINavigationControllerDelegate>{
 
 - (IBAction)pickAction:(UITapGestureRecognizer *)sender {
     
-    
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *takePhoto = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self pickImage:UIImagePickerControllerSourceTypeCamera];
@@ -88,7 +87,6 @@ UINavigationControllerDelegate>{
     
     
 }
-
 
 
 //当选择完媒体文件后调用
@@ -109,9 +107,7 @@ UINavigationControllerDelegate>{
 
 
 
-
 - (IBAction)upload:(UIButton *)sender forEvent:(UIEvent *)event {
-    
     UIImage *image = _photo.image;
     NSString *topic = _content.text;
     
@@ -156,18 +152,10 @@ UINavigationControllerDelegate>{
 
 
 
-
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }
-
-
-
-
-
-
 //让text view控件实现：当键盘右下角按钮被按下后，收起键盘
 //当文本输入视图中文字内容发生变化时调用（返回YES表示同意这个变化发生；返回NO表示不同意）
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
@@ -179,14 +167,8 @@ UINavigationControllerDelegate>{
     return YES;
 }
 
-
-
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
 
-
-
 @end
-
