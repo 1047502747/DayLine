@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7DC925805AF00D7796E6EF82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD118F2B4D80F2FAF51A92F5 /* libPods.a */; };
+		B4F57FCE1CCF827D0092665A /* ABCIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F57FCD1CCF827D0092665A /* ABCIntroView.m */; };
+		B4F57FCF1CCF827D0092665A /* ABCIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F57FCD1CCF827D0092665A /* ABCIntroView.m */; };
+		B4F57FD01CCF827D0092665A /* ABCIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F57FCD1CCF827D0092665A /* ABCIntroView.m */; };
 		D308A2741CCDFEAB002D512F /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D308A2731CCDFEAB002D512F /* LeftViewController.m */; };
 		D31F52901CC5C984001F993F /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F528F1CC5C984001F993F /* TableViewController.m */; };
 		D31F52931CC5C9EA001F993F /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F52921CC5C9EA001F993F /* TableViewCell.m */; };
@@ -74,6 +77,8 @@
 /* Begin PBXFileReference section */
 		56DA5F47ED637FF2B86F03CF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AED356881DDBA86B7BC809CD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B4F57FCC1CCF825E0092665A /* ABCIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCIntroView.h; sourceTree = "<group>"; };
+		B4F57FCD1CCF827D0092665A /* ABCIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCIntroView.m; sourceTree = "<group>"; };
 		D308A2721CCDFEAB002D512F /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		D308A2731CCDFEAB002D512F /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		D31F528E1CC5C984001F993F /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
@@ -282,8 +287,8 @@
 			children = (
 				E749D86A1CC20F5000FAEFB5 /* AppDelegate.h */,
 				E749D86B1CC20F5000FAEFB5 /* AppDelegate.m */,
-				E749D87B1CC20F5000FAEFB5 /* Info.plist */,
 				E749D8681CC20F5000FAEFB5 /* main.m */,
+				E749D87B1CC20F5000FAEFB5 /* Info.plist */,
 				E749D8731CC20F5000FAEFB5 /* DayLine.xcdatamodeld */,
 				E749D8BC1CC21CB300FAEFB5 /* PrefixHeader.pch */,
 			);
@@ -319,6 +324,8 @@
 		E749D89E1CC21A2D00FAEFB5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B4F57FCC1CCF825E0092665A /* ABCIntroView.h */,
+				B4F57FCD1CCF827D0092665A /* ABCIntroView.m */,
 				E749D8BD1CC21F9200FAEFB5 /* AppAPIClient.h */,
 				E749D8BE1CC21F9200FAEFB5 /* AppAPIClient.m */,
 				E749D8BF1CC21F9200FAEFB5 /* NSData+Base64.h */,
@@ -589,6 +596,7 @@
 				D36671711CCCAD160099F080 /* PublishViewController.m in Sources */,
 				D31F52901CC5C984001F993F /* TableViewController.m in Sources */,
 				D389EAA71CCEF7520029EEE7 /* PersonalViewController.m in Sources */,
+				B4F57FCE1CCF827D0092665A /* ABCIntroView.m in Sources */,
 				E7760CBD1CC9C9EE008C7005 /* Banner.m in Sources */,
 				E749D86F1CC20F5000FAEFB5 /* ViewController.m in Sources */,
 				E749D8C31CC21F9200FAEFB5 /* AppAPIClient.m in Sources */,
@@ -615,6 +623,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F57FCF1CCF827D0092665A /* ABCIntroView.m in Sources */,
 				E749D8851CC20F5100FAEFB5 /* DayLineTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,6 +632,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F57FD01CCF827D0092665A /* ABCIntroView.m in Sources */,
 				E749D8901CC20F5100FAEFB5 /* DayLineUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
