@@ -17,6 +17,7 @@
     NSInteger page;
     NSInteger perPage;
     NSInteger totalPage;
+    NSInteger userID;
     BOOL isLoading;
 }
 @property(strong,nonatomic)NSMutableArray *objectsForShow;
@@ -31,7 +32,7 @@
     [self initializeData];
     [self naviConfiguration];
     [self uiConfiguaration];
-    //    [self hdintegral];
+//        [self integale];
     
     //    self.navigationController.navigationBar.hidden = YES;
     CGSize size = [UIScreen mainScreen].bounds.size;
@@ -63,6 +64,23 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)integale{
+    NSString * path =@"/score/memberScore";
+    NSDictionary*dic =@{
+                        @"memberId":@191
+                        };
+    [RequestAPI getURL:path withParameters:dic success:^(id responseObject) {
+        if ([responseObject[@"resultFlag"]integerValue] == 8001) {
+            NSDictionary *rootDict = responseObject[@"result"];
+            NSString *inG = [NSString stringWithFormat:@"积分：%@",rootDict];
+            _integral.text = inG;
+        }
+        
+    } failure:^(NSError *error) {
+         NSLog(@"error :%@",error.description);
+    }];
 }
 
 -(void)naviConfiguration {
@@ -300,6 +318,7 @@
     NSURL *URL = [NSURL URLWithString:activity.imgUrl];
     
     [cell.imageView sd_setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"First"]];
+    
     //    NSLog(@"activity.imgUrl = %@",activity.imgUrl);
     cell.SPname.text = [NSString stringWithFormat:@"商品名称：%@",activity.spName];
     cell.commodityID.text = [NSString stringWithFormat:@"商品ID：%@",activity.spId];
@@ -309,21 +328,27 @@
     if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
         //下划线距离，边界缩进0
         [cell setSeparatorInset:UIEdgeInsetsZero];
+       
     }
     if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
         //不保留间距
         [cell setPreservesSuperviewLayoutMargins:NO];
+        
     }
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
+        
     }
     return cell;
 }
+
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
 
 //协议第六步：乙方履行条款（被委托方执行协议中的方法）
 - (void)applyAction:(NSIndexPath *)indexPath {
@@ -344,6 +369,7 @@
     //将以上两个按钮添加进弹出窗（按钮添加的顺序决定按钮的排版：从左到右；从上到下。如果是取消风格UIAlertActionStyleCancel的按钮会放在最左边）
     [alertView addAction:confirmAction];
     [alertView addAction:cancelAction];
+    
     //用present modal的方式跳转到另一个页面（显示alertView）
     [self presentViewController:alertView animated:YES completion:nil];
 }
@@ -403,8 +429,15 @@
     NSLog(@"要缩小");
     if (sender.state == UIGestureRecognizerStateRecognized) {
         [_zoomIV removeGestureRecognizer:sender];
-        [_zoomIV removeFromSuperview];
+        [UIView animateWithDuration:0.2f animations:^{
+            _zoomIV.frame = CGRectMake(_zoomIV.frame.origin.x, _zoomIV.frame.origin.y, 0, 0);
+        } completion:^(BOOL finished) {
+            [_zoomIV removeFromSuperview];
+        }];
         _zoomIV = nil;
+//        [_zoomIV removeGestureRecognizer:sender];
+//        [_zoomIV removeFromSuperview];
+//        _zoomIV = nil;
     }
 }
 

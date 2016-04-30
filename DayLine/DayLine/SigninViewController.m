@@ -9,7 +9,7 @@
 #import "SigninViewController.h"
 #import "TableViewController.h"
 
-@interface SigninViewController (){}
+@interface SigninViewController ()
 @property (strong, nonatomic) UIActivityIndicatorView *aiv;
 @end
 
@@ -122,6 +122,7 @@
             NSDictionary *dict = responseObject[@"result"];
             NSString *exponent = dict[@"exponent"];
             NSString *modulus = dict[@"modulus"];
+            
             //从单例化全局变量中删除数据
             [[StorageMgr singletonStorageMgr]removeObjectForKey:@"exponent"];
             [[StorageMgr singletonStorageMgr]removeObjectForKey:@"modulus"];
@@ -146,6 +147,9 @@
              {
                  NSLog(@"responseOject:%@",responseObject);
                  if ([responseObject[@"resultFlag"] integerValue] == 8001) {
+                     NSDictionary *dict = responseObject[@"result"];
+                     NSString *memberId = dict[@"memberId"];
+                     [[StorageMgr singletonStorageMgr] addKey:@"memberId" andValue:memberId];
                      //执行登录
                      [self signInWithUsername:_usernameTF.text andPassword:_passwordTF.text];
                      //[self popUpMall];
