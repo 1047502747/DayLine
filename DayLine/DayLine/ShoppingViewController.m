@@ -309,13 +309,22 @@
     //乙方签署协议,每一个cell都签一个协议
     cell.delegate = self;
     cell.indexPath = indexPath;
-    ActivityObject *activity = _objectsForShow[indexPath.row];
-    if (activity.isApplied) {
-        [cell.purchaseBut setTitle:@"取消" forState:UIControlStateNormal];
-    }else{
-        [cell.purchaseBut setTitle:@"购买" forState:UIControlStateNormal];
+    
+    //下划线顶住屏幕
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        //下划线距离，边界缩进0
+        [cell setSeparatorInset:UIEdgeInsetsZero];
     }
-    NSURL *URL = [NSURL URLWithString:activity.imgUrl];
+    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        //不保留间距
+        [cell setPreservesSuperviewLayoutMargins:NO];
+    }
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+
+    ActivityObject *activity = _objectsForShow[indexPath.row];
+        NSURL *URL = [NSURL URLWithString:activity.imgUrl];
     
     [cell.imageView sd_setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"First"]];
     
@@ -324,22 +333,13 @@
     cell.commodityID.text = [NSString stringWithFormat:@"商品ID：%@",activity.spId];
     cell.quantity.text = [NSString stringWithFormat:@"剩余数量：%@",activity.spAmount];
     cell.integralLbl.text = [NSString stringWithFormat:@"所需积分：%@",activity.spScore];
-    //下划线顶住屏幕
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        //下划线距离，边界缩进0
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-       
+    if (activity.isApplied) {
+        [cell.purchaseBut setTitle:@"取消" forState:UIControlStateNormal];
+    }else{
+        [cell.purchaseBut setTitle:@"购买" forState:UIControlStateNormal];
     }
-    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
-        //不保留间距
-        [cell setPreservesSuperviewLayoutMargins:NO];
-        
-    }
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-        
-    }
-    return cell;
+
+       return cell;
 }
 
 
@@ -428,16 +428,16 @@
 - (void)zoomTap:(UITapGestureRecognizer *)sender {
     NSLog(@"要缩小");
     if (sender.state == UIGestureRecognizerStateRecognized) {
-        [_zoomIV removeGestureRecognizer:sender];
-        [UIView animateWithDuration:0.2f animations:^{
-            _zoomIV.frame = CGRectMake(_zoomIV.frame.origin.x, _zoomIV.frame.origin.y, 0, 0);
-        } completion:^(BOOL finished) {
-            [_zoomIV removeFromSuperview];
-        }];
-        _zoomIV = nil;
 //        [_zoomIV removeGestureRecognizer:sender];
-//        [_zoomIV removeFromSuperview];
+//        [UIView animateWithDuration:0.2f animations:^{
+//            _zoomIV.frame = CGRectMake(_zoomIV.frame.origin.x, _zoomIV.frame.origin.y, 0, 0);
+//        } completion:^(BOOL finished) {
+//            [_zoomIV removeFromSuperview];
+//        }];
 //        _zoomIV = nil;
+        [_zoomIV removeGestureRecognizer:sender];
+        [_zoomIV removeFromSuperview];
+        _zoomIV = nil;
     }
 }
 
