@@ -8,11 +8,12 @@
 
 #import "MypointsViewController.h"
 #import "ActivityObject.h"
-#import "SigninViewController.h"
+
 @interface MypointsViewController ()
-{
-    NSInteger userID;
-}
+//{
+//    NSInteger userID;
+//}
+@property (strong, nonatomic)NSString *userID;
 @end
 
 @implementation MypointsViewController
@@ -29,13 +30,17 @@
 }
 
 -(void)integale{
-    if ([StorageMgr singletonStorageMgr]==0) {
+    //读取A界面传递过来的值
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.userActivity = [defaults valueForKey:@"responseObject"];
+    
+    if (_userID.length==0) {
         [Utilities popUpAlertViewWithMsg:@"请登录账号" andTitle:nil onView:self];
         return;
     }else{
         NSString * peth =@"/score/memberScore";
         NSDictionary*dic =@{
-                            @"memberId":@190                     };
+                            @"memberId":_userID                    };
         [RequestAPI getURL:peth withParameters:dic success:^(id responseObject) {
             if ([responseObject[@"resultFlag"]integerValue] == 8001) {
                 
