@@ -25,6 +25,9 @@
 		D389EAAA1CCEF7B80029EEE7 /* PersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D389EAA91CCEF7B80029EEE7 /* PersonalTableViewCell.m */; };
 		D389EAAD1CCF14E70029EEE7 /* ShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D389EAAC1CCF14E70029EEE7 /* ShoppingViewController.m */; };
 		D38DEE7D1CCA2BA500B46E96 /* dynamicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D38DEE7C1CCA2BA500B46E96 /* dynamicTableViewCell.m */; };
+		D397C0271CDC68ED003D5B1D /* commentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D397C0261CDC68ED003D5B1D /* commentTableViewCell.m */; };
+		D397C02A1CDC691E003D5B1D /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D397C0291CDC691E003D5B1D /* LeftTableViewCell.m */; };
+		D397C02D1CDC6991003D5B1D /* commentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D397C02C1CDC6991003D5B1D /* commentViewController.m */; };
 		E749D8691CC20F5000FAEFB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D8681CC20F5000FAEFB5 /* main.m */; };
 		E749D86C1CC20F5000FAEFB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D86B1CC20F5000FAEFB5 /* AppDelegate.m */; };
 		E749D86F1CC20F5000FAEFB5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E749D86E1CC20F5000FAEFB5 /* ViewController.m */; };
@@ -107,6 +110,12 @@
 		D389EAAC1CCF14E70029EEE7 /* ShoppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingViewController.m; sourceTree = "<group>"; };
 		D38DEE7B1CCA2BA500B46E96 /* dynamicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dynamicTableViewCell.h; sourceTree = "<group>"; };
 		D38DEE7C1CCA2BA500B46E96 /* dynamicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dynamicTableViewCell.m; sourceTree = "<group>"; };
+		D397C0251CDC68ED003D5B1D /* commentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentTableViewCell.h; sourceTree = "<group>"; };
+		D397C0261CDC68ED003D5B1D /* commentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentTableViewCell.m; sourceTree = "<group>"; };
+		D397C0281CDC691E003D5B1D /* LeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTableViewCell.h; sourceTree = "<group>"; };
+		D397C0291CDC691E003D5B1D /* LeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewCell.m; sourceTree = "<group>"; };
+		D397C02B1CDC6991003D5B1D /* commentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentViewController.h; sourceTree = "<group>"; };
+		D397C02C1CDC6991003D5B1D /* commentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentViewController.m; sourceTree = "<group>"; };
 		E749D8641CC20F5000FAEFB5 /* DayLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E749D8681CC20F5000FAEFB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E749D86A1CC20F5000FAEFB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -233,6 +242,10 @@
 				D387E98A1CCB64C700C44E8B /* MywaresTableViewCell.m */,
 				D389EAA81CCEF7B80029EEE7 /* PersonalTableViewCell.h */,
 				D389EAA91CCEF7B80029EEE7 /* PersonalTableViewCell.m */,
+				D397C0251CDC68ED003D5B1D /* commentTableViewCell.h */,
+				D397C0261CDC68ED003D5B1D /* commentTableViewCell.m */,
+				D397C0281CDC691E003D5B1D /* LeftTableViewCell.h */,
+				D397C0291CDC691E003D5B1D /* LeftTableViewCell.m */,
 			);
 			name = Nav;
 			sourceTree = "<group>";
@@ -393,6 +406,8 @@
 				D389EAA61CCEF7520029EEE7 /* PersonalViewController.m */,
 				D389EAAB1CCF14E70029EEE7 /* ShoppingViewController.h */,
 				D389EAAC1CCF14E70029EEE7 /* ShoppingViewController.m */,
+				D397C02B1CDC6991003D5B1D /* commentViewController.h */,
+				D397C02C1CDC6991003D5B1D /* commentViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -588,8 +603,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D31F52991CC5CEA0001F993F /* SigninViewController.m in Sources */,
+				D397C0271CDC68ED003D5B1D /* commentTableViewCell.m in Sources */,
 				E749D8C81CC2204800FAEFB5 /* RequestAPI.m in Sources */,
 				E749D8A81CC21ACB00FAEFB5 /* Utilities.m in Sources */,
+				D397C02D1CDC6991003D5B1D /* commentViewController.m in Sources */,
 				D31F529C1CC5CEC7001F993F /* registerViewController.m in Sources */,
 				E749D8D01CC2258800FAEFB5 /* BasicEncodingRules.m in Sources */,
 				E749D8C51CC21F9200FAEFB5 /* NSString+Crypt.m in Sources */,
@@ -607,6 +624,7 @@
 				D389EAAA1CCEF7B80029EEE7 /* PersonalTableViewCell.m in Sources */,
 				E749D8751CC20F5000FAEFB5 /* DayLine.xcdatamodeld in Sources */,
 				E749D8C41CC21F9200FAEFB5 /* NSData+Base64.m in Sources */,
+				D397C02A1CDC691E003D5B1D /* LeftTableViewCell.m in Sources */,
 				D387E98B1CCB64C700C44E8B /* MywaresTableViewCell.m in Sources */,
 				E749D8691CC20F5000FAEFB5 /* main.m in Sources */,
 				D387E9881CCB640900C44E8B /* MywaresTableViewController.m in Sources */,
