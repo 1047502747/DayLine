@@ -10,7 +10,7 @@
 #import "dynamicTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "PublishViewController.h"
-
+#import "PersonalViewController.h"
 @interface PostViewController ()
 @property (strong, nonatomic) NSMutableArray *objectsForShow;
 @property (strong, nonatomic) UIActivityIndicatorView *aiv;
@@ -156,5 +156,9 @@
 
 
 - (IBAction)pickAction:(UITapGestureRecognizer *)sender {
+   PersonalViewController *tabVC = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"Tab"];
+    //modal方式跳转到上述页面
+    [self presentViewController:tabVC animated:YES completion:nil];
+
 }
 @end

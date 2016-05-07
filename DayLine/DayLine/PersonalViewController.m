@@ -109,7 +109,7 @@
     NSURL *photoURL = [NSURL URLWithString:photoURLStr];
     NSURL *photoURL2= [NSURL URLWithString:photoURLStr2];
     [cell.Homelmage sd_setImageWithURL:photoURL placeholderImage:[UIImage imageNamed:@"Default"]];
-    [cell.HomelmagepictureView sd_setImageWithURL:photoURL2 placeholderImage:[UIImage imageNamed:@"Default"]];
+    [cell.HomepictureView sd_setImageWithURL:photoURL2 placeholderImage:[UIImage imageNamed:@"Default"]];
     cell.Homeusername.text = name;
     cell.HomenumberLbl.text = [NSString stringWithFormat:@"%@",praise];
     cell.Homepublishtime.text = date;
