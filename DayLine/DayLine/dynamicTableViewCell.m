@@ -21,6 +21,9 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)KeyBut:(UIButton *)sender forEvent:(UIEvent *)event {
+}
+
 - (IBAction)PostBut:(UIButton *)sender forEvent:(UIEvent *)event {
     
 }

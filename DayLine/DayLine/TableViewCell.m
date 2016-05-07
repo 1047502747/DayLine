@@ -8,6 +8,7 @@
 
 #import "TableViewCell.h"
 
+
 @implementation TableViewCell
 
 
@@ -30,25 +31,25 @@
 
 
 - (IBAction)purchase:(UIButton *)sender forEvent:(UIEvent *)event {
-//    //如果协议存在且能响应
-//    if (_delegate && [_delegate respondsToSelector:@selector(applyAction:)]) {
-//        [_delegate applyAction:_indexPath];
-//    }
-//}
-//- (void)cellLongPress:(UILongPressGestureRecognizer *)sender {
-//    if (sender.state == UIGestureRecognizerStateBegan) {
-//        if (_delegate && _indexPath && [_delegate respondsToSelector:@selector(cellLongPressAtIndexPath:)]) {
-//            [_delegate cellLongPressAtIndexPath:_indexPath];
-//        }
-//    }
-//}
-//
-//- (void)photoTap:(UITapGestureRecognizer *)sender {
-//    if (sender.state == UIGestureRecognizerStateRecognized) {
-//        if (_delegate && _indexPath && [_delegate respondsToSelector:@selector(photoTapAtIndexPath:)]) {
-//            [_delegate photoTapAtIndexPath:_indexPath];
-//        }
-//    }
+    //如果协议存在且能响应
+    if (_delegate && [_delegate respondsToSelector:@selector(applyAction:)]) {
+        [_delegate applyAction:_indexPath];
+    }
+}
+- (void)cellLongPress:(UILongPressGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        if (_delegate && _indexPath && [_delegate respondsToSelector:@selector(cellLongPressAtIndexPath:)]) {
+            [_delegate cellLongPressAtIndexPath:_indexPath];
+        }
+    }
+}
+
+- (void)photoTap:(UITapGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateRecognized) {
+        if (_delegate && _indexPath && [_delegate respondsToSelector:@selector(photoTapAtIndexPath:)]) {
+            [_delegate photoTapAtIndexPath:_indexPath];
+        }
+    }
 }
 
 

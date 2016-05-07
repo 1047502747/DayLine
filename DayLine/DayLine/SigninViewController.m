@@ -9,8 +9,9 @@
 #import "SigninViewController.h"
 #import "TableViewController.h"
 
-@interface SigninViewController (){}
+@interface SigninViewController ()
 @property (strong, nonatomic) UIActivityIndicatorView *aiv;
+
 @end
 
 @implementation SigninViewController
@@ -122,6 +123,7 @@
             NSDictionary *dict = responseObject[@"result"];
             NSString *exponent = dict[@"exponent"];
             NSString *modulus = dict[@"modulus"];
+            
             //从单例化全局变量中删除数据
             [[StorageMgr singletonStorageMgr]removeObjectForKey:@"exponent"];
             [[StorageMgr singletonStorageMgr]removeObjectForKey:@"modulus"];
@@ -144,8 +146,18 @@
             
             [RequestAPI postURL:@"/login" withParameters:parameters success:^(id responseObject)
              {
-                 NSLog(@"responseOject:%@",responseObject);
+                 NSLog(@"responseObject:%@",responseObject);
                  if ([responseObject[@"resultFlag"] integerValue] == 8001) {
+//                     NSDictionary *dict = responseObject[@"result"];
+//                     NSString *memberId = dict[@"memberId"];
+//                     [[StorageMgr singletonStorageMgr]removeObjectForKey:@"memberId"];
+//                     [[StorageMgr singletonStorageMgr] addKey:@"memberId" andValue:memberId];
+                     //存储数据
+                     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                     [defaults setObject:@"memberId" forKey:@"responseObject"];
+                     
+                     //设置同步
+                     [defaults synchronize];
                      //执行登录
                      [self signInWithUsername:_usernameTF.text andPassword:_passwordTF.text];
                      //[self popUpMall];
@@ -173,6 +185,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
+
 
 
 
