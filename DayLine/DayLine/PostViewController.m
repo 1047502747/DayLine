@@ -158,8 +158,8 @@
 
 - (void)applyAction2:(NSIndexPath *)indexPath {
 
-    PersonalViewController *tabVC = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"B"];
-    [self.navigationController pushViewController:tabVC animated:YES];
+    PersonalViewController *tabVC2 = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"B"];
+    [self.navigationController pushViewController:tabVC2 animated:YES];
     
     
 }
