@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+//协议第一步：甲方草拟一份协议（创建一个协议）
+@protocol dynamicTableViewCellDelegate <NSObject>
+@required
+- (void)applyAction:(NSIndexPath *)indexPath;
+- (void)applyAction2:(NSIndexPath *)indexPath;
+@end
 @interface dynamicTableViewCell : UITableViewCell
 
 
@@ -19,8 +24,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *comment;
 @property (weak, nonatomic) IBOutlet UILabel *NumberLbl;
 @property (weak, nonatomic) IBOutlet UILabel *nickname;
-- (IBAction)KeyBut:(UIButton *)sender forEvent:(UIEvent *)event;
 
+//协议第二步：甲方打印一份协议（将协议实例化
+@property (weak,nonatomic) id<dynamicTableViewCellDelegate>delegate;
+@property (strong,nonatomic) NSIndexPath *indexPath;
+- (IBAction)KeyBut:(UIButton *)sender forEvent:(UIEvent *)event;
 - (IBAction)PostBut:(UIButton *)sender forEvent:(UIEvent *)event;
 - (IBAction)ZambiBut:(UIButton *)sender forEvent:(UIEvent *)event;
 - (IBAction)nickname:(UIButton *)sender forEvent:(UIEvent *)event;

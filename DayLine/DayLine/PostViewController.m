@@ -10,8 +10,17 @@
 #import "dynamicTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "PublishViewController.h"
+#import "PersonalViewController.h"
+@interface PostViewController () <dynamicTableViewCellDelegate,UIScrollViewDelegate>
+//协议第四步：乙方将协议摊开在自己面前（将协议引入本类）
+{
+    NSInteger page;
+    NSInteger perPage;
+    NSInteger totalPage;
+    
+    BOOL isLoading;
+}
 
-@interface PostViewController ()
 @property (strong, nonatomic) NSMutableArray *objectsForShow;
 @property (strong, nonatomic) UIActivityIndicatorView *aiv;
 
@@ -130,13 +139,30 @@
     cell.showView.text = topic;
     cell.comment.text = content;
     
-   
+    //协议第五步：乙方签字（被委托方声明将对协议负责）
+    cell.delegate = self;
+    cell.indexPath = indexPath;
     return cell;
 }
 
 
+- (void)applyAction:(NSIndexPath *)indexPath {
+    
+    PersonalViewController *tabVC = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"A"];
+    [self.navigationController pushViewController:tabVC animated:YES];
+    
+    
+}
 
 
+
+- (void)applyAction2:(NSIndexPath *)indexPath {
+
+    PersonalViewController *tabVC2 = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"B"];
+    [self.navigationController pushViewController:tabVC2 animated:YES];
+    
+    
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -155,6 +181,5 @@
 }
 
 
-- (IBAction)pickAction:(UITapGestureRecognizer *)sender {
-}
+
 @end
