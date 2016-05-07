@@ -10,8 +10,12 @@
 //协议第一步：甲方草拟一份协议（创建一个协议）
 @protocol dynamicTableViewCellDelegate <NSObject>
 @required
+
 - (void)applyAction:(NSIndexPath *)indexPath;
 - (void)applyAction2:(NSIndexPath *)indexPath;
+- (void)cellLongPressAtIndexPath:(NSIndexPath *)indexPath;
+- (void)photoTapAtIndexPath:(NSIndexPath *)indexPath;
+
 @end
 @interface dynamicTableViewCell : UITableViewCell
 

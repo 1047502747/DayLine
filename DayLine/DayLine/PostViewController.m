@@ -7,6 +7,8 @@
 //
 
 #import "PostViewController.h"
+#import "testViewController.h"
+#import "commentViewController.h"
 #import "dynamicTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "PublishViewController.h"
@@ -124,6 +126,8 @@
 //    NSString *nickname = user[@"commenter"];
     NSNumber *praise = obj[@"praise"];
     NSString *date = [NSString stringWithFormat:@"%@",obj.createdAt];
+    
+    
     self.navigationItem.title = user[@"name"];
     PFFile *photoFile = user[@"photo"];
     PFFile *photoFile2 = obj[@"photo"];
@@ -135,6 +139,11 @@
     [cell.pictureView sd_setImageWithURL:photoURL2 placeholderImage:[UIImage imageNamed:@"Default"]];
     cell.username.text = name;
     cell.NumberLbl.text = [NSString stringWithFormat:@"%@",praise];
+    
+    NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateString = [dateFormat stringFromDate:[NSDate date]];
+
     cell.publishtime.text = date;
     cell.showView.text = topic;
     cell.comment.text = content;
@@ -158,13 +167,13 @@
 
 - (void)applyAction2:(NSIndexPath *)indexPath {
 
-    PersonalViewController *tabVC2 = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"B"];
+    commentViewController *tabVC2 = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"B"];
     [self.navigationController pushViewController:tabVC2 animated:YES];
     
     
 }
 #pragma mark - Navigation
-
+/*
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
@@ -180,6 +189,6 @@
     
 }
 
-
+*/
 
 @end
