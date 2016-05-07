@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *comment;
 @property (weak, nonatomic) IBOutlet UILabel *NumberLbl;
 @property (weak, nonatomic) IBOutlet UILabel *nickname;
+- (IBAction)KeyBut:(UIButton *)sender forEvent:(UIEvent *)event;
 
 - (IBAction)PostBut:(UIButton *)sender forEvent:(UIEvent *)event;
 - (IBAction)ZambiBut:(UIButton *)sender forEvent:(UIEvent *)event;

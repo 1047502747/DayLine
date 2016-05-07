@@ -470,7 +470,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEP-gb-UVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3119" y="1526"/>
+            <point key="canvasLocation" x="3119" y="1576"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="GZT-Ik-rtg">
@@ -599,10 +599,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabel" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ8-gZ-Buz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
+                                                </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ais-5Z-4y3">
                                                     <rect key="frame" x="0.0" y="20" width="320" height="30"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="个人资料">
+                                                    <state key="normal" title="修改个人资料">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                 </button>
@@ -620,9 +623,6 @@
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabel" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ8-gZ-Buz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="nEz-Ip-URa" firstAttribute="top" secondItem="g5A-Bg-itn" secondAttribute="bottom" constant="20" id="8Il-LX-30G"/>
@@ -709,7 +709,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWF-8z-NdN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3548" y="852"/>
+            <point key="canvasLocation" x="3588" y="852"/>
         </scene>
         <!--动态-->
         <scene sceneID="dld-XK-CDc">
@@ -744,6 +744,7 @@
                                                                 <constraint firstAttribute="width" secondItem="Z69-Oh-ljD" secondAttribute="height" multiplier="1:1" id="exE-AV-Qzq"/>
                                                             </constraints>
                                                             <connections>
+                                                                <action selector="KeyBut:forEvent:" destination="Ff7-6j-dWd" eventType="touchUpInside" id="ESA-XU-51e"/>
                                                                 <segue destination="m0J-7e-vNt" kind="push" id="iL0-3k-vZj"/>
                                                             </connections>
                                                         </button>
@@ -827,9 +828,6 @@
                                                                     <integer key="value" value="30"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
-                                                            <connections>
-                                                                <outletCollection property="gestureRecognizers" destination="w1h-oB-5gB" appends="YES" id="Hl6-dO-vTw"/>
-                                                            </connections>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -909,13 +907,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lg2-Bt-pDA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="w1h-oB-5gB">
-                    <connections>
-                        <action selector="pickAction:" destination="reU-fO-Who" id="qmB-DO-PFe"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4590" y="585"/>
+            <point key="canvasLocation" x="4585" y="702"/>
         </scene>
         <!--Personal View Controller-->
         <scene sceneID="7Uj-yI-LnK">
@@ -1090,7 +1083,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y2a-Wk-Odx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4590" y="1383"/>
+            <point key="canvasLocation" x="4585" y="1490"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="lQT-4R-Aoh">
@@ -1314,7 +1307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RL5-5U-6U2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5009" y="1383"/>
+            <point key="canvasLocation" x="5039" y="1490"/>
         </scene>
         <!--发帖子-->
         <scene sceneID="Jxi-uh-K9w">
@@ -1403,7 +1396,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5009" y="585"/>
+            <point key="canvasLocation" x="5039" y="702"/>
         </scene>
         <!--商城-->
         <scene sceneID="bkQ-7N-1Cg">
@@ -1897,7 +1890,6 @@
         <!--Navigation Controller-->
         <scene sceneID="VT1-M7-c75">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y9f-OO-GnG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b8e-19-5vT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="YqQ-Fm-V9z"/>
@@ -1911,6 +1903,7 @@
                         <segue destination="BMY-2p-WLs" kind="relationship" relationship="rootViewController" id="aqf-h1-Hng"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y9f-OO-GnG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2200" y="159"/>
         </scene>
