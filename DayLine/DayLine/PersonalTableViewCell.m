@@ -24,8 +24,7 @@
 - (IBAction)HomeZambiBut:(UIButton *)sender forEvent:(UIEvent *)event {
 }
 
-- (IBAction)Homenickname:(UIButton *)sender forEvent:(UIEvent *)event {
-}
+
 
 - (IBAction)HomenewsBut:(UIButton *)sender forEvent:(UIEvent *)event {
 }

@@ -67,20 +67,7 @@
             [Utilities popUpAlertViewWithMsg:@"请保持网络连接畅通" andTitle:nil onView:self];
         }
     }];
-}
-//    //在根视图上创建一朵菊花，并且让它转动
-//    UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
-//    [aiv stopAnimating];
-//    
-    
-    
-//}
-////翻页结束
-//- (void)loadDataEnd {
-//    //将多余的下划线删除，其实将footer视图不存在位置，所以footer视图消失将隐藏
-//    self.tableView.tableFooterView = [[UIView alloc] init];
-//}
-
+   }
 
 
 
@@ -100,7 +87,7 @@
     NSString *topic = obj[@"topic"];
     NSString *content = obj[@"content"];
     NSNumber *praise = obj[@"praise"];
-    NSString *date = [NSString stringWithFormat:@"%@",obj.createdAt];
+    NSString *date = obj.createdAt;
     self.navigationItem.title = user[@"name"];
     PFFile *photoFile = user[@"photo"];
     PFFile *photoFile2 = obj[@"photo"];
@@ -112,9 +99,12 @@
     [cell.HomepictureView sd_setImageWithURL:photoURL2 placeholderImage:[UIImage imageNamed:@"Default"]];
     cell.Homeusername.text = name;
     cell.HomenumberLbl.text = [NSString stringWithFormat:@"%@",praise];
-    cell.Homepublishtime.text = date;
+    NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateString = [dateFormat stringFromDate:date];
+    cell.Homepublishtime.text = dateString;
     cell.HomeshowView.text = topic;
-    cell.Homecomment.text = content;
+
     
     return cell;
 }

@@ -125,10 +125,9 @@
     NSString *content = obj[@"content"];
 //    NSString *nickname = user[@"commenter"];
     NSNumber *praise = obj[@"praise"];
-    NSString *date = [NSString stringWithFormat:@"%@",obj.createdAt];
-    
-    
+    NSDate *date = obj.createdAt;
     self.navigationItem.title = user[@"name"];
+    
     PFFile *photoFile = user[@"photo"];
     PFFile *photoFile2 = obj[@"photo"];
     NSString *photoURLStr = photoFile.url;
@@ -137,22 +136,26 @@
     NSURL *photoURL2= [NSURL URLWithString:photoURLStr2];
     [cell.lmageportrait sd_setImageWithURL:photoURL placeholderImage:[UIImage imageNamed:@"Default"]];
     [cell.pictureView sd_setImageWithURL:photoURL2 placeholderImage:[UIImage imageNamed:@"Default"]];
+    
+    
+    
     cell.username.text = name;
     cell.NumberLbl.text = [NSString stringWithFormat:@"%@",praise];
-    
     NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *dateString = [dateFormat stringFromDate:[NSDate date]];
-
-    cell.publishtime.text = date;
+    NSString *dateString = [dateFormat stringFromDate:date];
+   
+    cell.publishtime.text = dateString;
     cell.showView.text = topic;
-    cell.comment.text = content;
+
     
     //协议第五步：乙方签字（被委托方声明将对协议负责）
     cell.delegate = self;
     cell.indexPath = indexPath;
     return cell;
 }
+
+
 
 
 - (void)applyAction:(NSIndexPath *)indexPath {

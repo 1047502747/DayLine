@@ -37,28 +37,11 @@
     
 }
 
-- (IBAction)nickname:(UIButton *)sender forEvent:(UIEvent *)event {
-    
-}
+
 
 - (IBAction)newsBut:(UIButton *)sender forEvent:(UIEvent *)event {
     if (_delegate && [_delegate respondsToSelector:@selector(applyAction2:)]) {
         [_delegate applyAction2:_indexPath];
-    }
-}
-- (void)cellLongPress:(UILongPressGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateBegan) {
-        if (_delegate && _indexPath && [_delegate respondsToSelector:@selector(cellLongPressAtIndexPath:)]) {
-            [_delegate cellLongPressAtIndexPath:_indexPath];
-        }
-    }
-}
-
-- (void)photoTap:(UITapGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateRecognized) {
-        if (_delegate && _indexPath && [_delegate respondsToSelector:@selector(photoTapAtIndexPath:)]) {
-            [_delegate photoTapAtIndexPath:_indexPath];
-        }
     }
 }
 

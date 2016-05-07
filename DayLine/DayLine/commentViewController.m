@@ -11,7 +11,9 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 @interface commentViewController ()
 @property (strong, nonatomic) NSMutableArray *objectsForShow;
+@property (strong, nonatomic) NSArray *replyObjectsForShow;
 @property (strong, nonatomic) UIActivityIndicatorView *aiv;
+
 @end
 
 @implementation commentViewController
@@ -19,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
       [self refreshData];
+    _objectsForShow = [NSMutableArray new];
     
 }
 
@@ -33,7 +36,7 @@
     
     [_objectsForShow removeAllObjects];
     PFUser *currentUser = [PFUser currentUser];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"poster = %@", currentUser];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"poster != %@", currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     [query orderByDescending:@"updatedAt"];
     [query includeKey:@"poster"];
@@ -73,25 +76,60 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     commentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     PFObject *obj = _objectsForShow[indexPath.row];
+//    PFRelation *relationReply = [obj relationForKey:@"reply"];
+//    PFQuery *replyQuery = [relationReply query];
+//    [replyQuery includeKey:@"commenter"];
+//    [replyQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable replyObjects, NSError * _Nullable error) {
+//        if (!error) {
+//            _replyObjectsForShow = replyObjects;
+//                        for (PFObject *replyObj in replyObjects ) {
+//                          NSLog(@"reply = %@",replyObj[@"commenter"]);
+//                            PFUser *user2 = replyObj[@"commenter"];
+//                            NSLog(@"user2 = %@",user2[@"nickname"]);
+//                        }
+//            [_tableview reloadData];
+//        } else {
+//            NSLog(@"error = %@",error.userInfo);
+//        }
+//    }];
+    
+    
+    
+    //       PFObject *replyObj = _replyObjectsForShow[0];
+    //        NSLog(@"reply = %@",replyObj[@"commenter"]);
+    //        PFUser *user2 = replyObj[@"commenter"];
+    //        NSLog(@"user2 = %@",user2[@"nickname"]);
+
+    
+    
     PFUser *user = obj[@"poster"];
     NSString *name = user[@"nickname"];
-
+    NSString *content = obj[@"content"];
     NSNumber *praise = obj[@"praise"];
-//    NSString *date = [NSString stringWithFormat:@"%@",obj.createdAt];
+    NSString *date = obj.createdAt;
     self.navigationItem.title = user[@"name"];
     PFFile *photoFile = user[@"photo"];
+    PFFile *photoFile2 = obj[@"photo"];
     NSString *photoURLStr = photoFile.url;
+    NSString *photoURLStr2 = photoFile2.url;
     NSURL *photoURL = [NSURL URLWithString:photoURLStr];
+    NSURL *photoURL2= [NSURL URLWithString:photoURLStr2];
     [cell.Userprofile sd_setImageWithURL:photoURL placeholderImage:[UIImage imageNamed:@"Default"]];
-
+    [cell.Zambia sd_setImageWithURL:photoURL2 placeholderImage:[UIImage imageNamed:@"Default"]];
     cell.nickname.text = name;
     cell.Zambias.text = [NSString stringWithFormat:@"%@",praise];
-//    cell.Homepublishtime.text = date;
-//    cell.HomeshowView.text = topic;
-//    cell.Homecomment.text = content;
-    
+//转换时间格式
+    NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateString = [dateFormat stringFromDate:date];
+    cell.time.text = dateString;
+    cell.showcontents.text = content;
     return cell;
 }
 
+//设置cell的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
 
 @end

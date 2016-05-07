@@ -13,12 +13,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *Homeusername;
 @property (weak, nonatomic) IBOutlet UILabel *Homepublishtime;
 @property (weak, nonatomic) IBOutlet UITextView *HomeshowView;
-@property (weak, nonatomic) IBOutlet UILabel *Homecomment;
 @property (weak, nonatomic) IBOutlet UILabel *HomenumberLbl;
-@property (weak, nonatomic) IBOutlet UILabel *Homenickname;
 @property (weak, nonatomic) IBOutlet UIImageView *HomepictureView;
 
 - (IBAction)HomeZambiBut:(UIButton *)sender forEvent:(UIEvent *)event;
-- (IBAction)Homenickname:(UIButton *)sender forEvent:(UIEvent *)event;
 - (IBAction)HomenewsBut:(UIButton *)sender forEvent:(UIEvent *)event;
 @end
