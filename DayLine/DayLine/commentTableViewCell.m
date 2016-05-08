@@ -1,14 +1,14 @@
 //
-//  PersonalTableViewCell.m
+//  commentTableViewCell.m
 //  DayLine
 //
-//  Created by zxk on 16/4/26.
+//  Created by zxk on 16/5/6.
 //  Copyright © 2016年 TianXingJian. All rights reserved.
 //
 
-#import "PersonalTableViewCell.h"
+#import "commentTableViewCell.h"
 
-@implementation PersonalTableViewCell
+@implementation commentTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -21,11 +21,6 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)HomeZambiBut:(UIButton *)sender forEvent:(UIEvent *)event {
-}
-
-
-
-- (IBAction)HomenewsBut:(UIButton *)sender forEvent:(UIEvent *)event {
+- (IBAction)commentBut:(UIButton *)sender forEvent:(UIEvent *)event {
 }
 @end
