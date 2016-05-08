@@ -10,6 +10,6 @@
 
 @interface PostViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (strong, nonatomic) UIImageView *zoomIV;
 
 @end

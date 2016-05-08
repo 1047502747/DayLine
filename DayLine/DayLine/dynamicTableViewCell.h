@@ -12,7 +12,8 @@
 @required
 - (void)applyAction:(NSIndexPath *)indexPath;
 - (void)applyAction2:(NSIndexPath *)indexPath;
-
+//- (void)cellLongPressAtIndexPath:(NSIndexPath *)indexPath;
+//- (void)photoTapAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 @interface dynamicTableViewCell : UITableViewCell
