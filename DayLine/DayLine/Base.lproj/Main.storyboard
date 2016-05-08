@@ -1495,7 +1495,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="459"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iFL-nT-FVx">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iFL-nT-FVx">
                                                     <rect key="frame" x="10" y="10" width="120" height="160"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="160" id="2Ic-Mw-fZ9"/>
