@@ -37,16 +37,13 @@
     
 }
 
-- (IBAction)nickname:(UIButton *)sender forEvent:(UIEvent *)event {
-    
-}
+
 
 - (IBAction)newsBut:(UIButton *)sender forEvent:(UIEvent *)event {
     if (_delegate && [_delegate respondsToSelector:@selector(applyAction2:)]) {
-        [_delegate applyAction:_indexPath];
+        [_delegate applyAction2:_indexPath];
     }
 }
-
 
 
 @end

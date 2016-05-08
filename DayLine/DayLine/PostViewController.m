@@ -7,6 +7,8 @@
 //
 
 #import "PostViewController.h"
+#import "testViewController.h"
+#import "commentViewController.h"
 #import "dynamicTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "PublishViewController.h"
@@ -123,8 +125,9 @@
     NSString *content = obj[@"content"];
 //    NSString *nickname = user[@"commenter"];
     NSNumber *praise = obj[@"praise"];
-    NSString *date = [NSString stringWithFormat:@"%@",obj.createdAt];
+    NSDate *date = obj.createdAt;
     self.navigationItem.title = user[@"name"];
+    
     PFFile *photoFile = user[@"photo"];
     PFFile *photoFile2 = obj[@"photo"];
     NSString *photoURLStr = photoFile.url;
@@ -133,17 +136,26 @@
     NSURL *photoURL2= [NSURL URLWithString:photoURLStr2];
     [cell.lmageportrait sd_setImageWithURL:photoURL placeholderImage:[UIImage imageNamed:@"Default"]];
     [cell.pictureView sd_setImageWithURL:photoURL2 placeholderImage:[UIImage imageNamed:@"Default"]];
+    
+    
+    
     cell.username.text = name;
     cell.NumberLbl.text = [NSString stringWithFormat:@"%@",praise];
-    cell.publishtime.text = date;
+    NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateString = [dateFormat stringFromDate:date];
+   
+    cell.publishtime.text = dateString;
     cell.showView.text = topic;
-    cell.comment.text = content;
+
     
     //协议第五步：乙方签字（被委托方声明将对协议负责）
     cell.delegate = self;
     cell.indexPath = indexPath;
     return cell;
 }
+
+
 
 
 - (void)applyAction:(NSIndexPath *)indexPath {
@@ -158,13 +170,13 @@
 
 - (void)applyAction2:(NSIndexPath *)indexPath {
 
-    PersonalViewController *tabVC2 = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"B"];
+    commentViewController *tabVC2 = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"B"];
     [self.navigationController pushViewController:tabVC2 animated:YES];
     
     
 }
 #pragma mark - Navigation
-
+/*
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
@@ -180,6 +192,6 @@
     
 }
 
-
+*/
 
 @end

@@ -11,6 +11,7 @@
 		B4F57FCE1CCF827D0092665A /* ABCIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F57FCD1CCF827D0092665A /* ABCIntroView.m */; };
 		B4F57FCF1CCF827D0092665A /* ABCIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F57FCD1CCF827D0092665A /* ABCIntroView.m */; };
 		B4F57FD01CCF827D0092665A /* ABCIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F57FCD1CCF827D0092665A /* ABCIntroView.m */; };
+		BC165C611CDDCAD400ACA17B /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC165C601CDDCAD400ACA17B /* testViewController.m */; };
 		D308A2741CCDFEAB002D512F /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D308A2731CCDFEAB002D512F /* LeftViewController.m */; };
 		D31F52901CC5C984001F993F /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F528F1CC5C984001F993F /* TableViewController.m */; };
 		D31F52931CC5C9EA001F993F /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F52921CC5C9EA001F993F /* TableViewCell.m */; };
@@ -82,6 +83,8 @@
 		AED356881DDBA86B7BC809CD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B4F57FCC1CCF825E0092665A /* ABCIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCIntroView.h; sourceTree = "<group>"; };
 		B4F57FCD1CCF827D0092665A /* ABCIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCIntroView.m; sourceTree = "<group>"; };
+		BC165C5F1CDDCAD400ACA17B /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
+		BC165C601CDDCAD400ACA17B /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
 		D308A2721CCDFEAB002D512F /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		D308A2731CCDFEAB002D512F /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		D31F528E1CC5C984001F993F /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 				D397C0261CDC68ED003D5B1D /* commentTableViewCell.m */,
 				D397C0281CDC691E003D5B1D /* LeftTableViewCell.h */,
 				D397C0291CDC691E003D5B1D /* LeftTableViewCell.m */,
+				BC165C5F1CDDCAD400ACA17B /* testViewController.h */,
+				BC165C601CDDCAD400ACA17B /* testViewController.m */,
 			);
 			name = Nav;
 			sourceTree = "<group>";
@@ -614,6 +619,7 @@
 				D31F52901CC5C984001F993F /* TableViewController.m in Sources */,
 				D389EAA71CCEF7520029EEE7 /* PersonalViewController.m in Sources */,
 				B4F57FCE1CCF827D0092665A /* ABCIntroView.m in Sources */,
+				BC165C611CDDCAD400ACA17B /* testViewController.m in Sources */,
 				E7760CBD1CC9C9EE008C7005 /* Banner.m in Sources */,
 				E749D86F1CC20F5000FAEFB5 /* ViewController.m in Sources */,
 				E749D8C31CC21F9200FAEFB5 /* AppAPIClient.m in Sources */,
