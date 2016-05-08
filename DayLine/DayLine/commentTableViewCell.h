@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *Zambias;
 @property (weak, nonatomic) IBOutlet UILabel *showcontents;
 @property (weak, nonatomic) IBOutlet UILabel *time;
+- (IBAction)commentBut:(UIButton *)sender forEvent:(UIEvent *)event;
 @property (weak, nonatomic) IBOutlet UIImageView *Userprofileview;
 @property (weak, nonatomic) IBOutlet UILabel *nicknameLbl;
 @property (weak, nonatomic) IBOutlet UIImageView *Zambiaview;

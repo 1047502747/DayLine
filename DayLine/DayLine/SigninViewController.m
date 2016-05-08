@@ -148,16 +148,10 @@
              {
                  NSLog(@"responseObject:%@",responseObject);
                  if ([responseObject[@"resultFlag"] integerValue] == 8001) {
-//                     NSDictionary *dict = responseObject[@"result"];
-//                     NSString *memberId = dict[@"memberId"];
-//                     [[StorageMgr singletonStorageMgr]removeObjectForKey:@"memberId"];
-//                     [[StorageMgr singletonStorageMgr] addKey:@"memberId" andValue:memberId];
-                     //存储数据
-                     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                     [defaults setObject:@"memberId" forKey:@"responseObject"];
-                     
-                     //设置同步
-                     [defaults synchronize];
+                     NSDictionary *result = responseObject[@"result"];
+                     NSNumber *memberId = result[@"memberId"];
+                     [[StorageMgr singletonStorageMgr] addKey:@"memberId" andValue:memberId];
+                     [[StorageMgr singletonStorageMgr] addKey:@"memberInfo"andValue:result];
                      //执行登录
                      [self signInWithUsername:_usernameTF.text andPassword:_passwordTF.text];
                      //[self popUpMall];

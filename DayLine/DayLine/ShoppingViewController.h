@@ -11,6 +11,5 @@
 @interface ShoppingViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *TableView;
 - (IBAction)signinAction:(UIBarButtonItem *)sender;
-@property (weak, nonatomic) IBOutlet UILabel *integral;
 @property (strong, nonatomic) UIImageView *zoomIV;
 @end
