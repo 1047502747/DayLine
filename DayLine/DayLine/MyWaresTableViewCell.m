@@ -1,14 +1,14 @@
 //
-//  MywaresTableViewCell.m
+//  MyWaresTableViewCell.m
 //  DayLine
 //
-//  Created by zxk on 16/4/23.
+//  Created by zxk on 16/5/8.
 //  Copyright © 2016年 TianXingJian. All rights reserved.
 //
 
-#import "MywaresTableViewCell.h"
+#import "MyWaresTableViewCell.h"
 
-@implementation MywaresTableViewCell
+@implementation MyWaresTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
