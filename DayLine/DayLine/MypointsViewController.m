@@ -10,10 +10,8 @@
 #import "ActivityObject.h"
 
 @interface MypointsViewController ()
-//{
-//    NSInteger userID;
-//}
-@property (strong, nonatomic)NSString *userID;
+
+
 @end
 
 @implementation MypointsViewController
@@ -30,33 +28,31 @@
 }
 
 -(void)integale{
-    //读取A界面传递过来的值
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.userActivity = [defaults valueForKey:@"responseObject"];
+    NSNumber *meID =[[StorageMgr singletonStorageMgr] objectForKey:@"memberId"];
     
-    if (_userID.length==0) {
+    if ([meID integerValue]==0) {
         [Utilities popUpAlertViewWithMsg:@"请登录账号" andTitle:nil onView:self];
         return;
     }else{
         NSString * peth =@"/score/memberScore";
         NSDictionary*dic =@{
-                            @"memberId":_userID                    };
+                            @"memberId":meID                    };
         [RequestAPI getURL:peth withParameters:dic success:^(id responseObject) {
             if ([responseObject[@"resultFlag"]integerValue] == 8001) {
                 
-                NSDictionary *rootDict = responseObject[@"result"];
+                NSNumber *ing = responseObject[@"result"];
+                [[StorageMgr singletonStorageMgr]addKey:@"integale" andValue:ing];
                 
-                
-                NSString *inG = [NSString stringWithFormat:@"积分：%@",rootDict];
+                NSString *inG = [NSString stringWithFormat:@"积分：%@",ing];
                 _pointsLbl.text = inG;
             }
             
         } failure:^(NSError *error) {
             NSLog(@"error :%@",error.description);
         }];
-
+        
     }
-    }
+}
 
 
 /*
