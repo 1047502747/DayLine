@@ -362,11 +362,10 @@
 -(void)buy{
     NSNumber *memberId = [[StorageMgr singletonStorageMgr] objectForKey:@"memberId"];
     NSNumber *integale = [[StorageMgr singletonStorageMgr] objectForKey:@"integale"];
-    self.navigationController.view.userInteractionEnabled = NO;
-    UIActivityIndicatorView *avi =[Utilities getCoverOnView:self.view];
+//    self.navigationController.view.userInteractionEnabled = NO;
+//    UIActivityIndicatorView *avi =[Utilities getCoverOnView:self.view];
     if ([memberId integerValue]==0) {
         [Utilities popUpAlertViewWithMsg:@"请登录账号" andTitle:nil onView:self];
-        [avi stopAnimating];
         return;
     }
     else {
@@ -384,7 +383,7 @@
             }];
         }else{
             self.navigationController.view.userInteractionEnabled = YES;
-            [avi stopAnimating];
+            [_avi stopAnimating];
             [Utilities popUpAlertViewWithMsg:@"您的积分不足,请及时充值" andTitle:nil onView:self];
             
         }
