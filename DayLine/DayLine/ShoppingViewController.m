@@ -33,8 +33,6 @@
     [self initializeData];
     [self naviConfiguration];
     [self uiConfiguaration];
-     _objectsForShow = [NSMutableArray new];
-    
     //    self.navigationController.navigationBar.hidden = YES;
     CGSize size = [UIScreen mainScreen].bounds.size;
     
@@ -73,7 +71,7 @@
     //将上述文字属性字典设置到导航条标题文字中
     [self.navigationController.navigationBar setTitleTextAttributes:textTitleOpt];
     //设置导航条的背景色
-    self.navigationController.navigationBar.barTintColor = [UIColor orangeColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     //设置导航条中所有左上角或者右上角按钮（bar Button Items）的文字后者图片颜色
     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     //设置导航条是否隐藏
@@ -216,7 +214,7 @@
     
 }
 -(void)networkRequest{
-    [_objectsForShow removeAllObjects];
+
     _TableView.tableFooterView = [[UIView alloc] init];
     NSString *request =  @"/goods/list";
     //入参
@@ -337,8 +335,7 @@
 
 //协议第六步：乙方履行条款（被委托方执行协议中的方法）
 - (void)applyAction:(NSIndexPath *)indexPath {
-    NSLog(@"甲方按钮被按啦！我要干活啦！！！");
-    NSLog(@"购物");
+    NSLog(@"按钮被按啦！我要购物啦！！！");
     ActivityObject *activity = _objectsForShow[indexPath.row];
     _str = activity.spScore;
     _shpId=activity.spId;
@@ -406,8 +403,10 @@
         [pasteBoard setString:activity.spScore];
     }];
     UIAlertAction *copyIDAction = [UIAlertAction actionWithTitle:@"复制ID" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        //创建复制板
         UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
-        [pasteBoard setString:activity.spId];
+        //将活动名称复制
+        [pasteBoard setString:_shpId];
     }];
     UIAlertAction *copyAmountAction = [UIAlertAction actionWithTitle:@"复制数量" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
@@ -417,12 +416,12 @@
     //在UIAlertControllerStyleActionSheet风格中，先加入UIAlertController的UIAlertAction对象会出现在越上方（自上而下排列），UIAlertActionStyleCancel风格的UIAlertAction对象会出现在最下方并与其他UIAlertAction对象空开一段间距
     [actionSheet addAction:copyNameAction];
     [actionSheet addAction:copyScoreAction];
-    [actionSheet addAction:copyIDAction];
     [actionSheet addAction:copyAmountAction];
+    [actionSheet addAction:copyIDAction];
     [actionSheet addAction:cancelAction];
     [self presentViewController:actionSheet animated:YES completion:nil];
 }
-
+//copyIDAction
 - (void)photoTapAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"PhotoTap");
     ActivityObject *activity = [_objectsForShow objectAtIndex:indexPath.row];
