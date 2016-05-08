@@ -21,4 +21,6 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)commentBut:(UIButton *)sender forEvent:(UIEvent *)event {
+}
 @end
