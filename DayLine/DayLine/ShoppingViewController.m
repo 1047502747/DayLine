@@ -22,7 +22,8 @@
 }
 @property(strong,nonatomic)NSMutableArray *objectsForShow;
 @property (strong,nonatomic) UIActivityIndicatorView *avi;
-
+@property (strong ,nonatomic) NSString *str;
+@property (strong,nonatomic) NSString *shpId;
 @end
 
 @implementation ShoppingViewController
@@ -32,13 +33,13 @@
     [self initializeData];
     [self naviConfiguration];
     [self uiConfiguaration];
-//        [self integale];
+     _objectsForShow = [NSMutableArray new];
     
     //    self.navigationController.navigationBar.hidden = YES;
     CGSize size = [UIScreen mainScreen].bounds.size;
     
     Banner *bv = [[Banner alloc]init];
-    bv.frame = CGRectMake(0,115, size.width, 110);
+    bv.frame = CGRectMake(0,95, size.width, 130);
     bv.bannerDelegate = self;
     bv.dataSource = self;
     [bv startPlay];
@@ -64,23 +65,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)integale{
-    NSString * path =@"/score/memberScore";
-    NSDictionary*dic =@{
-                        @"memberId":@191
-                        };
-    [RequestAPI getURL:path withParameters:dic success:^(id responseObject) {
-        if ([responseObject[@"resultFlag"]integerValue] == 8001) {
-            NSDictionary *rootDict = responseObject[@"result"];
-            NSString *inG = [NSString stringWithFormat:@"积分：%@",rootDict];
-            _integral.text = inG;
-        }
-        
-    } failure:^(NSError *error) {
-         NSLog(@"error :%@",error.description);
-    }];
 }
 
 -(void)naviConfiguration {
@@ -232,6 +216,7 @@
     
 }
 -(void)networkRequest{
+    [_objectsForShow removeAllObjects];
     _TableView.tableFooterView = [[UIView alloc] init];
     NSString *request =  @"/goods/list";
     //入参
@@ -353,25 +338,58 @@
 //协议第六步：乙方履行条款（被委托方执行协议中的方法）
 - (void)applyAction:(NSIndexPath *)indexPath {
     NSLog(@"甲方按钮被按啦！我要干活啦！！！");
-    //根据indexPath获得当前被按按钮对应的细胞的行所对应的活动数据
+    NSLog(@"购物");
     ActivityObject *activity = _objectsForShow[indexPath.row];
+    _str = activity.spScore;
+    _shpId=activity.spId;
+    NSString *msg = [NSString stringWithFormat:@"售价：%@积分\n是否确认支付",_str];
     //创建一个风格为UIAlertControllerStyleAlert的UIAlertController实例
-    UIAlertController *alertView = [UIAlertController alertControllerWithTitle:@"提示" message:activity.isApplied ? @"是否取消购买？" : @"是否购买？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertView = [UIAlertController alertControllerWithTitle:@"购买" message: msg preferredStyle:UIAlertControllerStyleAlert];
     //创建“确认”按钮，风格为UIAlertActionStyleDefault
     UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        activity.isApplied = !activity.isApplied;
-        //        [self.tableView reloadData];
-        //更新改变了活动报名状态的数据对应的细胞
-        [self.TableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self buy];
     }];
     //创建“取消”按钮，风格为UIAlertActionStyleCancel
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     //将以上两个按钮添加进弹出窗（按钮添加的顺序决定按钮的排版：从左到右；从上到下。如果是取消风格UIAlertActionStyleCancel的按钮会放在最左边）
     [alertView addAction:confirmAction];
     [alertView addAction:cancelAction];
-    
     //用present modal的方式跳转到另一个页面（显示alertView）
     [self presentViewController:alertView animated:YES completion:nil];
+
+}
+//购物逻辑
+-(void)buy{
+    NSNumber *memberId = [[StorageMgr singletonStorageMgr] objectForKey:@"memberId"];
+    NSNumber *integale = [[StorageMgr singletonStorageMgr] objectForKey:@"integale"];
+    self.navigationController.view.userInteractionEnabled = NO;
+    UIActivityIndicatorView *avi =[Utilities getCoverOnView:self.view];
+    if ([memberId integerValue]==0) {
+        [Utilities popUpAlertViewWithMsg:@"请登录账号" andTitle:nil onView:self];
+        [avi stopAnimating];
+        return;
+    }
+    else {
+        if (integale.floatValue>=_shpId.floatValue) {
+            NSString *path = @"/goods/exchangeGoods";
+            NSDictionary *dic = @{
+                                  @"memberId":memberId,
+                                  @"goodsId":_shpId
+                                  };
+            [RequestAPI postURL:path withParameters:dic success:^(id responseObject) {
+                NSLog(@"responseObject:%@",responseObject);
+                
+            } failure:^(NSError *error) {
+                NSLog(@"error:%@",error.description);
+            }];
+        }else{
+            self.navigationController.view.userInteractionEnabled = YES;
+            [avi stopAnimating];
+            [Utilities popUpAlertViewWithMsg:@"您的积分不足,请及时充值" andTitle:nil onView:self];
+            
+        }
+        
+    }
 }
 
 - (void)cellLongPressAtIndexPath:(NSIndexPath *)indexPath {
@@ -384,15 +402,15 @@
         //将活动名称复制
         [pasteBoard setString:activity.spName];
     }];
-    UIAlertAction *copyScoreAction = [UIAlertAction actionWithTitle:@"复制ID" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertAction *copyScoreAction = [UIAlertAction actionWithTitle:@"复制价格" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
         [pasteBoard setString:activity.spScore];
     }];
-    UIAlertAction *copyIDAction = [UIAlertAction actionWithTitle:@"复制数量" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertAction *copyIDAction = [UIAlertAction actionWithTitle:@"复制ID" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
         [pasteBoard setString:activity.spId];
     }];
-    UIAlertAction *copyAmountAction = [UIAlertAction actionWithTitle:@"复制价格" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertAction *copyAmountAction = [UIAlertAction actionWithTitle:@"复制数量" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
         [pasteBoard setString:activity.spAmount];
     }];
@@ -428,13 +446,6 @@
 - (void)zoomTap:(UITapGestureRecognizer *)sender {
     NSLog(@"要缩小");
     if (sender.state == UIGestureRecognizerStateRecognized) {
-//        [_zoomIV removeGestureRecognizer:sender];
-//        [UIView animateWithDuration:0.2f animations:^{
-//            _zoomIV.frame = CGRectMake(_zoomIV.frame.origin.x, _zoomIV.frame.origin.y, 0, 0);
-//        } completion:^(BOOL finished) {
-//            [_zoomIV removeFromSuperview];
-//        }];
-//        _zoomIV = nil;
         [_zoomIV removeGestureRecognizer:sender];
         [_zoomIV removeFromSuperview];
         _zoomIV = nil;
