@@ -471,4 +471,6 @@
     SigninViewController *sign = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"SignInVc"];
     [self.navigationController pushViewController:sign animated:YES];
 }
+- (IBAction)MywaresAction:(UIButton *)sender forEvent:(UIEvent *)event {
+}
 @end
