@@ -361,12 +361,12 @@
     NSNumber *integale = [[StorageMgr singletonStorageMgr] objectForKey:@"integale"];
 //    self.navigationController.view.userInteractionEnabled = NO;
 //    UIActivityIndicatorView *avi =[Utilities getCoverOnView:self.view];
-    if ([memberId integerValue]==0) {
+    if (memberId==0) {
         [Utilities popUpAlertViewWithMsg:@"请登录账号" andTitle:nil onView:self];
         return;
     }
     else {
-        if (integale.floatValue>=_shpId.floatValue) {
+        if (integale.floatValue>=_str.floatValue) {
             NSString *path = @"/goods/exchangeGoods";
             NSDictionary *dic = @{
                                   @"memberId":memberId,
