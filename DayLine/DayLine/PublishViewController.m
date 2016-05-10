@@ -22,7 +22,7 @@ UINavigationControllerDelegate>{
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self Monitor];
+
     // Do any additional setup after loading the view.
 }
 
@@ -41,30 +41,6 @@ UINavigationControllerDelegate>{
  }
  */
 
--(void)Monitor{
-    NSNumber *memberId = [[StorageMgr singletonStorageMgr] objectForKey:@"memberId"];
-    if ([memberId integerValue]==0) {
-        NSString *msg = [NSString stringWithFormat:@"请登录帐号是否跳转？"];
-        //创建一个风格为UIAlertControllerStyleAlert的UIAlertController实例
-        UIAlertController *alertView = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
-        //创建“确认”按钮，风格为UIAlertActionStyleDefault
-        UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            SigninViewController *tabVC = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"SignInVc"];
-            [self.navigationController pushViewController:tabVC animated:YES];
-        }];
-        //创建“取消”按钮，风格为UIAlertActionStyleCancel
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [self.navigationController popViewControllerAnimated:YES];
-        }];
-        
-        //将以上两个按钮添加进弹出窗（按钮添加的顺序决定按钮的排版：从左到右；从上到下。如果是取消风格UIAlertActionStyleCancel的按钮会放在最左边）
-        
-        [alertView addAction:confirmAction];
-        [alertView addAction:cancelAction];
-        [self presentViewController:alertView animated:YES completion:nil];
-        
-    }
-}
 
 - (void)pickImage:(UIImagePickerControllerSourceType)sourceType {
     NSLog(@"照片被按了");

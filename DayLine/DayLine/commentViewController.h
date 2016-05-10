@@ -11,5 +11,5 @@
 @interface commentViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonatomic) PFObject *post;
-@property (strong, nonatomic) PFObject *poster;
+@property (strong, nonatomic) PFObject *posts;
 @end
