@@ -18,4 +18,5 @@
 
 - (IBAction)HomeZambiBut:(UIButton *)sender forEvent:(UIEvent *)event;
 - (IBAction)HomenewsBut:(UIButton *)sender forEvent:(UIEvent *)event;
+@property (weak, nonatomic) IBOutlet UIButton *PLBut;
 @end

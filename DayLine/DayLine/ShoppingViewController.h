@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UITableView *TableView;
 - (IBAction)signinAction:(UIBarButtonItem *)sender;
 @property (strong, nonatomic) UIImageView *zoomIV;
+- (IBAction)MywaresAction:(UIButton *)sender forEvent:(UIEvent *)event;
 @end

@@ -1,21 +1,15 @@
 //
-//  ShoppingViewController.m
+//  MywaresViewController.m
 //  DayLine
 //
-//  Created by zxk on 16/4/26.
+//  Created by zxk on 16/5/8.
 //  Copyright © 2016年 TianXingJian. All rights reserved.
 //
 
-#import "ShoppingViewController.h"
-#import "SigninViewController.h"
-#import "Banner.h"
-#import "TableViewController.h"
 #import "MywaresViewController.h"
-#import "TableViewCell.h"
 #import "ActivityObject.h"
-#import <SDWebImage/UIImageView+WebCache.h>
-@interface ShoppingViewController ()<BannerDataSource,BannerDelegate,ActivityViewDelegate,UIScrollViewDelegate>
-{
+#import "MyWaresTableViewCell.h"
+@interface MywaresViewController (){
     NSInteger page;
     NSInteger perPage;
     NSInteger totalPage;
@@ -23,50 +17,23 @@
 }
 @property(strong,nonatomic)NSMutableArray *objectsForShow;
 @property (strong,nonatomic) UIActivityIndicatorView *avi;
-@property (strong ,nonatomic) NSString *str;
-@property (strong,nonatomic) NSString *shpId;
-@property (strong, nonatomic) NSString *shpname;
+
+
 @end
 
-@implementation ShoppingViewController
-
+@implementation MywaresViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
     [self initializeData];
     [self naviConfiguration];
     [self uiConfiguaration];
-    //    self.navigationController.navigationBar.hidden = YES;
-    CGSize size = [UIScreen mainScreen].bounds.size;
-    
-    Banner *bv = [[Banner alloc]init];
-    bv.frame = CGRectMake(0,95, size.width, 130);
-    bv.bannerDelegate = self;
-    bv.dataSource = self;
-    [bv startPlay];
-    [self.view addSubview:bv];
-}
-//  点击图片
-- (void)bannerView:(Banner *)bannerView didSelectImageAtIndex:(NSUInteger)index
-{
-    
-}
-//  图片数量
-- (NSUInteger)numberOfItemsInBanner:(Banner *)Banner
-{
-    return 4;
-}
-
-//  图片资源
-- (UIImage *)bannerView:(Banner *)bannerView imageInIndex:(NSUInteger)index {
-    NSArray *ary = @[[UIImage imageNamed:@"1"], [UIImage imageNamed:@"2"], [UIImage imageNamed:@"3"],[UIImage imageNamed:@"4"]];
-    return ary[index];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 -(void)naviConfiguration {
     //通过字典来射中文字的属性，在以下属性中只对应的值决定文字的颜色
     NSDictionary* textTitleOpt = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor darkGrayColor], NSForegroundColorAttributeName, nil];
@@ -216,11 +183,11 @@
     
 }
 -(void)networkRequest{
-
+    NSNumber *mId =[[StorageMgr singletonStorageMgr]objectForKey:@"memberId"];
     _TableView.tableFooterView = [[UIView alloc] init];
-    NSString *request =  @"/goods/list";
+    NSString *request =  @"/stock/list";
     //入参
-    NSDictionary *parameters = @{@"type":@2,@"page":@(page),@"perPage":@(perPage)};
+    NSDictionary *parameters = @{@"memberId":mId,@"page":@(page),@"perPage":@(perPage)};
     
     [RequestAPI getURL:request withParameters:parameters success:^(id responseObject) {
         NSLog(@"result = %@",responseObject);
@@ -229,23 +196,23 @@
         [self endRefreshing];
         if ([responseObject[@"resultFlag"] integerValue] == 8001) {
             NSLog(@"成功");
-            //[[StorageMgr singletonStorageMgr] addKey:@"memberId" andValue:memberId];
-            NSDictionary *rootDict = responseObject[@"result"];
-            NSArray *dataArr = rootDict[@"models"];
-            if (page == 1) {
-                _objectsForShow = nil;
-                _objectsForShow = [NSMutableArray new];
-            }
-            for (NSDictionary *dict in dataArr) {
-                ActivityObject *activity = [[ActivityObject alloc]initWithDictionary:dict];
-                [_objectsForShow addObject:activity];
-            }
-            NSLog(@"_objectsForShow = %@", _objectsForShow);
-            [_TableView reloadData];
-            
-            NSDictionary *pagerDict = rootDict[@"pagingInfo"];
-            totalPage = [pagerDict[@"totalPage"] integerValue];
-            
+//            //[[StorageMgr singletonStorageMgr] addKey:@"memberId" andValue:memberId];
+//            NSDictionary *rootDict = responseObject[@"result"];
+//            NSArray *dataArr = rootDict[@"models"];
+//            if (page == 1) {
+//                _objectsForShow = nil;
+//                _objectsForShow = [NSMutableArray new];
+//            }
+//            for (NSDictionary *dict in dataArr) {
+//                ActivityObject *activity = [[ActivityObject alloc]initWithDictionary:dict];
+//                [_objectsForShow addObject:activity];
+//            }
+//            NSLog(@"_objectsForShow = %@", _objectsForShow);
+//            [_TableView reloadData];
+//            
+//            NSDictionary *pagerDict = rootDict[@"pagingInfo"];
+//            totalPage = [pagerDict[@"totalPage"] integerValue];
+        
             
         }else {
             [Utilities popUpAlertViewWithMsg:@"请求错误" andTitle:nil onView:self];
@@ -257,7 +224,7 @@
         [_avi stopAnimating];
         [self endRefreshing];
         [self loadDataEnd];
-        [Utilities popUpAlertViewWithMsg:@"error" andTitle:nil onView:self];
+        [Utilities popUpAlertViewWithMsg:@"请保持网络畅通" andTitle:nil onView:self];
         
     }];
     
@@ -290,10 +257,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    TableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    //乙方签署协议,每一个cell都签一个协议
-    cell.delegate = self;
-    cell.indexPath = indexPath;
+    MyWaresTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+//    //乙方签署协议,每一个cell都签一个协议
+//    cell.delegate = self;
+//    cell.indexPath = indexPath;
     
     //下划线顶住屏幕
     if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -307,144 +274,15 @@
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
-
+    
     ActivityObject *activity = _objectsForShow[indexPath.row];
-        NSURL *URL = [NSURL URLWithString:activity.imgUrl];
-    
-    [cell.imageView sd_setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"First"]];
-    
-    //    NSLog(@"activity.imgUrl = %@",activity.imgUrl);
-    cell.SPname.text = [NSString stringWithFormat:@"商品名称：%@",activity.spName];
-    cell.commodityID.text = [NSString stringWithFormat:@"商品ID：%@",activity.spId];
-    cell.quantity.text = [NSString stringWithFormat:@"剩余数量：%@",activity.spAmount];
-    cell.integralLbl.text = [NSString stringWithFormat:@"所需积分：%@",activity.spScore];
-    if (activity.isApplied) {
-        [cell.purchaseBut setTitle:@"取消" forState:UIControlStateNormal];
-    }else{
-        [cell.purchaseBut setTitle:@"购买" forState:UIControlStateNormal];
-    }
-
-       return cell;
+    cell.SPNumberLbl.text = [NSString stringWithFormat:@"商品名称：%@",activity.spDate];
+    return cell;
 }
-
-
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
-
-//协议第六步：乙方履行条款（被委托方执行协议中的方法）
-- (void)applyAction:(NSIndexPath *)indexPath {
-    NSLog(@"按钮被按啦！我要购物啦！！！");
-    if ([[StorageMgr singletonStorageMgr] objectForKey:@"memberId"]) {
-        NSNumber *integale = [[StorageMgr singletonStorageMgr] objectForKey:@"integale"];
-        ActivityObject *activity = _objectsForShow[indexPath.row];
-        _str = activity.spScore;
-        _shpId=activity.spId;
-        _shpname=activity.spName;
-        if (integale.floatValue>=_str.floatValue) {
-            
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"兑换提示" message:[NSString stringWithFormat:@"您当前正在兑换%@\n+将消耗您%@积分+\n确定兑换吗?",_shpname,_str] preferredStyle:UIAlertControllerStyleActionSheet];
-            
-            UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                //确认兑换
-                [self buy];
-            }];
-            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-            [alert addAction:action];
-            [alert addAction:cancel];
-            [self presentViewController:alert animated:YES completion:nil];
-        }else{
-            [Utilities popUpAlertViewWithMsg:@"您的积分不够哦" andTitle:@"" onView:self];
-        }
-    }else{
-        [Utilities popUpAlertViewWithMsg:@"您没有登录,先去登录吧" andTitle:@"" onView:self];
-    }
-}
-
-
-
-//购物
--(void)buy{
-    NSNumber *memberId = [[StorageMgr singletonStorageMgr] objectForKey:@"memberId"];
-    NSString *path = @"/goods/exchangeGoods";
-    NSDictionary *dic = @{
-                          @"memberId":memberId,
-                          @"goodsId":_shpId
-                          };
-    [RequestAPI postURL:path withParameters:dic success:^(id responseObject) {
-        NSLog(@"responseObject:%@",responseObject);
-        
-    } failure:^(NSError *error) {
-        [Utilities popUpAlertViewWithMsg:@"请保持网络畅通" andTitle:@"" onView:self];
-        NSLog(@"error:%@",error.description);
-    }];
-}
-
-- (void)cellLongPressAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"LongPress");
-    ActivityObject *activity = _objectsForShow[indexPath.row];
-    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"复制操作" message:@"复制产品名或其他" preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *copyNameAction = [UIAlertAction actionWithTitle:@"复制产品名" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        //创建复制板
-        UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
-        //将活动名称复制
-        [pasteBoard setString:activity.spName];
-    }];
-    UIAlertAction *copyScoreAction = [UIAlertAction actionWithTitle:@"复制价格" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
-        [pasteBoard setString:activity.spScore];
-    }];
-    UIAlertAction *copyIDAction = [UIAlertAction actionWithTitle:@"复制ID" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        //创建复制板
-        UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
-        //将活动名称复制
-        [pasteBoard setString:_shpId];
-    }];
-    UIAlertAction *copyAmountAction = [UIAlertAction actionWithTitle:@"复制数量" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
-        [pasteBoard setString:activity.spAmount];
-    }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    //在UIAlertControllerStyleActionSheet风格中，先加入UIAlertController的UIAlertAction对象会出现在越上方（自上而下排列），UIAlertActionStyleCancel风格的UIAlertAction对象会出现在最下方并与其他UIAlertAction对象空开一段间距
-    [actionSheet addAction:copyNameAction];
-    [actionSheet addAction:copyScoreAction];
-    [actionSheet addAction:copyAmountAction];
-    [actionSheet addAction:copyIDAction];
-    [actionSheet addAction:cancelAction];
-    [self presentViewController:actionSheet animated:YES completion:nil];
-}
-//copyIDAction
-- (void)photoTapAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"PhotoTap");
-    ActivityObject *activity = [_objectsForShow objectAtIndex:indexPath.row];
-    //[UIScreen mainScreen]获取屏幕的实例
-    _zoomIV = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    _zoomIV.userInteractionEnabled = YES;
-    _zoomIV.backgroundColor = [UIColor blackColor];
-    //现在用第三方_zoomIV.image = [self imageUrl:activity.imgUrl];
-    
-    //使用SD所写的这一行代码，看似比我们上面注释掉的那一行代码复杂，但是我们上面自己写的那一行代码执行的是同步加载，而SD执行的是异步加载，同步加载在加载过程中会锁死页面而异步不会
-    [_zoomIV sd_setImageWithURL:[NSURL URLWithString:activity.imgUrl] placeholderImage:[UIImage imageNamed:@"First"]];
-    _zoomIV.contentMode = UIViewContentModeScaleAspectFit;
-    //[UIApplication sharedApplication]获得当前APP的实例，keyWindow方法可以拿到APP实例的主窗口
-    [[UIApplication sharedApplication].keyWindow addSubview:_zoomIV];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(zoomTap:)];
-    [_zoomIV addGestureRecognizer:tap];
-}
-
-- (void)zoomTap:(UITapGestureRecognizer *)sender {
-    NSLog(@"要缩小");
-    if (sender.state == UIGestureRecognizerStateRecognized) {
-        [_zoomIV removeGestureRecognizer:sender];
-        [_zoomIV removeFromSuperview];
-        _zoomIV = nil;
-    }
-}
-
 //页面消失后执行
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
@@ -459,18 +297,5 @@
 //内存的释放必须在该方法中执行，否则直接闪退
 -(void)dealloc{
     //释放所有对象的内存(设为nil)
-}
-
-
-- (IBAction)signinAction:(UIBarButtonItem *)sender {
-    SigninViewController *sign = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"SignInVc"];
-    [self.navigationController pushViewController:sign animated:YES];
-}
-- (IBAction)MywaresAction:(UIButton *)sender forEvent:(UIEvent *)event {
-//    //根据故事版的名称和故事版中页面的名称获得这个页面
-//    TableViewController *tabVC = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"MyWares"];
-//    //modal方式跳转到上述页面
-//    [self presentViewController:tabVC animated:YES completion:nil];
-
 }
 @end

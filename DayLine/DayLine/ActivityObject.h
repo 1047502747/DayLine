@@ -15,7 +15,7 @@
 @property (strong, nonatomic)NSString *spAmount;
 @property (strong, nonatomic)NSString *spScore;
 @property (strong, nonatomic)NSString *spName;
-
+@property (strong, nonatomic)NSString *spDate;
 @property (nonatomic)BOOL isApplied;
 
 - (id)initWithDictionary:(NSDictionary *)dict;
