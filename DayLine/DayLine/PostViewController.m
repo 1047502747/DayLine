@@ -36,13 +36,9 @@
     [super viewDidLoad];
     [self refreshData];
     [self naviConfiguration];
-     [self uiConfiguaration];
+    [self uiConfiguaration];
+    _objectsForShow = [NSMutableArray new];
     _tableView.tableFooterView = [[UIView alloc] init];
-//    UIRefreshControl *rc = [[UIRefreshControl alloc] init];
-//    rc.tag = 10001;
-//    rc.tintColor = [UIColor darkGrayColor];
-//    [rc addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
-//    [_tableView addSubview:rc];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestData) name:@"RefreshPost" object:nil];
     // Do any additional setup after loading the view.
     
@@ -78,6 +74,18 @@
     [self.navigationController.navigationBar setTranslucent:YES];
     
 }
+
+//进入页面：菊花膜+初始数据（第一页数据）
+- (void)initlalizeData {
+    //刚来到页面进行数据初始化时将是否正在加载数据的指针设置为否
+    isLoading = NO;
+    
+    perPage = 3;
+    //在根视图上放置菊花膜并开始旋转
+    _aiv = [Utilities getCoverOnView:self.view];
+    [self refreshData];
+}
+
 //关于scrollview的协议，当手指已经停止拖拽并且惯性正好完全抵消时调用方法（如果你的拖拽是没有惯性因素的则当手指离开屏幕的一瞬间调用）
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     //当内容高度大于框架高度时执行if中的操作，反之执行else中的操作(两种情况下判断是否上拉的方式是不同的)
@@ -104,6 +112,7 @@
     [self createTableFooter];
     [self loadDataing];
 }
+
 //开始加载新一页数据
 -(void)loadDataing{
     //判断是否还存在下一页
@@ -117,6 +126,8 @@
         [self beforeLoadEnd];
     }
 }
+
+
 
 
 //在没有下一页的情况下，告诉用户当前已无更多数据
@@ -175,7 +186,7 @@
     //给下拉刷新控件添加下标
     refreshControl.tag = 10001;
     //创建下拉刷新控件标题文字
-    NSString *title = [NSString stringWithFormat:@"刷新中请等待😄...."];
+    NSString *title = [NSString stringWithFormat:@"正在刷新"];
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle]mutableCopy];
     [style setAlignment:NSTextAlignmentCenter];
     [style setLineBreakMode:NSLineBreakByTruncatingTail];
@@ -227,14 +238,7 @@
             [Utilities popUpAlertViewWithMsg:@"请保持网络连接畅通" andTitle:nil onView:self];
         }
     }];
-    
-//    让导航条失去交互能力
-//    self.navigationController.view.userInteractionEnabled = NO;
-//在根视图上创建一朵菊花，并且让它转动
-//    UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
-//    [aiv stopAnimating];
-//    
-    
+
     
 }
 
@@ -265,7 +269,6 @@
     NSString *name = user[@"nickname"];
     NSString *topic = obj[@"topic"];
     NSString *content = obj[@"content"];
-//    NSString *nickname = user[@"commenter"];
     NSNumber *praise = obj[@"praise"];
     NSDate *date = obj.createdAt;
     self.navigationItem.title = user[@"name"];
@@ -351,13 +354,68 @@
 
 
 
-
+//跳转评论
 - (void)applyAction2:(NSIndexPath *)indexPath {
-
+    PFObject *post = _objectsForShow[indexPath.row];
     commentViewController *tabVC2 = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"B"];
+    tabVC2.post = post;
     [self.navigationController pushViewController:tabVC2 animated:YES];
     
     
+}
+
+
+//评论
+- (void)applyAction3:(NSIndexPath *)indexPath {
+    PFObject *post = _objectsForShow[indexPath.row];
+    
+    NSString *content = _reply[@"reply"];
+    //创建一个风格为UIAlertControllerStyleAlert的UIAlertController实例
+    UIAlertController *alertView = [UIAlertController alertControllerWithTitle:content.floatValue != 0 ? @"评论" : @"" message:@"请输入您要评论的内容" preferredStyle:UIAlertControllerStyleAlert];
+    //创建“确认”按钮，风格为UIAlertActionStyleDefault
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        //获取弹出框上文本输入框的实例（由于弹出框上只有一个文本输入框，因此我们从文本输入框列表中提取第一个就是这个我们要的文本输入框）
+        UITextField *textField = alertView.textFields.firstObject;
+        NSString *content = textField.text;
+        if ([textField.text isEqualToString:@""]) {
+            NSLog(@"NONE");
+            return;
+        }
+        PFObject *reply = [PFObject objectWithClassName:@"Reply"];
+        reply[@"content"] = content;
+        PFUser *currentUser = [PFUser currentUser];
+        reply[@"commenter"] = currentUser;
+        reply[@"post"] = post;
+        self.navigationController.view.userInteractionEnabled = NO;
+        UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
+        [reply saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        self.navigationController.view.userInteractionEnabled = YES;
+        [aiv stopAnimating];
+        if (succeeded) {
+                //创建刷新“我的”页面的通知
+        NSNotification *note = [NSNotification notificationWithName:@"RefreshPost" object:nil];
+                //结合线程触发上述通知（让通知要完成的事先执行完以后再执行触发通知这一行代码后面的代码）
+        [[NSNotificationCenter defaultCenter] performSelectorOnMainThread:@selector(postNotification:) withObject:note waitUntilDone:YES];
+        [self.navigationController popViewControllerAnimated:YES];
+            } else {
+        [Utilities popUpAlertViewWithMsg:@"当前上传用户有点多哦，请稍候再试" andTitle:nil onView:self];
+        }
+    }];
+}];
+    
+    //创建“取消”按钮，风格为UIAlertActionStyleCancel
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    //将以上两个按钮添加进弹出窗（按钮添加的顺序决定按钮的排版：从左到右；从上到下。如果是取消风格UIAlertActionStyleCancel的按钮会放在最左边）
+    [alertView addAction:confirmAction];
+    [alertView addAction:cancelAction];
+    //添加一个文本输入框
+    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+    textField.delegate = NULL;
+    textField.keyboardType = UIKeyboardTypeNamePhonePad;
+        //用present modal的方式跳转到另一个页面（显示alertView）
+    [self presentViewController:alertView animated:YES completion:nil];
+          }
+     ];
 }
 
 
@@ -366,7 +424,12 @@
 
 
 
-
+//点赞
+- (void)applyAction4:(NSIndexPath *)indexPath {
+    
+    
+    
+}
 #pragma mark - Navigation
 
 //// In a storyboard-based application, you will often want to do a little preparation before navigation

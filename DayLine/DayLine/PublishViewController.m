@@ -6,8 +6,10 @@
 //  Copyright © 2016年 TianXingJian. All rights reserved.
 //
 
-#import "PublishViewController.h"
 
+#import "PublishViewController.h"
+#import "SigninViewController.h"
+#import "PostViewController.h"
 @interface PublishViewController ()<UIImagePickerControllerDelegate,
 UINavigationControllerDelegate>{
     BOOL photo;
@@ -20,6 +22,7 @@ UINavigationControllerDelegate>{
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self Monitor];
     // Do any additional setup after loading the view.
 }
 
@@ -29,16 +32,39 @@ UINavigationControllerDelegate>{
 }
 
 /*
-#pragma mark - Navigation
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)Monitor{
+    NSNumber *memberId = [[StorageMgr singletonStorageMgr] objectForKey:@"memberId"];
+    if ([memberId integerValue]==0) {
+        NSString *msg = [NSString stringWithFormat:@"请登录帐号是否跳转？"];
+        //创建一个风格为UIAlertControllerStyleAlert的UIAlertController实例
+        UIAlertController *alertView = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
+        //创建“确认”按钮，风格为UIAlertActionStyleDefault
+        UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            SigninViewController *tabVC = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"SignInVc"];
+            [self.navigationController pushViewController:tabVC animated:YES];
+        }];
+        //创建“取消”按钮，风格为UIAlertActionStyleCancel
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        
+        //将以上两个按钮添加进弹出窗（按钮添加的顺序决定按钮的排版：从左到右；从上到下。如果是取消风格UIAlertActionStyleCancel的按钮会放在最左边）
+        
+        [alertView addAction:confirmAction];
+        [alertView addAction:cancelAction];
+        [self presentViewController:alertView animated:YES completion:nil];
+        
+    }
 }
-*/
-
-
 
 - (void)pickImage:(UIImagePickerControllerSourceType)sourceType {
     NSLog(@"照片被按了");
