@@ -5,7 +5,7 @@
 //  Created by zxk on 16/4/26.
 //  Copyright © 2016年 TianXingJian. All rights reserved.
 //
-
+#import "SigninViewController.h"
 #import "PersonalViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "PersonalTableViewCell.h"
@@ -26,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self refreshData];
+    [self Monitor];
     _objectsForShow = [NSMutableArray new];
     _tableView.tableFooterView = [[UIView alloc] init];
         UIRefreshControl *rc = [[UIRefreshControl alloc] init];
@@ -48,6 +49,25 @@
     [self refreshData];
 }
 
+
+
+
+-(void)Monitor{
+    NSNumber *memberId = [[StorageMgr singletonStorageMgr] objectForKey:@"memberId"];
+    if ([memberId integerValue]==0) {
+        NSString *msg = [NSString stringWithFormat:@"请登录帐号"];
+        //创建一个风格为UIAlertControllerStyleAlert的UIAlertController实例
+        UIAlertController *alertView = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
+        //创建“确认”按钮，风格为UIAlertActionStyleDefault
+        UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            SigninViewController *tabVC = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"SignInVc"];
+            [self.navigationController pushViewController:tabVC animated:YES];
+        }];
+        [alertView addAction:confirmAction];
+        [self presentViewController:alertView animated:YES completion:nil];
+        
+    }
+}
 
 
 //关于scrollview的协议，当手指已经停止拖拽并且惯性正好完全抵消时调用方法（如果你的拖拽是没有惯性因素的则当手指离开屏幕的一瞬间调用）
