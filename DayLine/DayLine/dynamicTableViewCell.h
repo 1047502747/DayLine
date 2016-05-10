@@ -12,7 +12,10 @@
 @required
 - (void)applyAction:(NSIndexPath *)indexPath;
 - (void)applyAction2:(NSIndexPath *)indexPath;
-
+- (void)applyAction3:(NSIndexPath *)indexPath;
+- (void)applyAction4:(NSIndexPath *)indexPath;
+//- (void)cellLongPressAtIndexPath:(NSIndexPath *)indexPath;
+//- (void)photoTapAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 @interface dynamicTableViewCell : UITableViewCell
@@ -23,7 +26,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *publishtime;
 @property (weak, nonatomic) IBOutlet UITextView *showView;
 @property (weak, nonatomic) IBOutlet UIImageView *pictureView;
-
 @property (weak, nonatomic) IBOutlet UILabel *NumberLbl;
 
 
@@ -33,9 +35,8 @@
 - (IBAction)KeyBut:(UIButton *)sender forEvent:(UIEvent *)event;
 - (IBAction)PostBut:(UIButton *)sender forEvent:(UIEvent *)event;
 - (IBAction)ZambiBut:(UIButton *)sender forEvent:(UIEvent *)event;
-
 - (IBAction)newsBut:(UIButton *)sender forEvent:(UIEvent *)event;
-
+- (IBAction)pinglunAction:(UIButton *)sender forEvent:(UIEvent *)event;
 
 
 @end

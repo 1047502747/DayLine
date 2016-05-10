@@ -12,6 +12,7 @@
 		B4F57FCF1CCF827D0092665A /* ABCIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F57FCD1CCF827D0092665A /* ABCIntroView.m */; };
 		B4F57FD01CCF827D0092665A /* ABCIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F57FCD1CCF827D0092665A /* ABCIntroView.m */; };
 		BC165C611CDDCAD400ACA17B /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC165C601CDDCAD400ACA17B /* testViewController.m */; };
+		BC488B7A1CDF021F00D800C6 /* ActivityObject2.m in Sources */ = {isa = PBXBuildFile; fileRef = BC488B791CDF021F00D800C6 /* ActivityObject2.m */; };
 		D308A2741CCDFEAB002D512F /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D308A2731CCDFEAB002D512F /* LeftViewController.m */; };
 		D31F52901CC5C984001F993F /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F528F1CC5C984001F993F /* TableViewController.m */; };
 		D31F52931CC5C9EA001F993F /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F52921CC5C9EA001F993F /* TableViewCell.m */; };
@@ -89,6 +90,8 @@
 		B4F57FCD1CCF827D0092665A /* ABCIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCIntroView.m; sourceTree = "<group>"; };
 		BC165C5F1CDDCAD400ACA17B /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
 		BC165C601CDDCAD400ACA17B /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
+		BC488B781CDF021F00D800C6 /* ActivityObject2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityObject2.h; sourceTree = "<group>"; };
+		BC488B791CDF021F00D800C6 /* ActivityObject2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityObject2.m; sourceTree = "<group>"; };
 		D308A2721CCDFEAB002D512F /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		D308A2731CCDFEAB002D512F /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		D31F528E1CC5C984001F993F /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
@@ -243,6 +246,7 @@
 		D31F52A31CC648E6001F993F /* Nav */ = {
 			isa = PBXGroup;
 			children = (
+				E749D89E1CC21A2D00FAEFB5 /* Utilities */,
 				D31F52911CC5C9EA001F993F /* TableViewCell.h */,
 				D31F52921CC5C9EA001F993F /* TableViewCell.m */,
 				E749D86D1CC20F5000FAEFB5 /* ViewController.h */,
@@ -314,7 +318,6 @@
 		E749D8661CC20F5000FAEFB5 /* DayLine */ = {
 			isa = PBXGroup;
 			children = (
-				E749D89E1CC21A2D00FAEFB5 /* Utilities */,
 				E749D8A21CC21A7900FAEFB5 /* Controller */,
 				E749D8A11CC21A6300FAEFB5 /* View */,
 				E749D8A01CC21A4F00FAEFB5 /* Model */,
@@ -386,6 +389,8 @@
 				E7760CBC1CC9C9EE008C7005 /* Timer.m */,
 				E7760CBF1CCA3DEB008C7005 /* ActivityObject.h */,
 				E7760CC01CCA3DEB008C7005 /* ActivityObject.m */,
+				BC488B781CDF021F00D800C6 /* ActivityObject2.h */,
+				BC488B791CDF021F00D800C6 /* ActivityObject2.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -658,6 +663,7 @@
 				E7760CBE1CC9C9EE008C7005 /* Timer.m in Sources */,
 				E749D86C1CC20F5000FAEFB5 /* AppDelegate.m in Sources */,
 				D387E98E1CCB664400C44E8B /* MypointsViewController.m in Sources */,
+				BC488B7A1CDF021F00D800C6 /* ActivityObject2.m in Sources */,
 				D389EAAA1CCEF7B80029EEE7 /* PersonalTableViewCell.m in Sources */,
 				E749D8751CC20F5000FAEFB5 /* DayLine.xcdatamodeld in Sources */,
 				E749D8C41CC21F9200FAEFB5 /* NSData+Base64.m in Sources */,
