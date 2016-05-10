@@ -27,6 +27,9 @@
 		D397C0271CDC68ED003D5B1D /* commentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D397C0261CDC68ED003D5B1D /* commentTableViewCell.m */; };
 		D397C02A1CDC691E003D5B1D /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D397C0291CDC691E003D5B1D /* LeftTableViewCell.m */; };
 		D397C02D1CDC6991003D5B1D /* commentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D397C02C1CDC6991003D5B1D /* commentViewController.m */; };
+		D3AEC5831CE1BFCE0052E3BB /* DataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AEC5821CE1BFCE0052E3BB /* DataTableViewCell.m */; };
+		D3AEC5861CE1BFEA0052E3BB /* PhoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AEC5851CE1BFEA0052E3BB /* PhoneTableViewCell.m */; };
+		D3AEC5891CE1C0040052E3BB /* PasswordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AEC5881CE1C0040052E3BB /* PasswordTableViewCell.m */; };
 		D3E1E07A1CDF3B6100C311FE /* MywaresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1E0791CDF3B6100C311FE /* MywaresViewController.m */; };
 		D3E1E07D1CDF3B9A00C311FE /* WaresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1E07C1CDF3B9A00C311FE /* WaresViewController.m */; };
 		D3E1E0801CDF3C8D00C311FE /* MyWaresTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1E07F1CDF3C8D00C311FE /* MyWaresTableViewCell.m */; };
@@ -116,6 +119,12 @@
 		D397C0291CDC691E003D5B1D /* LeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewCell.m; sourceTree = "<group>"; };
 		D397C02B1CDC6991003D5B1D /* commentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentViewController.h; sourceTree = "<group>"; };
 		D397C02C1CDC6991003D5B1D /* commentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentViewController.m; sourceTree = "<group>"; };
+		D3AEC5811CE1BFCE0052E3BB /* DataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTableViewCell.h; sourceTree = "<group>"; };
+		D3AEC5821CE1BFCE0052E3BB /* DataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTableViewCell.m; sourceTree = "<group>"; };
+		D3AEC5841CE1BFEA0052E3BB /* PhoneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneTableViewCell.h; sourceTree = "<group>"; };
+		D3AEC5851CE1BFEA0052E3BB /* PhoneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneTableViewCell.m; sourceTree = "<group>"; };
+		D3AEC5871CE1C0040052E3BB /* PasswordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordTableViewCell.h; sourceTree = "<group>"; };
+		D3AEC5881CE1C0040052E3BB /* PasswordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordTableViewCell.m; sourceTree = "<group>"; };
 		D3E1E0781CDF3B6100C311FE /* MywaresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MywaresViewController.h; sourceTree = "<group>"; };
 		D3E1E0791CDF3B6100C311FE /* MywaresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MywaresViewController.m; sourceTree = "<group>"; };
 		D3E1E07B1CDF3B9A00C311FE /* WaresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaresViewController.h; sourceTree = "<group>"; };
@@ -258,11 +267,17 @@
 			name = Nav;
 			sourceTree = "<group>";
 		};
-		D3E1E0711CDEE82600C311FE /* New Group */ = {
+		D3E1E0711CDEE82600C311FE /* Left */ = {
 			isa = PBXGroup;
 			children = (
+				D3AEC5811CE1BFCE0052E3BB /* DataTableViewCell.h */,
+				D3AEC5821CE1BFCE0052E3BB /* DataTableViewCell.m */,
+				D3AEC5841CE1BFEA0052E3BB /* PhoneTableViewCell.h */,
+				D3AEC5851CE1BFEA0052E3BB /* PhoneTableViewCell.m */,
+				D3AEC5871CE1C0040052E3BB /* PasswordTableViewCell.h */,
+				D3AEC5881CE1C0040052E3BB /* PasswordTableViewCell.m */,
 			);
-			name = "New Group";
+			name = Left;
 			sourceTree = "<group>";
 		};
 		DA5659411518E9D10E109621 /* Pods */ = {
@@ -404,7 +419,7 @@
 		E749D8A21CC21A7900FAEFB5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D3E1E0711CDEE82600C311FE /* New Group */,
+				D3E1E0711CDEE82600C311FE /* Left */,
 				D31F52A31CC648E6001F993F /* Nav */,
 				D31F528E1CC5C984001F993F /* TableViewController.h */,
 				D31F528F1CC5C984001F993F /* TableViewController.m */,
@@ -648,6 +663,9 @@
 				E749D8C41CC21F9200FAEFB5 /* NSData+Base64.m in Sources */,
 				D397C02A1CDC691E003D5B1D /* LeftTableViewCell.m in Sources */,
 				E749D8691CC20F5000FAEFB5 /* main.m in Sources */,
+				D3AEC5861CE1BFEA0052E3BB /* PhoneTableViewCell.m in Sources */,
+				D3AEC5891CE1C0040052E3BB /* PasswordTableViewCell.m in Sources */,
+				D3AEC5831CE1BFCE0052E3BB /* DataTableViewCell.m in Sources */,
 				D389EAAD1CCF14E70029EEE7 /* ShoppingViewController.m in Sources */,
 				E749D8A71CC21ACB00FAEFB5 /* StorageMgr.m in Sources */,
 				D38DEE7D1CCA2BA500B46E96 /* dynamicTableViewCell.m in Sources */,
