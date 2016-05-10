@@ -9,6 +9,8 @@
 #import "ShoppingViewController.h"
 #import "SigninViewController.h"
 #import "Banner.h"
+#import "TableViewController.h"
+#import "MywaresViewController.h"
 #import "TableViewCell.h"
 #import "ActivityObject.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -24,6 +26,7 @@
 @property (strong,nonatomic) UIActivityIndicatorView *avi;
 @property (strong ,nonatomic) NSString *str;
 @property (strong,nonatomic) NSString *shpId;
+@property (strong, nonatomic) NSString *shpname;
 @end
 
 @implementation ShoppingViewController
@@ -336,56 +339,50 @@
 //协议第六步：乙方履行条款（被委托方执行协议中的方法）
 - (void)applyAction:(NSIndexPath *)indexPath {
     NSLog(@"按钮被按啦！我要购物啦！！！");
-    ActivityObject *activity = _objectsForShow[indexPath.row];
-    _str = activity.spScore;
-    _shpId=activity.spId;
-    NSString *msg = [NSString stringWithFormat:@"售价：%@积分\n是否确认支付",_str];
-    //创建一个风格为UIAlertControllerStyleAlert的UIAlertController实例
-    UIAlertController *alertView = [UIAlertController alertControllerWithTitle:@"购买" message: msg preferredStyle:UIAlertControllerStyleAlert];
-    //创建“确认”按钮，风格为UIAlertActionStyleDefault
-    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [self buy];
-    }];
-    //创建“取消”按钮，风格为UIAlertActionStyleCancel
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    //将以上两个按钮添加进弹出窗（按钮添加的顺序决定按钮的排版：从左到右；从上到下。如果是取消风格UIAlertActionStyleCancel的按钮会放在最左边）
-    [alertView addAction:confirmAction];
-    [alertView addAction:cancelAction];
-    //用present modal的方式跳转到另一个页面（显示alertView）
-    [self presentViewController:alertView animated:YES completion:nil];
-
+    if ([[StorageMgr singletonStorageMgr] objectForKey:@"memberId"]) {
+        NSNumber *integale = [[StorageMgr singletonStorageMgr] objectForKey:@"integale"];
+        ActivityObject *activity = _objectsForShow[indexPath.row];
+        _str = activity.spScore;
+        _shpId=activity.spId;
+        _shpname=activity.spName;
+        if (integale.floatValue>=_str.floatValue) {
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"兑换提示" message:[NSString stringWithFormat:@"您当前正在兑换%@\n+将消耗您%@积分+\n确定兑换吗?",_shpname,_str] preferredStyle:UIAlertControllerStyleActionSheet];
+            
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                //确认兑换
+                [self buy];
+            }];
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+            [alert addAction:action];
+            [alert addAction:cancel];
+            [self presentViewController:alert animated:YES completion:nil];
+        }else{
+            [Utilities popUpAlertViewWithMsg:@"您的积分不够哦" andTitle:@"" onView:self];
+        }
+    }else{
+        [Utilities popUpAlertViewWithMsg:@"您没有登录,先去登录吧" andTitle:@"" onView:self];
+    }
+    
 }
-//购物逻辑
+
+
+
+//购物
 -(void)buy{
     NSNumber *memberId = [[StorageMgr singletonStorageMgr] objectForKey:@"memberId"];
-    NSNumber *integale = [[StorageMgr singletonStorageMgr] objectForKey:@"integale"];
-//    self.navigationController.view.userInteractionEnabled = NO;
-//    UIActivityIndicatorView *avi =[Utilities getCoverOnView:self.view];
-    if (memberId==0) {
-        [Utilities popUpAlertViewWithMsg:@"请登录账号" andTitle:nil onView:self];
-        return;
-    }
-    else {
-        if (integale.floatValue>=_str.floatValue) {
-            NSString *path = @"/goods/exchangeGoods";
-            NSDictionary *dic = @{
-                                  @"memberId":memberId,
-                                  @"goodsId":_shpId
-                                  };
-            [RequestAPI postURL:path withParameters:dic success:^(id responseObject) {
-                NSLog(@"responseObject:%@",responseObject);
-                
-            } failure:^(NSError *error) {
-                NSLog(@"error:%@",error.description);
-            }];
-        }else{
-            self.navigationController.view.userInteractionEnabled = YES;
-            [_avi stopAnimating];
-            [Utilities popUpAlertViewWithMsg:@"您的积分不足,请及时充值" andTitle:nil onView:self];
-            
-        }
+    NSString *path = @"/goods/exchangeGoods";
+    NSDictionary *dic = @{
+                          @"memberId":memberId,
+                          @"goodsId":_shpId
+                          };
+    [RequestAPI postURL:path withParameters:dic success:^(id responseObject) {
+        NSLog(@"responseObject:%@",responseObject);
         
-    }
+    } failure:^(NSError *error) {
+        [Utilities popUpAlertViewWithMsg:@"请保持网络畅通" andTitle:@"" onView:self];
+        NSLog(@"error:%@",error.description);
+    }];
 }
 
 - (void)cellLongPressAtIndexPath:(NSIndexPath *)indexPath {
@@ -472,5 +469,10 @@
     [self.navigationController pushViewController:sign animated:YES];
 }
 - (IBAction)MywaresAction:(UIButton *)sender forEvent:(UIEvent *)event {
+//    //根据故事版的名称和故事版中页面的名称获得这个页面
+//    TableViewController *tabVC = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"MyWares"];
+//    //modal方式跳转到上述页面
+//    [self presentViewController:tabVC animated:YES completion:nil];
+
 }
 @end
