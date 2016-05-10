@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *SPIDLbl;
 @property (weak, nonatomic) IBOutlet UILabel *SPNumberLbl;
 @property (weak, nonatomic) IBOutlet UILabel *SPIntegralLbl;
+@property (weak, nonatomic) IBOutlet UILabel *TimeLbl;
 
 @end
