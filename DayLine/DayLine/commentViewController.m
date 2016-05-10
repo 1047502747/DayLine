@@ -284,7 +284,7 @@
     
     PFUser *user = obj[@"commenter"];
     NSString *name = user[@"nickname"];
-    NSString *reply = obj[@"reply"];
+    NSString *content = obj[@"content"];
     NSNumber *praise = obj[@"praise"];
     NSString *date = obj.createdAt;
     self.navigationItem.title = user[@"name"];
@@ -299,7 +299,7 @@
     [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *dateString = [dateFormat stringFromDate:date];
     cell.time.text = dateString;
-    cell.showcontents.text = reply;
+    cell.content.text = content;
     return cell;
 }
 

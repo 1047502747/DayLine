@@ -861,7 +861,7 @@
                                                             </connections>
                                                         </button>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSY-12-LVI">
-                                                            <rect key="frame" x="10" y="348" width="300" height="1"/>
+                                                            <rect key="frame" x="10" y="395" width="300" height="1"/>
                                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="nBh-sd-2AU"/>
@@ -879,18 +879,26 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvd-zL-IMR">
+                                                            <rect key="frame" x="10" y="355" width="30" height="30"/>
+                                                            <state key="normal" title="评论"/>
+                                                            <connections>
+                                                                <action selector="pinglunAction:forEvent:" destination="Ff7-6j-dWd" eventType="touchUpInside" id="Unk-Bj-AJg"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstItem="gvd-zL-IMR" firstAttribute="leading" secondItem="0qc-OG-aIq" secondAttribute="leading" id="0A2-vU-LSP"/>
                                                         <constraint firstItem="VSY-12-LVI" firstAttribute="leading" secondItem="s6g-xm-SOh" secondAttribute="leading" constant="10" id="0d3-HK-oKK"/>
                                                         <constraint firstItem="esF-jQ-yfd" firstAttribute="leading" secondItem="6uP-YV-zeL" secondAttribute="trailing" id="2vo-si-r9p"/>
                                                         <constraint firstAttribute="trailing" secondItem="1mj-w2-r05" secondAttribute="trailing" constant="10" id="36h-wb-u7N"/>
+                                                        <constraint firstItem="VSY-12-LVI" firstAttribute="top" secondItem="gvd-zL-IMR" secondAttribute="bottom" constant="10" id="6di-gT-CDb"/>
                                                         <constraint firstItem="Zu9-I2-HTO" firstAttribute="leading" secondItem="s6g-xm-SOh" secondAttribute="leading" constant="10" id="7A0-0p-oz2"/>
                                                         <constraint firstItem="WRX-ev-vp7" firstAttribute="leading" secondItem="Zu9-I2-HTO" secondAttribute="trailing" constant="10" id="8pR-1u-6nO"/>
                                                         <constraint firstItem="0qc-OG-aIq" firstAttribute="leading" secondItem="s6g-xm-SOh" secondAttribute="leading" constant="10" id="CFW-3i-uJP"/>
                                                         <constraint firstAttribute="trailing" secondItem="tmu-fL-JXQ" secondAttribute="trailing" constant="10" id="Cz9-H7-eKs"/>
                                                         <constraint firstAttribute="trailing" secondItem="esF-jQ-yfd" secondAttribute="trailing" constant="10" id="HCv-qy-6jm"/>
-                                                        <constraint firstItem="VSY-12-LVI" firstAttribute="top" secondItem="6uP-YV-zeL" secondAttribute="bottom" constant="10" id="JpF-iT-5ec"/>
                                                         <constraint firstItem="YAa-N9-e7P" firstAttribute="bottom" secondItem="Zu9-I2-HTO" secondAttribute="bottom" id="Mro-K4-rxZ"/>
                                                         <constraint firstItem="YAa-N9-e7P" firstAttribute="top" secondItem="WRX-ev-vp7" secondAttribute="bottom" constant="10" id="OdY-Lh-Rzy"/>
                                                         <constraint firstItem="tmu-fL-JXQ" firstAttribute="top" secondItem="YAa-N9-e7P" secondAttribute="bottom" constant="10" id="ShI-JR-Kgu"/>
@@ -898,6 +906,7 @@
                                                         <constraint firstItem="esF-jQ-yfd" firstAttribute="centerY" secondItem="6uP-YV-zeL" secondAttribute="centerY" id="YDu-Y0-Yao"/>
                                                         <constraint firstItem="WNw-n7-Z8Y" firstAttribute="leading" secondItem="s6g-xm-SOh" secondAttribute="leading" constant="10" id="YOO-i4-5Ay"/>
                                                         <constraint firstItem="1mj-w2-r05" firstAttribute="leading" secondItem="s6g-xm-SOh" secondAttribute="leading" constant="10" id="a6d-KO-6AT"/>
+                                                        <constraint firstItem="gvd-zL-IMR" firstAttribute="top" secondItem="0qc-OG-aIq" secondAttribute="bottom" constant="10" id="cnJ-XQ-WMb"/>
                                                         <constraint firstItem="0qc-OG-aIq" firstAttribute="top" secondItem="tmu-fL-JXQ" secondAttribute="bottom" constant="10" id="ejc-gU-TuV"/>
                                                         <constraint firstItem="YAa-N9-e7P" firstAttribute="leading" secondItem="Zu9-I2-HTO" secondAttribute="trailing" constant="10" id="fp1-ar-NTS"/>
                                                         <constraint firstItem="1mj-w2-r05" firstAttribute="top" secondItem="YAa-N9-e7P" secondAttribute="bottom" constant="10" id="g0Q-Bl-i96"/>
@@ -1333,8 +1342,8 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="Userprofile" destination="x0r-P7-26p" id="0Sg-uJ-LO5"/>
+                                            <outlet property="content" destination="lqs-E5-EAL" id="y9f-PJ-Yfy"/>
                                             <outlet property="nickname" destination="zHW-yl-fy8" id="maz-tS-DfL"/>
-                                            <outlet property="showcontents" destination="lqs-E5-EAL" id="oGw-ZX-fSP"/>
                                             <outlet property="time" destination="ET2-q3-6wY" id="eOE-3L-f9o"/>
                                         </connections>
                                     </tableViewCell>
