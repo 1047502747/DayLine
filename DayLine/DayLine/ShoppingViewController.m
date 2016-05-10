@@ -19,7 +19,6 @@
     NSInteger page;
     NSInteger perPage;
     NSInteger totalPage;
-    NSInteger userID;
     BOOL isLoading;
 }
 @property(strong,nonatomic)NSMutableArray *objectsForShow;
@@ -363,7 +362,6 @@
     }else{
         [Utilities popUpAlertViewWithMsg:@"您没有登录,先去登录吧" andTitle:@"" onView:self];
     }
-    
 }
 
 
