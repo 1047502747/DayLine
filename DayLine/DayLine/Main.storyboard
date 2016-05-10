@@ -715,6 +715,9 @@
                                                 <integer key="value" value="30"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="SideslipexitBut:forEvent:" destination="dK5-gp-XdG" eventType="touchUpInside" id="tz2-rf-Gcb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -755,6 +758,10 @@
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="Sideslipname" destination="Qed-r2-wwP" id="Le4-fN-1bK"/>
+                        <outlet property="headportrait" destination="5Is-rG-fGN" id="ljM-am-JhP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SE8-h5-oOz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1653,7 +1660,7 @@
             </objects>
             <point key="canvasLocation" x="4570" y="-178"/>
         </scene>
-        <!--Mypoints View Controller-->
+        <!--我的积分-->
         <scene sceneID="cXc-0F-yRV">
             <objects>
                 <viewController id="hS5-ec-dXS" customClass="MypointsViewController" sceneMemberID="viewController">
@@ -1738,7 +1745,7 @@
                             <constraint firstItem="XIW-rH-Lyx" firstAttribute="top" secondItem="agS-Bc-xwh" secondAttribute="bottom" constant="20" id="uXr-4W-tmt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wtf-eL-NcW"/>
+                    <navigationItem key="navigationItem" title="我的积分" id="wtf-eL-NcW"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="pointsLbl" destination="bMV-ZI-w3b" id="oXv-pz-qk3"/>
