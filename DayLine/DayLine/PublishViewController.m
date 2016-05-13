@@ -6,8 +6,10 @@
 //  Copyright © 2016年 TianXingJian. All rights reserved.
 //
 
-#import "PublishViewController.h"
 
+#import "PublishViewController.h"
+#import "SigninViewController.h"
+#import "PostViewController.h"
 @interface PublishViewController ()<UIImagePickerControllerDelegate,
 UINavigationControllerDelegate>{
     BOOL photo;
@@ -20,6 +22,7 @@ UINavigationControllerDelegate>{
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view.
 }
 
@@ -29,15 +32,14 @@ UINavigationControllerDelegate>{
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 
 - (void)pickImage:(UIImagePickerControllerSourceType)sourceType {

@@ -34,9 +34,10 @@
 
 
 - (IBAction)ZambiBut:(UIButton *)sender forEvent:(UIEvent *)event {
-    
+    if (_delegate && [_delegate respondsToSelector:@selector(applyAction4:)]) {
+        [_delegate applyAction4:_indexPath];
+    }
 }
-
 
 
 - (IBAction)newsBut:(UIButton *)sender forEvent:(UIEvent *)event {
@@ -45,5 +46,25 @@
     }
 }
 
+//- (void)cellLongPress:(UILongPressGestureRecognizer *)sender {
+//    if (sender.state == UIGestureRecognizerStateBegan) {
+//        if (_delegate && _indexPath && [_delegate respondsToSelector:@selector(cellLongPressAtIndexPath:)]) {
+//            [_delegate cellLongPressAtIndexPath:_indexPath];
+//        }
+//    }
+//}
+//
+//- (void)photoTap:(UITapGestureRecognizer *)sender {
+//    if (sender.state == UIGestureRecognizerStateRecognized) {
+//        if (_delegate && _indexPath && [_delegate respondsToSelector:@selector(photoTapAtIndexPath:)]) {
+//            [_delegate photoTapAtIndexPath:_indexPath];
+//        }
+//    }
+//}
+- (IBAction)pinglunAction:(UIButton *)sender forEvent:(UIEvent *)event {
+    if (_delegate && [_delegate respondsToSelector:@selector(applyAction3:)]) {
+        [_delegate applyAction3:_indexPath];
+    }
+}
 
 @end
