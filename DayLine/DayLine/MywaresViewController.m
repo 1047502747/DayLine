@@ -196,22 +196,22 @@
         [self endRefreshing];
         if ([responseObject[@"resultFlag"] integerValue] == 8001) {
             NSLog(@"成功");
-//            //[[StorageMgr singletonStorageMgr] addKey:@"memberId" andValue:memberId];
-//            NSDictionary *rootDict = responseObject[@"result"];
-//            NSArray *dataArr = rootDict[@"models"];
-//            if (page == 1) {
-//                _objectsForShow = nil;
-//                _objectsForShow = [NSMutableArray new];
-//            }
-//            for (NSDictionary *dict in dataArr) {
-//                ActivityObject *activity = [[ActivityObject alloc]initWithDictionary:dict];
-//                [_objectsForShow addObject:activity];
-//            }
-//            NSLog(@"_objectsForShow = %@", _objectsForShow);
-//            [_TableView reloadData];
-//            
-//            NSDictionary *pagerDict = rootDict[@"pagingInfo"];
-//            totalPage = [pagerDict[@"totalPage"] integerValue];
+            //[[StorageMgr singletonStorageMgr] addKey:@"memberId" andValue:memberId];
+            NSDictionary *rootDict = responseObject[@"result"];
+            NSArray *dataArr = rootDict[@"models"];
+            if (page == 1) {
+                _objectsForShow = nil;
+                _objectsForShow = [NSMutableArray new];
+            }
+            for (NSDictionary *dict in dataArr) {
+                ActivityObject *activity = [[ActivityObject alloc]initWithDictionary:dict];
+                [_objectsForShow addObject:activity];
+            }
+            NSLog(@"_objectsForShow = %@", _objectsForShow);
+            [_TableView reloadData];
+            
+            NSDictionary *pagerDict = rootDict[@"pagingInfo"];
+            totalPage = [pagerDict[@"totalPage"] integerValue];
         
             
         }else {
@@ -276,7 +276,7 @@
     }
     
     ActivityObject *activity = _objectsForShow[indexPath.row];
-    cell.SPNumberLbl.text = [NSString stringWithFormat:@"商品名称：%@",activity.spDate];
+    cell.TimeLbl.text = [NSString stringWithFormat:@"商品名称：%@",activity.spDate];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
