@@ -318,11 +318,11 @@
     cell.commodityID.text = [NSString stringWithFormat:@"商品ID：%@",activity.spId];
     cell.quantity.text = [NSString stringWithFormat:@"剩余数量：%@",activity.spAmount];
     cell.integralLbl.text = [NSString stringWithFormat:@"所需积分：%@",activity.spScore];
-    if (activity.isApplied) {
-        [cell.purchaseBut setTitle:@"取消" forState:UIControlStateNormal];
-    }else{
-        [cell.purchaseBut setTitle:@"购买" forState:UIControlStateNormal];
-    }
+//    if (activity.isApplied) {
+//        [cell.purchaseBut setTitle:@"取消" forState:UIControlStateNormal];
+//    }else{
+//        [cell.purchaseBut setTitle:@"购买" forState:UIControlStateNormal];
+//    }
 
        return cell;
 }
@@ -338,7 +338,8 @@
 //协议第六步：乙方履行条款（被委托方执行协议中的方法）
 - (void)applyAction:(NSIndexPath *)indexPath {
     NSLog(@"按钮被按啦！我要购物啦！！！");
-    if ([[StorageMgr singletonStorageMgr] objectForKey:@"memberId"]) {
+    NSNumber *memId = [[StorageMgr singletonStorageMgr] objectForKey:@"memberId"];
+    if (memId) {
         NSNumber *integale = [[StorageMgr singletonStorageMgr] objectForKey:@"integale"];
         ActivityObject *activity = _objectsForShow[indexPath.row];
         _str = activity.spScore;
@@ -360,7 +361,16 @@
             [Utilities popUpAlertViewWithMsg:@"您的积分不够哦" andTitle:@"" onView:self];
         }
     }else{
-        [Utilities popUpAlertViewWithMsg:@"您没有登录,先去登录吧" andTitle:@"" onView:self];
+        NSString *msg = [NSString stringWithFormat:@"您的账号为%@",memId];
+        UIAlertController *alertView = [UIAlertController alertControllerWithTitle:@"您没有登录,先去登录吧" message: msg preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            SigninViewController *sign = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"SignInVc"];
+            [self.navigationController pushViewController:sign animated:YES];
+            
+        }];
+        [alertView addAction:action];
+        [self presentViewController:alertView animated:YES completion:nil];
+
     }
 }
 
