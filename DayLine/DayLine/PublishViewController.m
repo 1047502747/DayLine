@@ -15,14 +15,24 @@ UINavigationControllerDelegate>{
     BOOL photo;
 }
 @property (strong, nonatomic) UIImagePickerController *imagePC;
-
+@property (strong, nonatomic) NSMutableArray *objectsForShow;
 @end
+
 
 @implementation PublishViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    _objectsForShow = [NSMutableArray new];
+    _content.backgroundColor = [UIColor whiteColor];
+    _content.delegate = self;
+    
+    //   label.= [[UILabel alloc]initWithFrame:CGRectMake(3, 3, 200, 20)];
+//lable 不可被修改
+    _lable.enabled = NO;
+    _lable.text = @"我来说两句....";
+    _lable.font =  [UIFont systemFontOfSize:12];
+    _lable.textColor = [UIColor blackColor];
     // Do any additional setup after loading the view.
 }
 
@@ -30,7 +40,13 @@ UINavigationControllerDelegate>{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void) textViewDidChange:(UITextView *)textView{
+          if ([textView.text length] == 0) {
+                 [_lable setHidden:NO];
+               }else{
+                   [_lable setHidden:YES];
+    }
+ }
 /*
  #pragma mark - Navigation
  
@@ -110,6 +126,7 @@ UINavigationControllerDelegate>{
 
 
 - (IBAction)upload:(UIButton *)sender forEvent:(UIEvent *)event {
+    
     UIImage *image = _photo.image;
     NSString *topic = _content.text;
     

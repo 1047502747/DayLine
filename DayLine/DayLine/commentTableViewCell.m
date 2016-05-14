@@ -22,5 +22,12 @@
 }
 
 - (IBAction)commentBut:(UIButton *)sender forEvent:(UIEvent *)event {
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(applyAction5:)]) {
+        [_delegate applyAction5:_indexPath];
+    }
+
 }
+
+
 @end

@@ -9,7 +9,10 @@
 #import "commentViewController.h"
 #import "commentTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-@interface commentViewController ()
+@interface commentViewController ()<commentTableViewCellDelegate,
+UIScrollViewDelegate>
+//协议第四步：乙方将协议摊开在自己面前（将协议引入本类）
+
 {
     NSInteger page;
     NSInteger perPage;
@@ -249,6 +252,9 @@ self.tableview.tableFooterView = [[UIView alloc] init];
     NSString *dateString = [dateFormat stringFromDate:date];
     cell.time.text = dateString;
     cell.content.text = content;
+//协议第五步：乙方签字（被委托方声明将对协议负责）
+    cell.delegate = self;
+    cell.indexPath = indexPath;
     return cell;
   }
 
@@ -257,4 +263,59 @@ self.tableview.tableFooterView = [[UIView alloc] init];
     return 150;
 }
 
+
+
+
+
+- (void)applyAction5:(NSIndexPath *)indexPath {
+PFObject *post = _objectsForShow[indexPath.row];
+NSString *content = _answer[@"answer"];
+//创建一个风格为UIAlertControllerStyleAlert的UIAlertController实例
+UIAlertController *alertView = [UIAlertController alertControllerWithTitle:content.floatValue != 0 ? @"评论" : @"" message:@"请输入您要评论的内容" preferredStyle:UIAlertControllerStyleAlert];
+//创建“确认”按钮，风格为UIAlertActionStyleDefault
+UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"发送" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    //获取弹出框上文本输入框的实例（由于弹出框上只有一个文本输入框，因此我们从文本输入框列表中提取第一个就是这个我们要的文本输入框）
+    UITextField *textField = alertView.textFields.firstObject;
+    NSString *content = textField.text;
+    //判断评论是否为空 ，空的话则不做按钮事件。
+    if ([textField.text isEqualToString:@""]) {
+        NSLog(@"NONE");
+        return;
+    }
+    PFObject *reply = [PFObject objectWithClassName:@"Reply"];
+    reply[@"content"] = content;
+    PFUser *currentUser = [PFUser currentUser];
+    reply[@"commenter"] = currentUser;
+    reply[@"post"] = post;
+    self.navigationController.view.userInteractionEnabled = NO;
+    UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
+    [reply saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        self.navigationController.view.userInteractionEnabled = YES;
+        [aiv stopAnimating];
+        if (succeeded) {
+            PFObject *post = _objectsForShow[indexPath.row];
+            commentViewController *tabVC2 = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"B"];
+            tabVC2.post = post;
+            [self.navigationController pushViewController:tabVC2 animated:YES];
+            
+        } else {
+            [Utilities popUpAlertViewWithMsg:@"当前上传用户有点多哦，请稍候再试" andTitle:nil onView:self ];
+        }
+    }];
+}];
+
+//创建“取消”按钮，风格为UIAlertActionStyleCancel
+UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+//将以上两个按钮添加进弹出窗（按钮添加的顺序决定按钮的排版：从左到右；从上到下。如果是取消风格UIAlertActionStyleCancel的按钮会放在最左边）
+[alertView addAction:confirmAction];
+[alertView addAction:cancelAction];
+//添加一个文本输入框
+[alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+    textField.delegate = nil;
+    textField.keyboardType = UIKeyboardTypeNamePhonePad;
+    //用present modal的方式跳转到另一个页面（显示alertView）
+    [self presentViewController:alertView animated:YES completion:nil];
+}
+ ];
+}
 @end

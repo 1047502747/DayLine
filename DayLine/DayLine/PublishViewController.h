@@ -13,6 +13,8 @@
 //@property (weak, nonatomic)PFObject *posts;
 //@property (weak, nonatomic)PFObject *photo2;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *lable;
 @property (weak, nonatomic) IBOutlet UITextView *content;
 @property (weak, nonatomic) IBOutlet UIImageView *photo;
 - (IBAction)upload:(UIButton *)sender forEvent:(UIEvent *)event;

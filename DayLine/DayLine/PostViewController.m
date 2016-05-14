@@ -238,7 +238,6 @@ footerView.backgroundColor = [UIColor whiteColor];
 //数据请求
 - (void)refreshData {
     
-    PFUser *currentUser = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"poster"];
@@ -308,8 +307,6 @@ footerView.backgroundColor = [UIColor whiteColor];
     NSString *dateString = [dateFormat stringFromDate:date];
     cell.publishtime.text = dateString;
     cell.showView.text = topic;
-//    cell.pictureView.hidden = YES;
-
 //协议第五步：乙方签字（被委托方声明将对协议负责）
     cell.delegate = self;
     cell.indexPath = indexPath;
@@ -400,7 +397,6 @@ footerView.backgroundColor = [UIColor whiteColor];
 //评论帖子
 - (void)applyAction3:(NSIndexPath *)indexPath {
     PFObject *post = _objectsForShow[indexPath.row];
-    
     NSString *content = _reply[@"reply"];
 //创建一个风格为UIAlertControllerStyleAlert的UIAlertController实例
     UIAlertController *alertView = [UIAlertController alertControllerWithTitle:content.floatValue != 0 ? @"评论" : @"" message:@"请输入您要评论的内容" preferredStyle:UIAlertControllerStyleAlert];
@@ -425,11 +421,6 @@ footerView.backgroundColor = [UIColor whiteColor];
         self.navigationController.view.userInteractionEnabled = YES;
         [aiv stopAnimating];
         if (succeeded) {
-//创建刷新“我的”页面的通知
-//        NSNotification *note = [NSNotification notificationWithName:@"RefreshPost" object:nil];
-////结合线程触发上述通知（让通知要完成的事先执行完以后再执行触发通知这一行代码后面的代码）
-//        [[NSNotificationCenter defaultCenter] performSelectorOnMainThread:@selector(postNotification:) withObject:note waitUntilDone:YES];
-//        [self.navigationController popViewControllerAnimated:YES];
             PFObject *post = _objectsForShow[indexPath.row];
             commentViewController *tabVC2 = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"B"];
             tabVC2.post = post;
