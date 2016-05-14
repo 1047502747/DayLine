@@ -10,7 +10,7 @@
 
 @interface PostViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) UIImageView *pictureView;
+
 @property (strong, nonatomic) PFObject *reply;
 
 @end

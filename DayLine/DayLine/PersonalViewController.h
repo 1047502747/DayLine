@@ -10,5 +10,6 @@
 
 @interface PersonalViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (strong, nonatomic) PFUser *poster;
+@property (strong, nonatomic) PFObject *reply;
 @end

@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self onDoneButtonPressed];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (![defaults objectForKey:@"intro_screen_viewed"]) {
         self.introView = [[ABCIntroView alloc] initWithFrame:self.view.frame];

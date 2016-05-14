@@ -22,10 +22,22 @@
 }
 
 - (IBAction)HomeZambiBut:(UIButton *)sender forEvent:(UIEvent *)event {
+    if (_delegate && [_delegate respondsToSelector:@selector(applyAction4:)]) {
+        [_delegate applyAction4:_indexPath];
+  }
 }
 
 
+- (IBAction)pinglunAction:(UIButton *)sender forEvent:(UIEvent *)event {
+    if (_delegate && [_delegate respondsToSelector:@selector(applyAction3:)]) {
+        [_delegate applyAction3:_indexPath];
+    }
+}
+
 
 - (IBAction)HomenewsBut:(UIButton *)sender forEvent:(UIEvent *)event {
+    if (_delegate && [_delegate respondsToSelector:@selector(applyAction2:)]) {
+        [_delegate applyAction2:_indexPath];
+    }
 }
 @end

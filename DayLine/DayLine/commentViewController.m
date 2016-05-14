@@ -145,7 +145,7 @@
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
 //给下拉刷新控件添加下标
     refreshControl.tag = 10001;
-//创建下拉刷新控件标题文字
+//创建下拉刷新控件标题文字/Users/admin2/Library/Containers/com.tencent.qq/Data/Library/Application Support/QQ/917793281/Image/00AA27F182FF6C1FB6FA6620FE69F983.png
     NSString *title = [NSString stringWithFormat:@"正在刷新"];
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle]mutableCopy];
     [style setAlignment:NSTextAlignmentCenter];
@@ -178,7 +178,6 @@
 
 //数据请求
 - (void)refreshData {
-    [_objectsForShow removeAllObjects];
     PFUser *currentUser = [PFUser currentUser];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"post = %@ ", _post];
     PFQuery *query = [PFQuery queryWithClassName:@"Reply" predicate:predicate];
@@ -190,6 +189,8 @@
     [rc endRefreshing];
         if (!error) {
             NSLog(@"objects = %@",objects);
+//刷新加载
+            [_objectsForShow removeAllObjects];
             _objectsForShow = [NSMutableArray arrayWithArray:objects];
             [_tableview reloadData];
                         }else{
@@ -221,9 +222,8 @@ self.tableview.tableFooterView = [[UIView alloc] init];
     // Pass the selected object to the new view controller.
 }
 */
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
- 　  {
-               return _objectsForShow.count;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+ return _objectsForShow.count;
         }
 
 
@@ -231,30 +231,6 @@ self.tableview.tableFooterView = [[UIView alloc] init];
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     commentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     PFObject *obj = _objectsForShow[indexPath.row];
-    
-//    PFRelation *relationReply = [obj relationForKey:@"reply"];
-//    PFQuery *replyQuery = [relationReply query];
-//    [replyQuery includeKey:@"commenter"];
-//    [replyQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable replyObjects, NSError * _Nullable error) {
-//        if (!error) {
-//            _replyObjectsForShow = replyObjects;
-//                        for (PFObject *replyObj in replyObjects ) {
-//                          NSLog(@"reply = %@",replyObj[@"commenter"]);
-//                            PFUser *user2 = replyObj[@"commenter"];
-//                            NSLog(@"user2 = %@",user2[@"nickname"]);
-//                        }
-//            [_tableview reloadData];
-//        } else {
-//            NSLog(@"error = %@",error.userInfo);
-//        }
-//    }];
-//           PFObject *replyObj = _replyObjectsForShow[0];
-//            NSLog(@"reply = %@",replyObj[@"commenter"]);
-//            PFUser *user2 = replyObj[@"commenter"];
-//            NSLog(@"user2 = %@",user2[@"nickname"]);
-
-    
-    
     PFUser *user = obj[@"commenter"];
     NSString *name = user[@"nickname"];
     NSString *content = obj[@"content"];
@@ -278,7 +254,7 @@ self.tableview.tableFooterView = [[UIView alloc] init];
 
 //设置cell的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-           return 150;
-      }
+    return 150;
+}
 
 @end
