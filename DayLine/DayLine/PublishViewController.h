@@ -10,8 +10,8 @@
 
 @interface PublishViewController : UIViewController
 
-@property (weak, nonatomic)PFObject *posts;
-@property (weak, nonatomic)PFObject *photo2;
+//@property (weak, nonatomic)PFObject *posts;
+//@property (weak, nonatomic)PFObject *photo2;
 
 @property (weak, nonatomic) IBOutlet UITextView *content;
 @property (weak, nonatomic) IBOutlet UIImageView *photo;

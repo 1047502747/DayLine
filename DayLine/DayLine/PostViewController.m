@@ -179,7 +179,7 @@
     loadMore.tag = 9001;
     loadMore.text = @"下拉刷新";
     
-//footerView.backgroundColor = [UIColor blueColor];
+footerView.backgroundColor = [UIColor whiteColor];
 //将标签的文字字体设置为B_Font大小的系统字体（B_Font表示15号字体：这是由于我们在Constants常量包中已经做好过该设置）
     loadMore.font = [UIFont systemFontOfSize:B_Font];
 //将该标签放置于表格的footer视图上
@@ -238,9 +238,7 @@
 //数据请求
 - (void)refreshData {
     
-    [_objectsForShow removeAllObjects];
     PFUser *currentUser = [PFUser currentUser];
-//  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"poster != %@", currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"poster"];
@@ -250,6 +248,8 @@
         [rc endRefreshing];
         if (!error) {
             NSLog(@"objects = %@",objects);
+//刷新重载数据            
+            [_objectsForShow removeAllObjects];
             _objectsForShow = [NSMutableArray arrayWithArray:objects];
             [_tableView reloadData];
             
@@ -308,8 +308,8 @@
     NSString *dateString = [dateFormat stringFromDate:date];
     cell.publishtime.text = dateString;
     cell.showView.text = topic;
+//    cell.pictureView.hidden = YES;
 
-    
 //协议第五步：乙方签字（被委托方声明将对协议负责）
     cell.delegate = self;
     cell.indexPath = indexPath;
@@ -317,12 +317,26 @@
 }
 
 
+//设置cell的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    PFObject *obj = _objectsForShow[indexPath.row];
+    PFFile *photoFile2 = obj[@"photo"];
+    NSString *photoURLStr2 = photoFile2.url;
+    NSURL *photoURL2= [NSURL URLWithString:photoURLStr2];
+    if (photoURL2 == nil) {
+        return 500;
+    }else {
+        return 600;
+    }
+}
+
 
 //查看某个用户的动态
 - (void)applyAction:(NSIndexPath *)indexPath {
-     PFObject *posts = _objectsForShow[indexPath.row];
+    PFObject *post = _objectsForShow[indexPath.row];
+    PFUser *poster = post[@"poster"];
     PersonalViewController *tabVC = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"A"];
-//    tabVC.posts = posts;
+    tabVC.poster = poster;
     [self.navigationController pushViewController:tabVC animated:YES];
     
     
@@ -373,6 +387,7 @@
 
 //跳转评论页面
 - (void)applyAction2:(NSIndexPath *)indexPath {
+//设置点的那个帖子传输到commentViewController页面
     PFObject *post = _objectsForShow[indexPath.row];
     commentViewController *tabVC2 = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"B"];
     tabVC2.post = post;
@@ -390,7 +405,7 @@
 //创建一个风格为UIAlertControllerStyleAlert的UIAlertController实例
     UIAlertController *alertView = [UIAlertController alertControllerWithTitle:content.floatValue != 0 ? @"评论" : @"" message:@"请输入您要评论的内容" preferredStyle:UIAlertControllerStyleAlert];
 //创建“确认”按钮，风格为UIAlertActionStyleDefault
-    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"发送" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
 //获取弹出框上文本输入框的实例（由于弹出框上只有一个文本输入框，因此我们从文本输入框列表中提取第一个就是这个我们要的文本输入框）
         UITextField *textField = alertView.textFields.firstObject;
         NSString *content = textField.text;
@@ -411,8 +426,15 @@
         [aiv stopAnimating];
         if (succeeded) {
 //创建刷新“我的”页面的通知
+//        NSNotification *note = [NSNotification notificationWithName:@"RefreshPost" object:nil];
+////结合线程触发上述通知（让通知要完成的事先执行完以后再执行触发通知这一行代码后面的代码）
+//        [[NSNotificationCenter defaultCenter] performSelectorOnMainThread:@selector(postNotification:) withObject:note waitUntilDone:YES];
+//        [self.navigationController popViewControllerAnimated:YES];
+            PFObject *post = _objectsForShow[indexPath.row];
             commentViewController *tabVC2 = [Utilities getStoryboardInstanceByIdentity:@"Main" byIdentity:@"B"];
+            tabVC2.post = post;
             [self.navigationController pushViewController:tabVC2 animated:YES];
+            
             } else {
         [Utilities popUpAlertViewWithMsg:@"当前上传用户有点多哦，请稍候再试" andTitle:nil onView:self ];
                          }
@@ -426,7 +448,7 @@
     [alertView addAction:cancelAction];
 //添加一个文本输入框
     [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-    textField.delegate = NULL;
+    textField.delegate = nil;
     textField.keyboardType = UIKeyboardTypeNamePhonePad;
 //用present modal的方式跳转到另一个页面（显示alertView）
     [self presentViewController:alertView animated:YES completion:nil];
@@ -462,7 +484,7 @@
 //    }
 //    
 //}
-//
+
 
 
 @end
